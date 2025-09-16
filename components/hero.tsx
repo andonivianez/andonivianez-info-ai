@@ -50,24 +50,18 @@ export function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button size="lg" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700">
-            <Mail className="mr-2 h-4 w-4" />
-            Contactar
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-          >
-            <Download className="mr-2 h-4 w-4" />
-            Descargar CV
-          </Button>
           <Button
             variant="outline"
             size="lg"
             className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
             asChild
           >
+            <a href="/cv-andoni-vianez.pdf" download="CV-Andoni-Vianez.pdf">
+              <Download className="mr-2 h-4 w-4" />
+              Descargar CV
+            </a>
+          </Button>
+          <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white" asChild>
             <a href="https://www.malt.es/profile/andonivianez" target="_blank" rel="noopener noreferrer">
               Contratar en Malt
             </a>

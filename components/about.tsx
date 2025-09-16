@@ -10,10 +10,10 @@ export function About() {
         <Card className="mb-8">
           <CardContent className="p-8">
             <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-              Senior Full Stack Engineer con más de 8 años de experiencia diseñando y desarrollando arquitecturas
-              escalables para aplicaciones web de alto rendimiento. Especializado en liderar equipos técnicos,
-              implementar mejores prácticas de desarrollo y crear soluciones innovadoras que impulsan el crecimiento
-              empresarial. Experto en tecnologías modernas como React, Node.js, TypeScript y cloud computing.
+              Ingeniero informático con más de 14 años de experiencia en desarrollo full stack y administración de
+              sistemas. Especializado en React, Angular, Node.js, React Native y tecnologías cloud. Experiencia como
+              freelance desde 2015 y en empresas como BQ, Fundación Onkologikoa y actualmente Orbis Tecnología
+              Eléctrica. Experto en desarrollo de aplicaciones web, móviles y software embebido con C++ para ESP32.
             </p>
           </CardContent>
         </Card>
@@ -21,32 +21,32 @@ export function About() {
         <div className="grid md:grid-cols-4 gap-6">
           <Card className="text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <Award className="h-8 w-8 text-emerald-600 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-emerald-600 mb-2">8+</div>
+              <Award className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-blue-600 mb-2">14+</div>
               <p className="text-muted-foreground text-sm">Años de experiencia</p>
             </CardContent>
           </Card>
 
           <Card className="text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <Code className="h-8 w-8 text-emerald-600 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-emerald-600 mb-2">100+</div>
+              <Code className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
               <p className="text-muted-foreground text-sm">Proyectos entregados</p>
             </CardContent>
           </Card>
 
           <Card className="text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <Users className="h-8 w-8 text-emerald-600 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-emerald-600 mb-2">15+</div>
-              <p className="text-muted-foreground text-sm">Desarrolladores mentorizados</p>
+              <Users className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-blue-600 mb-2">8+</div>
+              <p className="text-muted-foreground text-sm">Empresas trabajadas</p>
             </CardContent>
           </Card>
 
           <Card className="text-center hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <Lightbulb className="h-8 w-8 text-emerald-600 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-emerald-600 mb-2">20+</div>
+              <Lightbulb className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
               <p className="text-muted-foreground text-sm">Tecnologías dominadas</p>
             </CardContent>
           </Card>
