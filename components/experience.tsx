@@ -1,6 +1,9 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, TrendingUp } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 const experiences = [
   {
@@ -56,10 +59,12 @@ const experiences = [
 ]
 
 export function Experience() {
+  const { t } = useLanguage()
+
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Experiencia Profesional</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">{t("experience.title")}</h2>
 
         <div className="space-y-6">
           {experiences.map((exp, index) => (
@@ -67,7 +72,8 @@ export function Experience() {
               <CardHeader>
                 <CardTitle className="text-xl text-balance flex items-center gap-2">
                   {exp.title}
-                  {index === 0 && <Badge className="bg-blue-100 text-blue-700">Actual</Badge>}
+                  {index === 0 && <Badge className="bg-blue-100 text-blue-700">{t("experience.current")}</Badge>}
+                  {index === 1 && <Badge className="bg-green-100 text-green-700">{t("experience.freelance")}</Badge>}
                 </CardTitle>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-muted-foreground">
                   <span className="font-medium text-blue-600">{exp.company}</span>
@@ -89,7 +95,7 @@ export function Experience() {
                 <div className="mb-4">
                   <h4 className="font-medium mb-2 flex items-center gap-2">
                     <TrendingUp className="h-4 w-4 text-blue-600" />
-                    Logros principales:
+                    {t("experience.achievements")}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.achievements.map((achievement) => (

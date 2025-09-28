@@ -1,24 +1,25 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-
-const navigation = [
-  { name: "Inicio", href: "#hero" },
-  { name: "Sobre mí", href: "#about" },
-  { name: "Experiencia", href: "#experience" },
-  { name: "Habilidades", href: "#skills" },
-  { name: "Formación", href: "#education" },
-  { name: "Idiomas", href: "#languages" },
-  { name: "Proyectos", href: "#projects" },
-]
+import { useLanguage } from "@/components/language-provider"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
+
+  const navigation = [
+    { name: t("nav.home"), href: "#hero" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.experience"), href: "#experience" },
+    { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.education"), href: "#education" },
+    { name: t("nav.languages"), href: "#languages" },
+    { name: t("nav.projects"), href: "#projects" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {

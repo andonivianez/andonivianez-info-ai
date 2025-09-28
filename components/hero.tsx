@@ -1,8 +1,13 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Linkedin, Mail, Download, Phone, MapPin } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "@/components/language-provider"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section
       id="hero"
@@ -17,16 +22,16 @@ export function Hero() {
               width={160}
               height={160}
               className="w-full h-full object-cover"
+              priority
             />
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 text-balance">
             Andoni Vianez Ulloa
           </h1>
-          <p className="text-2xl sm:text-3xl text-blue-600 font-semibold mb-6 text-balance">Full Stack Developer</p>
+          <p className="text-2xl sm:text-3xl text-blue-600 font-semibold mb-6 text-balance">{t("hero.title")}</p>
+          <p className="text-xl text-blue-500 font-medium mb-6 text-balance">{t("hero.subtitle")}</p>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 text-pretty leading-relaxed">
-            Ingeniero informático con más de 10 años de experiencia en desarrollo full stack. Especializado en React,
-            Node.js, React Native y tecnologías modernas. Actualmente trabajando en Orbis Tecnología Eléctrica
-            desarrollando soluciones web y móviles innovadoras.
+            {t("hero.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground mb-8">
@@ -44,7 +49,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-blue-600" />
-              <span>Astigarraga, Guipúzcoa</span>
+              <span>{t("hero.location")}</span>
             </div>
           </div>
         </div>
@@ -58,12 +63,12 @@ export function Hero() {
           >
             <a href="/cv-andoni-vianez.pdf" download="CV-Andoni-Vianez.pdf">
               <Download className="mr-2 h-4 w-4" />
-              Descargar CV
+              {t("hero.downloadCV")}
             </a>
           </Button>
-          <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white" asChild>
+          <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white shadow-lg" asChild>
             <a href="https://www.malt.es/profile/andonivianez" target="_blank" rel="noopener noreferrer">
-              Contratar en Malt
+              {t("hero.hireMalt")}
             </a>
           </Button>
         </div>
