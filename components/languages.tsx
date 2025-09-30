@@ -1,11 +1,14 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Globe, Award } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 const languages = [
   {
     language: "Castellano",
-    level: "Nativo",
-    description: "Lengua materna",
+    level: "native",
+    description: "motherTongue",
     proficiency: 100,
     color: "bg-blue-600",
   },
@@ -25,25 +28,27 @@ const languages = [
   },
   {
     language: "Francés",
-    level: "Básico",
-    description: "Nivel básico",
+    level: "basic",
+    description: "basicLevel",
     proficiency: 30,
     color: "bg-blue-300",
   },
   {
     language: "Portugués",
-    level: "Medio",
-    description: "Nivel medio",
+    level: "intermediate",
+    description: "intermediateLevel",
     proficiency: 20,
     color: "bg-blue-200",
   },
 ]
 
 export function Languages() {
+  const { t } = useLanguage()
+
   return (
     <section id="languages" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">Idiomas</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">{t("languages.title")}</h2>
 
         <div className="space-y-4">
           {languages.map((lang, index) => (
@@ -52,7 +57,11 @@ export function Languages() {
                 <div className="flex items-center gap-3">
                   <Globe className="h-5 w-5 text-blue-600" />
                   <h3 className="text-lg font-semibold">{lang.language}</h3>
-                  <Badge className={`${lang.color} text-white`}>{lang.level}</Badge>
+                  <Badge className={`${lang.color} text-white`}>
+                    {lang.level === "native" ? t("languages.native") : 
+                     lang.level === "basic" ? t("languages.basic") :
+                     lang.level === "intermediate" ? t("languages.intermediate") : lang.level}
+                  </Badge>
                 </div>
                 <span className="text-lg font-bold text-blue-600">{lang.proficiency}%</span>
               </div>
@@ -65,8 +74,12 @@ export function Languages() {
               </div>
 
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                {lang.level !== "Nativo" && <Award className="h-3 w-3" />}
-                <span>{lang.description}</span>
+                {lang.level !== "native" && <Award className="h-3 w-3" />}
+                <span>
+                  {lang.description === "motherTongue" ? t("languages.motherTongue") :
+                   lang.description === "basicLevel" ? t("languages.basicLevel") :
+                   lang.description === "intermediateLevel" ? t("languages.intermediateLevel") : lang.description}
+                </span>
               </div>
             </div>
           ))}
