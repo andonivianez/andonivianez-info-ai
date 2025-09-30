@@ -62,6 +62,31 @@ const translations = {
     // Projects
     "projects.title": "Proyectos Destacados",
     "projects.github": "Ver en GitHub",
+    "projects.githubRepos": "Repositorios en GitHub",
+    "projects.description": "Explora mi trabajo y contribuciones en GitHub, donde encontrarás proyectos de desarrollo web, aplicaciones móviles, software embebido y más.",
+    "projects.contributions2024": "Contribuciones 2024",
+    "projects.statistics": "Estadísticas",
+    "projects.topLanguages": "Lenguajes más utilizados",
+    "projects.viewProfile": "Ver GitHub Profile",
+    "projects.viewRepos": "Ver Repositorios",
+
+    // Education
+    "education.additional": "Formación Adicional",
+    "education.university": "Grado Universitario",
+    "education.vocational": "Formación Profesional",
+    "education.music": "Música",
+    "education.basic": "Educación Básica",
+
+    // Languages
+    "languages.native": "Nativo",
+    "languages.basic": "Básico",
+    "languages.intermediate": "Medio",
+    "languages.motherTongue": "Lengua materna",
+    "languages.basicLevel": "Nivel básico",
+    "languages.intermediateLevel": "Nivel medio",
+
+    // Experience
+    "experience.achievements": "Logros Principales",
   },
   en: {
     // Header
@@ -95,6 +120,7 @@ const translations = {
     "experience.title": "Professional Experience",
     "experience.current": "Current",
     "experience.freelance": "Freelance",
+    "experience.achievements": "Key Achievements",
 
     // Skills
     "skills.title": "Technical Skills",
@@ -105,13 +131,31 @@ const translations = {
 
     // Education
     "education.title": "Academic Background",
+    "education.additional": "Additional Training",
+    "education.university": "University Degree",
+    "education.vocational": "Vocational Training",
+    "education.music": "Music",
+    "education.basic": "Basic Education",
 
     // Languages
     "languages.title": "Languages",
+    "languages.native": "Native",
+    "languages.basic": "Basic",
+    "languages.intermediate": "Intermediate",
+    "languages.motherTongue": "Mother tongue",
+    "languages.basicLevel": "Basic level",
+    "languages.intermediateLevel": "Intermediate level",
 
     // Projects
     "projects.title": "Featured Projects",
     "projects.github": "View on GitHub",
+    "projects.githubRepos": "GitHub Repositories",
+    "projects.description": "Explore my work and contributions on GitHub, where you'll find web development projects, mobile applications, embedded software and more.",
+    "projects.contributions2024": "2024 Contributions",
+    "projects.statistics": "Statistics",
+    "projects.topLanguages": "Most Used Languages",
+    "projects.viewProfile": "View GitHub Profile",
+    "projects.viewRepos": "View Repositories",
   },
 }
 
