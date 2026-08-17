@@ -1,2 +1,14 @@
+# Single-package workspace required by pnpm 11 for project settings
+# (allowBuilds, etc. live here — not in package.json).
+packages:
+  - "."
+
 allowBuilds:
   unrs-resolver: true
+
+# Allow freshly published transitive deps during TFM development.
+# Tighten this (e.g. 1440) before production hardening if desired.
+minimumReleaseAge: 0
+
+# Avoid interactive prompt when recreating node_modules (CI / hooks).
+confirmModulesPurge: false
