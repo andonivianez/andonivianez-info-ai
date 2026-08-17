@@ -16,6 +16,8 @@ const translations = {
   es: {
     // Header
     "nav.home": "Inicio",
+    "nav.chat": "Chat",
+    "nav.profile": "Perfil",
     "nav.about": "Sobre mí",
     "nav.experience": "Experiencia",
     "nav.skills": "Habilidades",
@@ -115,10 +117,27 @@ const translations = {
     "ailab.avgContext": "Contexto medio",
     "ailab.errors": "Errores",
     "ailab.providerUsage": "Uso por proveedor",
+
+    // Home
+    "home.proof.years": "Experiencia",
+    "home.proof.stack": "Stack principal",
+    "home.proof.location": "Ubicación",
+    "home.viewProfile": "Ver perfil completo",
+    "home.backToChat": "Volver al chat",
+
+    // About profile
+    "about.followers": "seguidores",
+    "about.connections": "contactos",
+
+    // Skills extras
+    "skills.certifications": "Certificaciones",
+    "skills.softSkills": "Habilidades blandas",
   },
   en: {
     // Header
     "nav.home": "Home",
+    "nav.chat": "Chat",
+    "nav.profile": "Profile",
     "nav.about": "About",
     "nav.experience": "Experience",
     "nav.skills": "Skills",
@@ -212,6 +231,21 @@ const translations = {
     "ailab.avgContext": "Average context size",
     "ailab.errors": "Errors",
     "ailab.providerUsage": "Provider usage",
+
+    // Home
+    "home.proof.years": "Experience",
+    "home.proof.stack": "Core stack",
+    "home.proof.location": "Location",
+    "home.viewProfile": "View full profile",
+    "home.backToChat": "Back to chat",
+
+    // About profile
+    "about.followers": "followers",
+    "about.connections": "connections",
+
+    // Skills extras
+    "skills.certifications": "Certifications",
+    "skills.softSkills": "Soft skills",
   },
 }
 

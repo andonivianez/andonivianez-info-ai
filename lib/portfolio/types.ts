@@ -17,6 +17,11 @@ export interface Profile {
     github: string
     malt: string
   }
+  tagline?: Localized<string>
+  social?: {
+    linkedinFollowers?: number
+    linkedinConnections?: string
+  }
   stats: {
     yearsExperience: number
     companies: number

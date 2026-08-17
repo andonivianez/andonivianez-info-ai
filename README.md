@@ -1,26 +1,46 @@
 # andonivianez-info-ai
 
-Portfolio profesional inteligente con **IA generativa ejecutada localmente en el navegador**, desarrollado como Trabajo de Fin de Máster (TFM).
+[![CI](https://github.com/andonivianez/andonivianez-info-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/andonivianez/andonivianez-info-ai/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Contribuir
+Portfolio inteligente con **IA generativa 100% local en el navegador**, desarrollado como Trabajo de Fin de Máster (TFM).
 
-Flujo Gitflow, commits convencionales y checklist de PR: ver [CONTRIBUTING.md](CONTRIBUTING.md).
+**Live:** [www.andonivianez.info](https://www.andonivianez.info)
 
-## Características
+## Qué es
 
-- **IA 100% local**: Chrome Built-in AI, WebLLM/WebGPU o fallback extractivo
-- **RAG local**: retrieval ponderado sobre datos estructurados del portfolio
-- **Privacidad**: sin APIs de pago (OpenAI, Anthropic, etc.)
-- **Métricas experimentales**: página `/ai-lab` para análisis del TFM
-- **Bilingüe**: español e inglés
-- **Tests**: unitarios (Vitest), componente (Testing Library), e2e (Playwright)
+Un portfolio personal donde el **chat de IA es el protagonista**. Los visitantes preguntan directamente sobre experiencia, stack y proyectos; el CV completo vive en `/about` como documento profesional.
+
+| Ruta      | Propósito                                             |
+| --------- | ----------------------------------------------------- |
+| `/`       | Chat-first — asistente IA local con boot sequence     |
+| `/about`  | Perfil tipo LinkedIn — experiencia, skills, formación |
+| `/ai-lab` | Demo técnica TFM — métricas, proveedores, runtime     |
+
+## Arquitectura IA
+
+```text
+Usuario → AIChat → useAIAssistant → RAG (chunker + retriever)
+                                        ↓
+                              AIProviderManager
+                              ├── ChromeAIProvider    (Gemini Nano / Prompt API)
+                              ├── WebLLMProvider      (WebGPU + Web Worker)
+                              └── FallbackProvider    (búsqueda extractiva)
+```
+
+- **Privacidad:** 0 peticiones a APIs de pago (OpenAI, Anthropic, etc.)
+- **RAG local:** retrieval ponderado sobre `data/*.json` bilingüe
+- **Métricas:** localStorage sin almacenar texto de preguntas
 
 ## Stack
 
-- Next.js 16 · React 19 · TypeScript 5.9
-- Tailwind CSS 4 · shadcn/ui · ESLint 9
-- @mlc-ai/web-llm · Chrome Prompt API
-- Vitest · Playwright · ESLint 10 · Prettier
+| Capa      | Tecnología                                          |
+| --------- | --------------------------------------------------- |
+| Framework | Next.js 16 · React 19 · TypeScript 5.9              |
+| Estilos   | Tailwind CSS 4 · motion                             |
+| IA        | @mlc-ai/web-llm · Chrome Prompt API                 |
+| Calidad   | Vitest · Playwright · ESLint 9 · Husky · Commitlint |
+| Deploy    | Vercel · pnpm 11                                    |
 
 ## Instalación
 
@@ -33,43 +53,52 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Comando              | Descripción             |
-| -------------------- | ----------------------- |
-| `pnpm dev`           | Servidor de desarrollo  |
-| `pnpm build`         | Build de producción     |
-| `pnpm lint`          | ESLint                  |
-| `pnpm typecheck`     | Verificación TypeScript |
-| `pnpm test`          | Tests unitarios         |
-| `pnpm test:coverage` | Cobertura               |
-| `pnpm e2e`           | Tests end-to-end        |
-| `pnpm knip`          | Detectar código muerto  |
+| Comando          | Descripción                   |
+| ---------------- | ----------------------------- |
+| `pnpm dev`       | Servidor de desarrollo        |
+| `pnpm build`     | Build de producción           |
+| `pnpm lint`      | ESLint                        |
+| `pnpm typecheck` | Verificación TypeScript       |
+| `pnpm test`      | Tests unitarios               |
+| `pnpm e2e`       | Tests end-to-end (Playwright) |
 
 ## Estructura
 
 ```text
-app/              # App Router (/, /ai-lab)
-components/       # UI del portfolio y chat IA
-data/             # Base de conocimiento JSON bilingüe
-hooks/            # use-ai-runtime, use-ai-assistant
+app/              # Rutas: /, /about, /ai-lab + SEO (sitemap, robots, OG)
+components/
+  ai/             # Chat, boot sequence, proveedores
+  home/           # Hero chat-first, proof strip
+  about/          # Perfil documento
+data/             # Base de conocimiento JSON bilingüe (fuente única de verdad)
 lib/
   ai/             # Providers, manager, prompts
   rag/            # Chunker, retriever, context builder
   metrics/        # Métricas locales
-  portfolio/      # Tipos y selectores de datos
-docs/             # Documentación del TFM
-e2e/              # Tests Playwright
+hooks/            # use-ai-runtime, use-ai-assistant
+e2e/              # Playwright
+docs/TFM.md       # Documentación académica
 ```
 
-## Arquitectura de IA
+## Gitflow
+
+Este proyecto sigue **Gitflow**. Ver [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```text
-AIProviderManager
-├── ChromeAIProvider    (Gemini Nano via Prompt API)
-├── WebLLMProvider      (WebGPU + Web Worker)
-└── FallbackProvider    (búsqueda extractiva)
+main        ← producción (tags semver)
+develop     ← integración
+feature/*   ← nuevas funcionalidades
+release/*   ← preparación de versión
+hotfix/*    ← correcciones urgentes en producción
 ```
 
-Prioridad automática: Chrome AI → WebLLM → Fallback.
+Commits: [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `chore:`).
+
+## Seguridad
+
+- Sin claves API en el repositorio
+- Datos personales sensibles (teléfono, DNI, dirección) excluidos
+- Ver [SECURITY.md](SECURITY.md)
 
 ## Documentación TFM
 
@@ -81,7 +110,7 @@ MIT — ver [LICENSE](LICENSE).
 
 ## Autor
 
-**Andoni Vianez Ulloa**
+**Andoni Vianez Ulloa** — Senior Full Stack Engineer · T-Shaped Developer
 
 - [LinkedIn](https://www.linkedin.com/in/andoni-vianez/)
 - [GitHub](https://github.com/andonivianez)

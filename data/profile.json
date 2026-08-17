@@ -1,20 +1,24 @@
 {
   "name": "Andoni Vianez Ulloa",
+  "tagline": {
+    "es": "T-Shaped Developer",
+    "en": "T-Shaped Developer"
+  },
   "role": {
     "es": "Senior Full Stack Engineer",
     "en": "Senior Full Stack Engineer"
   },
   "subtitle": {
-    "es": "Especialista en React Native & IA",
-    "en": "React Native & AI Specialist"
+    "es": "React Native · IA local · Arquitectura full stack",
+    "en": "React Native · Local AI · Full stack architecture"
   },
   "bio": {
-    "es": "Senior Full Stack Engineer con una sólida trayectoria en el desarrollo de aplicaciones web y móviles. Mi experiencia abarca desde el desarrollo frontend con React y Angular hasta soluciones backend robustas con Node.js y PHP. Especializado en React Native para desarrollo móvil multiplataforma y con creciente experiencia en tecnologías de IA.",
-    "en": "Senior Full Stack Engineer with a solid track record in web and mobile application development. My experience spans from frontend development with React and Angular to robust backend solutions with Node.js and PHP. Specialized in React Native for cross-platform mobile development and with growing experience in AI technologies."
+    "es": "Ingeniero informático y desarrollador T-Shaped con más de 15 años de experiencia en aplicaciones web, móviles y embebidas. Especializado en React Native, arquitecturas full stack y sistemas con IA ejecutada localmente en el navegador. Actualmente en Orbis Tecnología Eléctrica y disponible para proyectos freelance.",
+    "en": "Computer engineer and T-Shaped developer with 15+ years building web, mobile and embedded applications. Specialized in React Native, full stack architecture and browser-local AI systems. Currently at Orbis Tecnología Eléctrica and available for freelance work."
   },
   "location": {
-    "es": "Astigarraga, Guipúzcoa",
-    "en": "Astigarraga, Guipúzcoa"
+    "es": "Astigarraga, Gipuzkoa",
+    "en": "Astigarraga, Gipuzkoa"
   },
   "email": "andoni.bartolo@gmail.com",
   "links": {
@@ -22,10 +26,14 @@
     "github": "https://github.com/andonivianez",
     "malt": "https://www.malt.es/profile/andonivianez"
   },
+  "social": {
+    "linkedinFollowers": 865,
+    "linkedinConnections": "500+"
+  },
   "stats": {
-    "yearsExperience": 14,
-    "companies": 8,
-    "technologies": 25,
+    "yearsExperience": 15,
+    "companies": 12,
+    "technologies": 40,
     "projects": 50
   }
 }

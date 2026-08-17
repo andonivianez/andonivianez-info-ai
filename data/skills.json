@@ -1,18 +1,22 @@
 {
   "certifications": {
     "es": [
-      "Grado Ingeniería Informática",
-      "Técnico Superior en DAW",
-      "Técnico Superior en ASIR",
-      "PET Certificate (Inglés)",
-      "Euskera B2"
+      "Ciberseguridad: Hacking ético (AEG, 2020)",
+      "Auditoría de seguridad de aplicaciones web (Enpresa Digitala, 2020)",
+      "Linux LPI Essentials (LPI000350612, 2016)",
+      "Buenas prácticas JavaScript (2016)",
+      "AngularJS — Code School (2015)",
+      "Cambridge ESOL PET Certificate B1 (2011)",
+      "Euskera B2 (2009)"
     ],
     "en": [
-      "Computer Engineering Degree",
-      "Higher Technician in Web Development",
-      "Higher Technician in Network Systems",
-      "PET Certificate (English)",
-      "Basque B2"
+      "Cybersecurity: Ethical Hacking (AEG, 2020)",
+      "Web application security audit (Enpresa Digitala, 2020)",
+      "Linux LPI Essentials (LPI000350612, 2016)",
+      "JavaScript best practices (2016)",
+      "AngularJS — Code School (2015)",
+      "Cambridge ESOL PET Certificate B1 (2011)",
+      "Basque B2 (2009)"
     ]
   },
   "softSkills": {
@@ -20,28 +24,32 @@
       "Liderazgo técnico",
       "Mentoring",
       "Arquitectura de software",
-      "Code Review",
-      "Metodologías ágiles",
-      "Comunicación técnica"
+      "Code review",
+      "Metodologías ágiles (Scrum/Jira)",
+      "Comunicación técnica",
+      "Git Flow",
+      "Dirección de I+D"
     ],
     "en": [
       "Technical leadership",
       "Mentoring",
       "Software architecture",
-      "Code Review",
-      "Agile methodologies",
-      "Technical communication"
+      "Code review",
+      "Agile methodologies (Scrum/Jira)",
+      "Technical communication",
+      "Git Flow",
+      "R&D leadership"
     ]
   },
   "skillCategories": [
     {
       "id": "frontend",
       "titleKey": "skills.frontend",
-      "icon": "🎨",
+      "icon": "◈",
       "skills": [
         { "name": "React/Next.js", "level": 95 },
         { "name": "TypeScript", "level": 92 },
-        { "name": "React Native", "level": 90 },
+        { "name": "Angular", "level": 85 },
         { "name": "CSS3/HTML5", "level": 88 },
         { "name": "Electron", "level": 85 }
       ]
@@ -49,34 +57,34 @@
     {
       "id": "backend",
       "titleKey": "skills.backend",
-      "icon": "⚙️",
+      "icon": "◉",
       "skills": [
         { "name": "Node.js/Express", "level": 93 },
         { "name": "PHP/Symfony", "level": 88 },
-        { "name": "AI/Machine Learning", "level": 80 },
-        { "name": "Python/Django", "level": 40 }
+        { "name": "Python/Django", "level": 75 },
+        { "name": "AI/Local LLM", "level": 82 }
       ]
     },
     {
       "id": "mobile",
       "titleKey": "skills.mobile",
-      "icon": "📱",
+      "icon": "◎",
       "skills": [
         { "name": "React Native", "level": 90 },
+        { "name": "Swift/Kotlin (native modules)", "level": 80 },
         { "name": "Ionic", "level": 75 },
-        { "name": "Electron", "level": 85 },
         { "name": "C++/ESP32", "level": 80 }
       ]
     },
     {
       "id": "devops",
       "titleKey": "skills.devops",
-      "icon": "☁️",
+      "icon": "◐",
       "skills": [
-        { "name": "CI/CD", "level": 90 },
-        { "name": "AWS/Firebase", "level": 87 },
+        { "name": "CI/CD (GitHub Actions/Jenkins)", "level": 90 },
+        { "name": "AWS/Firebase/GCP", "level": 87 },
         { "name": "Docker/Proxmox", "level": 85 },
-        { "name": "Jenkins", "level": 82 }
+        { "name": "Linux/Windows Server", "level": 88 }
       ]
     }
   ],
@@ -85,7 +93,7 @@
       "id": "es",
       "language": { "es": "Castellano", "en": "Spanish" },
       "level": "native",
-      "description": { "es": "Lengua materna", "en": "Mother tongue" },
+      "description": { "es": "Lengua materna", "en": "Native" },
       "proficiency": 100
     },
     {
@@ -99,8 +107,18 @@
       "id": "en",
       "language": { "es": "Inglés", "en": "English" },
       "level": "B2",
-      "description": { "es": "PET Certificate (2011)", "en": "PET Certificate (2011)" },
+      "description": {
+        "es": "PET Certificate B1 — competencia profesional básica",
+        "en": "PET Certificate B1 — basic professional proficiency"
+      },
       "proficiency": 75
+    },
+    {
+      "id": "pt",
+      "language": { "es": "Portugués", "en": "Portuguese" },
+      "level": "intermediate",
+      "description": { "es": "Nivel medio", "en": "Intermediate level" },
+      "proficiency": 50
     },
     {
       "id": "fr",
@@ -108,13 +126,6 @@
       "level": "basic",
       "description": { "es": "Nivel básico", "en": "Basic level" },
       "proficiency": 30
-    },
-    {
-      "id": "pt",
-      "language": { "es": "Portugués", "en": "Portuguese" },
-      "level": "intermediate",
-      "description": { "es": "Nivel medio", "en": "Intermediate level" },
-      "proficiency": 20
     }
   ]
 }

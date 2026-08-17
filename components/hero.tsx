@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Link, Mail, Phone, MapPin } from "lucide-react"
+import { ArrowDown, Link, Mail, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
 import { getProfile } from "@/lib/portfolio"
@@ -43,12 +43,6 @@ export function Hero() {
               <Mail className="h-4 w-4 text-blue-600" />
               <a href={`mailto:${profile.email}`} className="transition-colors hover:text-blue-600">
                 {profile.email}
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-blue-600" />
-              <a href="tel:+34[REDACTED]" className="transition-colors hover:text-blue-600">
-                [REDACTED]
               </a>
             </div>
             <div className="flex items-center gap-2">
