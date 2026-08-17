@@ -6,7 +6,7 @@ import { Skills } from "@/components/skills"
 import { Education } from "@/components/education"
 import { Languages } from "@/components/languages"
 import { Projects } from "@/components/projects"
-import { LanguageProvider } from "@/components/language-provider"
+import { AssistantSection } from "@/components/ai/assistant-section"
 
 export const metadata = {
   title: "Andoni Vianez Ulloa - Senior Full Stack Engineer | React Native & AI Specialist",
@@ -53,17 +53,16 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <LanguageProvider>
-      <main className="min-h-screen bg-background">
-        <Header />
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Languages />
-        <Projects />
-      </main>
-    </LanguageProvider>
+    <main className="bg-background min-h-screen">
+      <Header />
+      <Hero />
+      <About />
+      <Experience />
+      <Skills />
+      <Education />
+      <Languages />
+      <Projects />
+      <AssistantSection />
+    </main>
   )
 }
