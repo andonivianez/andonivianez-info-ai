@@ -19,6 +19,8 @@ export function Header() {
     { name: t("nav.education"), href: "#education" },
     { name: t("nav.languages"), href: "#languages" },
     { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.assistant"), href: "#assistant" },
+    { name: t("nav.ailab"), href: "/ai-lab" },
   ]
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export function Header() {
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/")) return
     e.preventDefault()
     const element = document.querySelector(href)
     if (element) {
@@ -40,12 +43,12 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? "bg-background/95 border-border border-b backdrop-blur-sm" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
             <span className="text-xl font-bold text-blue-600">AV</span>
           </div>
@@ -58,7 +61,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-slate-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:text-blue-600"
                 >
                   {item.name}
                 </a>
@@ -68,7 +71,11 @@ export function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -77,13 +84,13 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white rounded-lg mt-2 shadow-lg border">
+            <div className="mt-2 space-y-1 rounded-lg border bg-white px-2 pt-2 pb-3 shadow-lg sm:px-3">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-slate-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 transition-colors hover:text-blue-600"
                 >
                   {item.name}
                 </a>
