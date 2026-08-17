@@ -1,0 +1,31 @@
+{
+  "name": "Andoni Vianez Ulloa",
+  "role": {
+    "es": "Senior Full Stack Engineer",
+    "en": "Senior Full Stack Engineer"
+  },
+  "subtitle": {
+    "es": "Especialista en React Native & IA",
+    "en": "React Native & AI Specialist"
+  },
+  "bio": {
+    "es": "Senior Full Stack Engineer con una sólida trayectoria en el desarrollo de aplicaciones web y móviles. Mi experiencia abarca desde el desarrollo frontend con React y Angular hasta soluciones backend robustas con Node.js y PHP. Especializado en React Native para desarrollo móvil multiplataforma y con creciente experiencia en tecnologías de IA.",
+    "en": "Senior Full Stack Engineer with a solid track record in web and mobile application development. My experience spans from frontend development with React and Angular to robust backend solutions with Node.js and PHP. Specialized in React Native for cross-platform mobile development and with growing experience in AI technologies."
+  },
+  "location": {
+    "es": "Astigarraga, Guipúzcoa",
+    "en": "Astigarraga, Guipúzcoa"
+  },
+  "email": "andoni.bartolo@gmail.com",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/andoni-vianez/",
+    "github": "https://github.com/andonivianez",
+    "malt": "https://www.malt.es/profile/andonivianez"
+  },
+  "stats": {
+    "yearsExperience": 14,
+    "companies": 8,
+    "technologies": 25,
+    "projects": 50
+  }
+}

@@ -1,0 +1,129 @@
+[
+  {
+    "id": "orbis",
+    "title": {
+      "es": "Full Stack Developer",
+      "en": "Full Stack Developer"
+    },
+    "company": "Orbis Tecnología Eléctrica",
+    "location": { "es": "España", "en": "Spain" },
+    "period": { "es": "Mayo 2022 - Presente", "en": "May 2022 - Present" },
+    "description": {
+      "es": "Desarrollo de aplicaciones web full stack con ReactJS, Angular y Node+Express. Desarrollo de aplicaciones móviles para iOS/Android con React Native. Desarrollo de software embebido (C++) para ESP32.",
+      "en": "Full stack web development with ReactJS, Angular and Node+Express. Mobile applications for iOS/Android with React Native. Embedded software development (C++) for ESP32."
+    },
+    "technologies": ["React", "Angular", "Node.js", "Express", "React Native", "C++", "ESP32"],
+    "achievements": {
+      "es": ["Aplicaciones web full stack", "Apps móviles multiplataforma", "Software embebido"],
+      "en": ["Full stack web applications", "Cross-platform mobile apps", "Embedded software"]
+    },
+    "tags": ["current"]
+  },
+  {
+    "id": "freelance",
+    "title": {
+      "es": "Freelance SysAdmin & Full Stack Developer",
+      "en": "Freelance SysAdmin & Full Stack Developer"
+    },
+    "company": "Trabajo Independiente",
+    "location": { "es": "España", "en": "Spain" },
+    "period": { "es": "Octubre 2015 - Presente", "en": "October 2015 - Present" },
+    "description": {
+      "es": "Desarrollo e implantación de sistemas Windows Server, Linux, Firewalls (PfSense), routers, Amazon AWS. Desarrollo e implantación de soluciones web con WordPress, Prestashop, PHP (Symfony6), AngularJS, ReactJS, Node+Express, Firebase. Desarrollo de soluciones multiplataforma con React Native y Electron JS.",
+      "en": "Development and deployment of Windows Server, Linux, Firewalls (PfSense), routers, Amazon AWS. Web solutions with WordPress, Prestashop, PHP (Symfony6), AngularJS, ReactJS, Node+Express, Firebase. Cross-platform solutions with React Native and Electron JS."
+    },
+    "technologies": [
+      "React",
+      "Node.js",
+      "PHP",
+      "Symfony",
+      "AWS",
+      "Linux",
+      "WordPress",
+      "Electron",
+      "Firebase"
+    ],
+    "achievements": {
+      "es": ["Soluciones personalizadas", "Infraestructura completa", "Apps multiplataforma"],
+      "en": ["Custom solutions", "Complete infrastructure", "Cross-platform apps"]
+    },
+    "tags": ["freelance"]
+  },
+  {
+    "id": "onkologikoa",
+    "title": {
+      "es": "Full Stack Developer",
+      "en": "Full Stack Developer"
+    },
+    "company": "Fundación Onkologikoa",
+    "location": { "es": "España", "en": "Spain" },
+    "period": { "es": "Noviembre 2019 - Mayo 2022", "en": "November 2019 - May 2022" },
+    "description": {
+      "es": "Desarrollo de aplicaciones web full stack con ReactJS/TypeScript y PHP/Symfony. Despliegue de aplicaciones en servidores virtualizados Ubuntu Server (LAMP+Nginx) + Docker. Desarrollo de aplicaciones móviles con Ionic-React. CI/CD con Github Actions.",
+      "en": "Full stack web development with ReactJS/TypeScript and PHP/Symfony. Deployment on virtualized Ubuntu Server (LAMP+Nginx) + Docker. Mobile apps with Ionic-React. CI/CD with Github Actions."
+    },
+    "technologies": [
+      "React",
+      "TypeScript",
+      "PHP",
+      "Symfony",
+      "Docker",
+      "Ubuntu Server",
+      "Ionic",
+      "GitHub Actions"
+    ],
+    "achievements": {
+      "es": ["Aplicaciones web escalables", "DevOps con Docker", "CI/CD implementation"],
+      "en": ["Scalable web applications", "DevOps with Docker", "CI/CD implementation"]
+    },
+    "tags": []
+  },
+  {
+    "id": "bq",
+    "title": {
+      "es": "Mobile Software Engineer",
+      "en": "Mobile Software Engineer"
+    },
+    "company": "BQ",
+    "location": { "es": "España", "en": "Spain" },
+    "period": { "es": "Marzo 2018 - Julio 2019", "en": "March 2018 - July 2019" },
+    "description": {
+      "es": "Desarrollo de aplicación móvil (Zetup) con React Native para Android e iOS. Desarrollo de módulos en lenguaje nativo para React Native (Java, Kotlin, Swift y Objective-C). Gestión de proyectos con Jira (metodología ágil). Integración continua con Jenkins.",
+      "en": "Mobile app development (Zetup) with React Native for Android and iOS. Native modules for React Native (Java, Kotlin, Swift and Objective-C). Project management with Jira (agile methodology). Continuous integration with Jenkins."
+    },
+    "technologies": [
+      "React Native",
+      "Java",
+      "Kotlin",
+      "Swift",
+      "Objective-C",
+      "Jenkins",
+      "Firebase"
+    ],
+    "achievements": {
+      "es": ["App móvil nativa", "Módulos nativos", "Metodologías ágiles"],
+      "en": ["Native mobile app", "Native modules", "Agile methodologies"]
+    },
+    "tags": []
+  },
+  {
+    "id": "tumaker",
+    "title": {
+      "es": "SysAdmin & R&D Developer",
+      "en": "SysAdmin & R&D Developer"
+    },
+    "company": "TuMaker S.L.",
+    "location": { "es": "España", "en": "Spain" },
+    "period": { "es": "Mayo 2017 - Marzo 2018", "en": "May 2017 - March 2018" },
+    "description": {
+      "es": "Desarrollo de entornos frontend y backend con ReactJS, Django, Python. Despliegue y mantenimiento de servidores con Proxmox, Linux, Amazon Web Services. Desarrollo de software con C++ y Qt Creator. Desarrollo de aplicación móvil (Voladd) con React Native.",
+      "en": "Frontend and backend development with ReactJS, Django, Python. Server deployment and maintenance with Proxmox, Linux, Amazon Web Services. Software development with C++ and Qt Creator. Mobile app (Voladd) with React Native."
+    },
+    "technologies": ["React", "Django", "Python", "C++", "Qt", "AWS", "Proxmox", "React Native"],
+    "achievements": {
+      "es": ["Desarrollo full stack", "Infraestructura cloud", "Apps multiplataforma"],
+      "en": ["Full stack development", "Cloud infrastructure", "Cross-platform apps"]
+    },
+    "tags": []
+  }
+]
