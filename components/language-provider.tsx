@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 type Language = "es" | "en"
@@ -22,6 +22,8 @@ const translations = {
     "nav.education": "Formación",
     "nav.languages": "Idiomas",
     "nav.projects": "Proyectos",
+    "nav.assistant": "Asistente",
+    "nav.ailab": "AI Lab",
 
     // Hero
     "hero.title": "Senior Full Stack Engineer",
@@ -63,7 +65,8 @@ const translations = {
     "projects.title": "Proyectos Destacados",
     "projects.github": "Ver en GitHub",
     "projects.githubRepos": "Repositorios en GitHub",
-    "projects.description": "Explora mi trabajo y contribuciones en GitHub, donde encontrarás proyectos de desarrollo web, aplicaciones móviles, software embebido y más.",
+    "projects.description":
+      "Explora mi trabajo y contribuciones en GitHub, donde encontrarás proyectos de desarrollo web, aplicaciones móviles, software embebido y más.",
     "projects.contributions2024": "Contribuciones 2024",
     "projects.statistics": "Estadísticas",
     "projects.topLanguages": "Lenguajes más utilizados",
@@ -87,6 +90,31 @@ const translations = {
 
     // Experience
     "experience.achievements": "Logros Principales",
+
+    // Assistant
+    "assistant.title": "Pregúntame sobre mi experiencia",
+    "assistant.subtitle": "Asistente inteligente del portfolio con IA local",
+    "assistant.placeholder": "Escribe tu pregunta...",
+    "assistant.empty": "Haz una pregunta sobre experiencia, proyectos o tecnologías.",
+    "assistant.clear": "Limpiar",
+    "assistant.initializing": "Inicializando...",
+
+    // AI Lab
+    "ailab.runtime": "AI Runtime",
+    "ailab.browser": "Navegador",
+    "ailab.available": "Disponible",
+    "ailab.unavailable": "No disponible",
+    "ailab.activeProvider": "Proveedor activo",
+    "ailab.processing": "Procesamiento",
+    "ailab.switchProvider": "Probar proveedores",
+    "ailab.metrics": "Métricas",
+    "ailab.totalQueries": "Consultas",
+    "ailab.avgTotal": "Tiempo medio total",
+    "ailab.avgRetrieval": "Tiempo medio retrieval",
+    "ailab.avgGeneration": "Tiempo medio generación",
+    "ailab.avgContext": "Contexto medio",
+    "ailab.errors": "Errores",
+    "ailab.providerUsage": "Uso por proveedor",
   },
   en: {
     // Header
@@ -97,6 +125,8 @@ const translations = {
     "nav.education": "Education",
     "nav.languages": "Languages",
     "nav.projects": "Projects",
+    "nav.assistant": "Assistant",
+    "nav.ailab": "AI Lab",
 
     // Hero
     "hero.title": "Senior Full Stack Engineer",
@@ -150,26 +180,50 @@ const translations = {
     "projects.title": "Featured Projects",
     "projects.github": "View on GitHub",
     "projects.githubRepos": "GitHub Repositories",
-    "projects.description": "Explore my work and contributions on GitHub, where you'll find web development projects, mobile applications, embedded software and more.",
+    "projects.description":
+      "Explore my work and contributions on GitHub, where you'll find web development projects, mobile applications, embedded software and more.",
     "projects.contributions2024": "2024 Contributions",
     "projects.statistics": "Statistics",
     "projects.topLanguages": "Most Used Languages",
     "projects.viewProfile": "View GitHub Profile",
     "projects.viewRepos": "View Repositories",
+
+    // Assistant
+    "assistant.title": "Ask me about my experience",
+    "assistant.subtitle": "Intelligent portfolio assistant with local AI",
+    "assistant.placeholder": "Type your question...",
+    "assistant.empty": "Ask a question about experience, projects or technologies.",
+    "assistant.clear": "Clear",
+    "assistant.initializing": "Initializing...",
+
+    // AI Lab
+    "ailab.runtime": "AI Runtime",
+    "ailab.browser": "Browser",
+    "ailab.available": "Available",
+    "ailab.unavailable": "Unavailable",
+    "ailab.activeProvider": "Active provider",
+    "ailab.processing": "Processing",
+    "ailab.switchProvider": "Test providers",
+    "ailab.metrics": "Metrics",
+    "ailab.totalQueries": "Queries",
+    "ailab.avgTotal": "Average total time",
+    "ailab.avgRetrieval": "Average retrieval time",
+    "ailab.avgGeneration": "Average generation time",
+    "ailab.avgContext": "Average context size",
+    "ailab.errors": "Errors",
+    "ailab.providerUsage": "Provider usage",
   },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("es")
-
-  useEffect(() => {
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window === "undefined") return "es"
     const savedLanguage = localStorage.getItem("language") as Language
-    if (savedLanguage && (savedLanguage === "es" || savedLanguage === "en")) {
-      setLanguage(savedLanguage)
-    }
-  }, [])
+    if (savedLanguage === "es" || savedLanguage === "en") return savedLanguage
+    return "es"
+  })
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang)
@@ -183,8 +237,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
-      <div className="fixed bottom-4 right-4 z-50">
-        <div className="flex gap-2 bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-lg border">
+      <div className="fixed right-4 bottom-4 z-50">
+        <div className="flex gap-2 rounded-lg border bg-white/90 p-2 shadow-lg backdrop-blur-sm">
           <Button
             variant={language === "es" ? "default" : "ghost"}
             size="sm"
