@@ -1,15 +1,21 @@
 "use client"
 
 import dynamic from "next/dynamic"
+import { useLanguage } from "@/components/language-provider"
 
 const AIChat = dynamic(() => import("./ai-chat").then((mod) => mod.AIChat), {
   ssr: false,
-  loading: () => (
-    <div className="bg-muted/30 text-muted-foreground rounded-lg border p-8 text-center text-sm">
-      Cargando asistente IA...
-    </div>
-  ),
+  loading: () => <AssistantLoadingFallback />,
 })
+
+function AssistantLoadingFallback() {
+  const { t } = useLanguage()
+  return (
+    <div className="bg-muted/30 text-muted-foreground rounded-lg border p-8 text-center text-sm">
+      {t("assistant.loading")}
+    </div>
+  )
+}
 
 export function AssistantSection() {
   return (
