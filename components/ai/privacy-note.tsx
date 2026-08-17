@@ -1,29 +1,38 @@
 "use client"
 
 import { Lock } from "lucide-react"
+import { cn } from "@/lib/utils"
 import type { AIProvider } from "@/lib/ai/types"
 
 interface PrivacyNoteProps {
   provider: AIProvider | null
+  variant?: "hero" | "default"
 }
 
-export function PrivacyNote({ provider }: PrivacyNoteProps) {
+export function PrivacyNote({ provider, variant = "default" }: PrivacyNoteProps) {
+  const isHero = variant === "hero"
+
   if (!provider?.runsLocally || !provider.isGenerative) {
     return (
-      <p className="text-muted-foreground text-xs">
-        Modo compatible: las respuestas se generan localmente sin enviar datos a servicios externos
-        de IA de pago, pero no utilizan un modelo generativo.
+      <p className={cn("text-xs", isHero ? "text-slate-muted" : "text-muted-foreground")}>
+        Modo compatible: respuestas locales sin APIs de pago.
       </p>
     )
   }
 
   return (
-    <div className="flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">
-      <Lock className="mt-0.5 h-4 w-4 shrink-0" />
+    <div
+      className={cn(
+        "flex items-start gap-2 rounded-lg border p-3 text-xs",
+        isHero
+          ? "border-line/60 bg-ink text-slate-muted"
+          : "border-emerald-200 bg-emerald-50 text-emerald-900",
+      )}
+    >
+      <Lock className={cn("mt-0.5 h-3.5 w-3.5 shrink-0", isHero && "text-amber")} />
       <p>
-        <strong>IA privada.</strong> Las preguntas y respuestas se procesan localmente en tu
-        navegador. No utilizamos servicios externos de IA y tus consultas no se envían a proveedores
-        como OpenAI, Anthropic o Google Cloud.
+        <strong className={isHero ? "text-amber" : undefined}>IA privada.</strong> Todo se procesa
+        en tu navegador. Sin OpenAI, Anthropic ni Google Cloud.
       </p>
     </div>
   )
