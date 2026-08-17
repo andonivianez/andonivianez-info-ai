@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
+import { localizedPath } from "@/lib/i18n/config"
 import { cn } from "@/lib/utils"
 
 interface SiteHeaderProps {
@@ -16,13 +17,13 @@ interface SiteHeaderProps {
 export function SiteHeader({ variant = "ink" }: SiteHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
   const pathname = usePathname()
 
   const navigation = [
-    { name: t("nav.chat"), href: "/" },
-    { name: t("nav.profile"), href: "/about" },
-    { name: t("nav.ailab"), href: "/ai-lab" },
+    { name: t("nav.chat"), href: localizedPath("/", language) },
+    { name: t("nav.profile"), href: localizedPath("/about", language) },
+    { name: t("nav.ailab"), href: localizedPath("/ai-lab", language) },
   ]
 
   useEffect(() => {
@@ -52,12 +53,12 @@ export function SiteHeader({ variant = "ink" }: SiteHeaderProps) {
     >
       <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
         <Link
-          href="/"
+          href={localizedPath("/", language)}
           className={cn(
             "font-display text-lg font-bold tracking-tight",
             isInk ? "text-text-on-ink" : "text-foreground",
           )}
-          aria-label="Inicio"
+          aria-label={t("nav.home")}
         >
           AV
         </Link>
@@ -80,7 +81,7 @@ export function SiteHeader({ variant = "ink" }: SiteHeaderProps) {
             size="sm"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={isInk ? "text-text-on-ink hover:text-amber" : undefined}
-            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={isMobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>

@@ -6,6 +6,7 @@ import { Mail, MapPin, ExternalLink } from "lucide-react"
 import { motion } from "motion/react"
 import { useLanguage } from "@/components/language-provider"
 import { getProfile } from "@/lib/portfolio"
+import { localizedPath } from "@/lib/i18n/config"
 import { Button } from "@/components/ui/button"
 
 export function AboutProfile() {
@@ -76,7 +77,7 @@ export function AboutProfile() {
             </a>
           </Button>
           <Button asChild variant="ghost" size="sm">
-            <Link href="/">{t("home.backToChat")}</Link>
+            <Link href={localizedPath("/", language)}>{t("home.backToChat")}</Link>
           </Button>
         </div>
 

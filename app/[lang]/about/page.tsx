@@ -7,20 +7,23 @@ import { Skills } from "@/components/skills"
 import { Education } from "@/components/education"
 import { Languages } from "@/components/languages"
 import { Projects } from "@/components/projects"
+import { GitHubStats } from "@/components/github-stats"
+import { buildPageMetadata } from "@/lib/i18n/metadata"
+import { resolveLocale } from "@/lib/i18n/routing"
 
-export const metadata: Metadata = {
-  title: "Perfil profesional",
-  description:
-    "Experiencia, formación, habilidades y proyectos de Andoni Vianez Ulloa — Senior Full Stack Engineer con 15+ años en web, móvil e IA.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "Andoni Vianez — Perfil profesional",
-    description: "Trayectoria completa: Orbis, Onkologikoa, BQ, freelance y más.",
-    url: "https://www.andonivianez.info/about",
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}): Promise<Metadata> {
+  const { lang } = await params
+  return buildPageMetadata(resolveLocale(lang), "about", "/about")
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  const locale = resolveLocale(lang)
+
   return (
     <main className="bg-porcelain min-h-screen">
       <SiteHeader variant="light" />
@@ -31,6 +34,9 @@ export default function AboutPage() {
         <Education variant="document" />
         <Languages variant="document" />
         <Projects variant="document" />
+        <div className="mt-8">
+          <GitHubStats locale={locale} />
+        </div>
       </div>
       <SiteFooter variant="light" />
     </main>
