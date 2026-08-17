@@ -3,11 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { GitBranch, ExternalLink } from "lucide-react"
-import Image from "next/image"
+import { GitBranch } from "lucide-react"
 import { motion } from "motion/react"
 import { useLanguage } from "@/components/language-provider"
-import { getPortfolioData, getProjects, getProfile } from "@/lib/portfolio"
+import { getProjects } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
 
 interface ProjectsProps {
@@ -17,8 +16,6 @@ interface ProjectsProps {
 export function Projects({ variant = "default" }: ProjectsProps) {
   const { language, t } = useLanguage()
   const projects = getProjects(language)
-  const profile = getProfile(language)
-  const github = getPortfolioData().profile.links.github.replace("https://github.com/", "")
   const isDoc = variant === "document"
 
   return (
@@ -74,44 +71,6 @@ export function Projects({ variant = "default" }: ProjectsProps) {
             </motion.div>
           ))}
         </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-base">
-              <GitBranch className="h-5 w-5" />
-              {t("projects.githubRepos")}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-6 text-sm">{t("projects.description")}</p>
-            <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <Image
-                src={`https://github-readme-stats.vercel.app/api?username=${github}&show_icons=true&theme=default&hide_border=true`}
-                alt="GitHub Stats"
-                width={400}
-                height={160}
-                className="mx-auto rounded-lg border"
-              />
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button size="sm" asChild>
-                <a href={profile.links.github} target="_blank" rel="noopener noreferrer">
-                  {t("projects.viewProfile")}
-                </a>
-              </Button>
-              <Button variant="outline" size="sm" asChild>
-                <a
-                  href={`${profile.links.github}?tab=repositories`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  {t("projects.viewRepos")}
-                </a>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   )
