@@ -1,0 +1,83 @@
+[
+  {
+    "id": "portfolio-ia-local",
+    "name": {
+      "es": "Portfolio IA Local (TFM)",
+      "en": "Local AI Portfolio (Master Thesis)"
+    },
+    "description": {
+      "es": "Portfolio profesional inteligente con IA generativa ejecutada localmente en el navegador. Implementa RAG, Chrome Built-in AI, WebLLM/WebGPU y fallback extractivo sin servicios de IA de pago.",
+      "en": "Intelligent professional portfolio with generative AI running locally in the browser. Implements RAG, Chrome Built-in AI, WebLLM/WebGPU and extractive fallback without paid AI services."
+    },
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "WebLLM",
+      "Chrome Prompt API",
+      "RAG",
+      "WebGPU"
+    ],
+    "highlights": {
+      "es": [
+        "IA 100% local en el navegador",
+        "Abstracción multi-proveedor",
+        "RAG con retrieval ponderado",
+        "Métricas experimentales en /ai-lab"
+      ],
+      "en": [
+        "100% local AI in the browser",
+        "Multi-provider abstraction",
+        "RAG with weighted retrieval",
+        "Experimental metrics in /ai-lab"
+      ]
+    },
+    "github": "https://github.com/andonivianez/andonivianez-info-ai",
+    "category": { "es": "IA / Web", "en": "AI / Web" }
+  },
+  {
+    "id": "zetup-bq",
+    "name": { "es": "Zetup (BQ)", "en": "Zetup (BQ)" },
+    "description": {
+      "es": "Aplicación móvil multiplataforma desarrollada con React Native para Android e iOS, con módulos nativos en Java, Kotlin, Swift y Objective-C.",
+      "en": "Cross-platform mobile application built with React Native for Android and iOS, with native modules in Java, Kotlin, Swift and Objective-C."
+    },
+    "technologies": ["React Native", "Java", "Kotlin", "Swift", "Objective-C", "Firebase"],
+    "highlights": {
+      "es": ["App móvil nativa", "Módulos nativos", "CI con Jenkins"],
+      "en": ["Native mobile app", "Native modules", "CI with Jenkins"]
+    },
+    "category": { "es": "Mobile", "en": "Mobile" }
+  },
+  {
+    "id": "voladd-tumaker",
+    "name": { "es": "Voladd (TuMaker)", "en": "Voladd (TuMaker)" },
+    "description": {
+      "es": "Aplicación móvil multiplataforma con React Native para gestión de impresión 3D, integrada con backend Django y despliegue en AWS.",
+      "en": "Cross-platform mobile app with React Native for 3D printing management, integrated with Django backend and AWS deployment."
+    },
+    "technologies": ["React Native", "Django", "Python", "AWS", "C++"],
+    "highlights": {
+      "es": ["App móvil", "Backend Django", "Infraestructura cloud"],
+      "en": ["Mobile app", "Django backend", "Cloud infrastructure"]
+    },
+    "category": { "es": "Mobile / IoT", "en": "Mobile / IoT" }
+  },
+  {
+    "id": "orbis-embedded",
+    "name": {
+      "es": "Software embebido ESP32 (Orbis)",
+      "en": "ESP32 Embedded Software (Orbis)"
+    },
+    "description": {
+      "es": "Desarrollo de firmware embebido en C++ para dispositivos ESP32 en el sector de tecnología eléctrica industrial.",
+      "en": "Embedded firmware development in C++ for ESP32 devices in the industrial electrical technology sector."
+    },
+    "technologies": ["C++", "ESP32", "Embedded"],
+    "highlights": {
+      "es": ["Firmware embebido", "IoT industrial", "C++"],
+      "en": ["Embedded firmware", "Industrial IoT", "C++"]
+    },
+    "category": { "es": "Embedded / IoT", "en": "Embedded / IoT" }
+  }
+]

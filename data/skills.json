@@ -1,0 +1,120 @@
+{
+  "certifications": {
+    "es": [
+      "Grado Ingeniería Informática",
+      "Técnico Superior en DAW",
+      "Técnico Superior en ASIR",
+      "PET Certificate (Inglés)",
+      "Euskera B2"
+    ],
+    "en": [
+      "Computer Engineering Degree",
+      "Higher Technician in Web Development",
+      "Higher Technician in Network Systems",
+      "PET Certificate (English)",
+      "Basque B2"
+    ]
+  },
+  "softSkills": {
+    "es": [
+      "Liderazgo técnico",
+      "Mentoring",
+      "Arquitectura de software",
+      "Code Review",
+      "Metodologías ágiles",
+      "Comunicación técnica"
+    ],
+    "en": [
+      "Technical leadership",
+      "Mentoring",
+      "Software architecture",
+      "Code Review",
+      "Agile methodologies",
+      "Technical communication"
+    ]
+  },
+  "skillCategories": [
+    {
+      "id": "frontend",
+      "titleKey": "skills.frontend",
+      "icon": "🎨",
+      "skills": [
+        { "name": "React/Next.js", "level": 95 },
+        { "name": "TypeScript", "level": 92 },
+        { "name": "React Native", "level": 90 },
+        { "name": "CSS3/HTML5", "level": 88 },
+        { "name": "Electron", "level": 85 }
+      ]
+    },
+    {
+      "id": "backend",
+      "titleKey": "skills.backend",
+      "icon": "⚙️",
+      "skills": [
+        { "name": "Node.js/Express", "level": 93 },
+        { "name": "PHP/Symfony", "level": 88 },
+        { "name": "AI/Machine Learning", "level": 80 },
+        { "name": "Python/Django", "level": 40 }
+      ]
+    },
+    {
+      "id": "mobile",
+      "titleKey": "skills.mobile",
+      "icon": "📱",
+      "skills": [
+        { "name": "React Native", "level": 90 },
+        { "name": "Ionic", "level": 75 },
+        { "name": "Electron", "level": 85 },
+        { "name": "C++/ESP32", "level": 80 }
+      ]
+    },
+    {
+      "id": "devops",
+      "titleKey": "skills.devops",
+      "icon": "☁️",
+      "skills": [
+        { "name": "CI/CD", "level": 90 },
+        { "name": "AWS/Firebase", "level": 87 },
+        { "name": "Docker/Proxmox", "level": 85 },
+        { "name": "Jenkins", "level": 82 }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "id": "es",
+      "language": { "es": "Castellano", "en": "Spanish" },
+      "level": "native",
+      "description": { "es": "Lengua materna", "en": "Mother tongue" },
+      "proficiency": 100
+    },
+    {
+      "id": "eu",
+      "language": { "es": "Euskera", "en": "Basque" },
+      "level": "B2",
+      "description": { "es": "Título B2 (2009)", "en": "B2 Certificate (2009)" },
+      "proficiency": 85
+    },
+    {
+      "id": "en",
+      "language": { "es": "Inglés", "en": "English" },
+      "level": "B2",
+      "description": { "es": "PET Certificate (2011)", "en": "PET Certificate (2011)" },
+      "proficiency": 75
+    },
+    {
+      "id": "fr",
+      "language": { "es": "Francés", "en": "French" },
+      "level": "basic",
+      "description": { "es": "Nivel básico", "en": "Basic level" },
+      "proficiency": 30
+    },
+    {
+      "id": "pt",
+      "language": { "es": "Portugués", "en": "Portuguese" },
+      "level": "intermediate",
+      "description": { "es": "Nivel medio", "en": "Intermediate level" },
+      "proficiency": 20
+    }
+  ]
+}

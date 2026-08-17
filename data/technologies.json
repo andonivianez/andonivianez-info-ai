@@ -1,0 +1,72 @@
+[
+  {
+    "id": "react-next",
+    "name": "React/Next.js",
+    "category": "frontend",
+    "level": 95,
+    "keywords": ["react", "nextjs", "next.js", "frontend", "javascript", "typescript"]
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "category": "frontend",
+    "level": 92,
+    "keywords": ["typescript", "ts", "tipado", "typed"]
+  },
+  {
+    "id": "react-native",
+    "name": "React Native",
+    "category": "mobile",
+    "level": 90,
+    "keywords": ["react native", "mobile", "ios", "android", "movil", "móvil", "app"]
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js/Express",
+    "category": "backend",
+    "level": 93,
+    "keywords": ["node", "nodejs", "express", "backend", "api", "servidor"]
+  },
+  {
+    "id": "php-symfony",
+    "name": "PHP/Symfony",
+    "category": "backend",
+    "level": 88,
+    "keywords": ["php", "symfony", "backend", "api"]
+  },
+  {
+    "id": "ai-ml",
+    "name": "AI/Machine Learning",
+    "category": "ai",
+    "level": 80,
+    "keywords": ["ia", "ai", "machine learning", "ml", "inteligencia artificial", "rag", "llm"]
+  },
+  {
+    "id": "docker",
+    "name": "Docker/Proxmox",
+    "category": "devops",
+    "level": 85,
+    "keywords": ["docker", "proxmox", "devops", "containers", "contenedores"]
+  },
+  {
+    "id": "aws",
+    "name": "AWS/Firebase",
+    "category": "devops",
+    "level": 87,
+    "keywords": ["aws", "firebase", "cloud", "nube", "amazon"]
+  },
+  {
+    "id": "c-esp32",
+    "name": "C++/ESP32",
+    "category": "embedded",
+    "level": 80,
+    "keywords": ["c++", "esp32", "embedded", "embebido", "firmware", "iot"]
+  },
+  {
+    "id": "python-django",
+    "name": "Python/Django",
+    "category": "backend",
+    "level": 40,
+    "keywords": ["python", "django", "backend"]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "degree-informatica",
+    "degree": {
+      "es": "Grado en Ingeniería Informática",
+      "en": "Bachelor's Degree in Computer Engineering"
+    },
+    "institution": "Universidad de Burgos (UBU)",
+    "period": "2017-2023",
+    "type": "university"
+  },
+  {
+    "id": "asir-loe",
+    "degree": {
+      "es": "Técnico Superior en Administración y Gestión de Sistemas Informáticos en Red [LOE]",
+      "en": "Higher Technician in Network Systems Administration [LOE]"
+    },
+    "institution": "AEG Ikastetxea",
+    "period": "2018-2020",
+    "type": "vocational"
+  },
+  {
+    "id": "dam",
+    "degree": {
+      "es": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+      "en": "Higher Technician in Cross-Platform Application Development"
+    },
+    "institution": "AEG Ikastetxea",
+    "period": "2014-2016",
+    "type": "vocational"
+  },
+  {
+    "id": "daw",
+    "degree": {
+      "es": "Técnico Superior en Desarrollo de Aplicaciones Web",
+      "en": "Higher Technician in Web Application Development"
+    },
+    "institution": "AEG Ikastetxea",
+    "period": "2011-2013",
+    "type": "vocational"
+  }
+]
