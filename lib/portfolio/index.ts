@@ -43,6 +43,7 @@ export function getProfile(locale: Locale) {
     subtitle: localize(profile.subtitle, locale),
     bio: localize(profile.bio, locale),
     location: localize(profile.location, locale),
+    tagline: profile.tagline ? localize(profile.tagline, locale) : undefined,
   }
 }
 

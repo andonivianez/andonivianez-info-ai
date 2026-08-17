@@ -1,12 +1,22 @@
 [
   {
+    "id": "master-tfm",
+    "degree": {
+      "es": "Máster en Ingeniería Informática (TFM en curso)",
+      "en": "Master's in Computer Engineering (thesis in progress)"
+    },
+    "institution": "Universidad de Burgos (UBU)",
+    "period": "2024–2025",
+    "type": "university"
+  },
+  {
     "id": "degree-informatica",
     "degree": {
       "es": "Grado en Ingeniería Informática",
       "en": "Bachelor's Degree in Computer Engineering"
     },
     "institution": "Universidad de Burgos (UBU)",
-    "period": "2017-2023",
+    "period": "2017–2023",
     "type": "university"
   },
   {
@@ -16,7 +26,7 @@
       "en": "Higher Technician in Network Systems Administration [LOE]"
     },
     "institution": "AEG Ikastetxea",
-    "period": "2018-2020",
+    "period": "2018–2020",
     "type": "vocational"
   },
   {
@@ -26,7 +36,17 @@
       "en": "Higher Technician in Cross-Platform Application Development"
     },
     "institution": "AEG Ikastetxea",
-    "period": "2014-2016",
+    "period": "2014–2016",
+    "type": "vocational"
+  },
+  {
+    "id": "admin-finanzas",
+    "degree": {
+      "es": "Técnico Superior en Administración y Finanzas",
+      "en": "Higher Technician in Administration and Finance"
+    },
+    "institution": "AEG Ikastetxea",
+    "period": "2013–2014",
     "type": "vocational"
   },
   {
@@ -36,7 +56,37 @@
       "en": "Higher Technician in Web Application Development"
     },
     "institution": "AEG Ikastetxea",
-    "period": "2011-2013",
+    "period": "2011–2013",
     "type": "vocational"
+  },
+  {
+    "id": "asir-logse",
+    "degree": {
+      "es": "Técnico Superior en Administración y Gestión de Sistemas Informáticos [LOGSE]",
+      "en": "Higher Technician in IT Systems Administration [LOGSE]"
+    },
+    "institution": "AEG Ikastetxea",
+    "period": "2009–2011",
+    "type": "vocational"
+  },
+  {
+    "id": "music",
+    "degree": {
+      "es": "Título de música nivel 2 (Txistu y percusión)",
+      "en": "Music diploma level 2 (Txistu and percussion)"
+    },
+    "institution": "Conservatorio",
+    "period": "—",
+    "type": "music"
+  },
+  {
+    "id": "secondary",
+    "degree": {
+      "es": "Educación Secundaria y Bachillerato",
+      "en": "Secondary Education and Baccalaureate"
+    },
+    "institution": "I.E.S. Bidebieta",
+    "period": "—",
+    "type": "basic"
   }
 ]

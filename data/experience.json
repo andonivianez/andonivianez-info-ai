@@ -1,21 +1,26 @@
 [
   {
     "id": "orbis",
-    "title": {
-      "es": "Full Stack Developer",
-      "en": "Full Stack Developer"
-    },
-    "company": "Orbis Tecnología Eléctrica",
-    "location": { "es": "España", "en": "Spain" },
-    "period": { "es": "Mayo 2022 - Presente", "en": "May 2022 - Present" },
+    "title": { "es": "Full Stack Developer", "en": "Full Stack Developer" },
+    "company": "Orbis Tecnología Eléctrica S.A.",
+    "location": { "es": "Madrid / remoto", "en": "Madrid / remote" },
+    "period": { "es": "Mayo 2022 – Presente", "en": "May 2022 – Present" },
     "description": {
-      "es": "Desarrollo de aplicaciones web full stack con ReactJS, Angular y Node+Express. Desarrollo de aplicaciones móviles para iOS/Android con React Native. Desarrollo de software embebido (C++) para ESP32.",
-      "en": "Full stack web development with ReactJS, Angular and Node+Express. Mobile applications for iOS/Android with React Native. Embedded software development (C++) for ESP32."
+      "es": "Desarrollo full stack con ReactJS, Angular y Node+Express. Apps móviles iOS/Android con React Native. Software embebido en C++ para ESP32.",
+      "en": "Full stack development with ReactJS, Angular and Node+Express. iOS/Android mobile apps with React Native. Embedded C++ software for ESP32."
     },
     "technologies": ["React", "Angular", "Node.js", "Express", "React Native", "C++", "ESP32"],
     "achievements": {
-      "es": ["Aplicaciones web full stack", "Apps móviles multiplataforma", "Software embebido"],
-      "en": ["Full stack web applications", "Cross-platform mobile apps", "Embedded software"]
+      "es": [
+        "Stack web y móvil en producción",
+        "Firmware embebido ESP32",
+        "Arquitectura multiplataforma"
+      ],
+      "en": [
+        "Production web and mobile stack",
+        "ESP32 embedded firmware",
+        "Cross-platform architecture"
+      ]
     },
     "tags": ["current"]
   },
@@ -25,12 +30,12 @@
       "es": "Freelance SysAdmin & Full Stack Developer",
       "en": "Freelance SysAdmin & Full Stack Developer"
     },
-    "company": "Trabajo Independiente",
-    "location": { "es": "España", "en": "Spain" },
-    "period": { "es": "Octubre 2015 - Presente", "en": "October 2015 - Present" },
+    "company": "Trabajo independiente",
+    "location": { "es": "País Vasco / remoto", "en": "Basque Country / remote" },
+    "period": { "es": "Octubre 2015 – Presente", "en": "October 2015 – Present" },
     "description": {
-      "es": "Desarrollo e implantación de sistemas Windows Server, Linux, Firewalls (PfSense), routers, Amazon AWS. Desarrollo e implantación de soluciones web con WordPress, Prestashop, PHP (Symfony6), AngularJS, ReactJS, Node+Express, Firebase. Desarrollo de soluciones multiplataforma con React Native y Electron JS.",
-      "en": "Development and deployment of Windows Server, Linux, Firewalls (PfSense), routers, Amazon AWS. Web solutions with WordPress, Prestashop, PHP (Symfony6), AngularJS, ReactJS, Node+Express, Firebase. Cross-platform solutions with React Native and Electron JS."
+      "es": "Infraestructura (Windows Server, Linux, PfSense, AWS) y soluciones web con Symfony, React, Node, WordPress y Firebase. Apps con React Native y Electron.",
+      "en": "Infrastructure (Windows Server, Linux, PfSense, AWS) and web solutions with Symfony, React, Node, WordPress and Firebase. Apps with React Native and Electron."
     },
     "technologies": [
       "React",
@@ -39,28 +44,26 @@
       "Symfony",
       "AWS",
       "Linux",
-      "WordPress",
+      "Docker",
+      "React Native",
       "Electron",
       "Firebase"
     ],
     "achievements": {
-      "es": ["Soluciones personalizadas", "Infraestructura completa", "Apps multiplataforma"],
-      "en": ["Custom solutions", "Complete infrastructure", "Cross-platform apps"]
+      "es": ["Proyectos a medida end-to-end", "DevOps e infraestructura", "Consultoría técnica"],
+      "en": ["End-to-end custom projects", "DevOps and infrastructure", "Technical consulting"]
     },
-    "tags": ["freelance"]
+    "tags": ["freelance", "current"]
   },
   {
     "id": "onkologikoa",
-    "title": {
-      "es": "Full Stack Developer",
-      "en": "Full Stack Developer"
-    },
+    "title": { "es": "Full Stack Developer", "en": "Full Stack Developer" },
     "company": "Fundación Onkologikoa",
-    "location": { "es": "España", "en": "Spain" },
-    "period": { "es": "Noviembre 2019 - Mayo 2022", "en": "November 2019 - May 2022" },
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Noviembre 2019 – Mayo 2022", "en": "November 2019 – May 2022" },
     "description": {
-      "es": "Desarrollo de aplicaciones web full stack con ReactJS/TypeScript y PHP/Symfony. Despliegue de aplicaciones en servidores virtualizados Ubuntu Server (LAMP+Nginx) + Docker. Desarrollo de aplicaciones móviles con Ionic-React. CI/CD con Github Actions.",
-      "en": "Full stack web development with ReactJS/TypeScript and PHP/Symfony. Deployment on virtualized Ubuntu Server (LAMP+Nginx) + Docker. Mobile apps with Ionic-React. CI/CD with Github Actions."
+      "es": "Apps web con React/TypeScript y PHP/Symfony. Despliegue en Ubuntu (LAMP+Nginx) y Docker. Apps móviles con Ionic-React. CI/CD con GitHub Actions.",
+      "en": "Web apps with React/TypeScript and PHP/Symfony. Deployment on Ubuntu (LAMP+Nginx) and Docker. Mobile apps with Ionic-React. CI/CD with GitHub Actions."
     },
     "technologies": [
       "React",
@@ -68,28 +71,45 @@
       "PHP",
       "Symfony",
       "Docker",
-      "Ubuntu Server",
       "Ionic",
-      "GitHub Actions"
+      "GitHub Actions",
+      "Nginx"
     ],
     "achievements": {
-      "es": ["Aplicaciones web escalables", "DevOps con Docker", "CI/CD implementation"],
-      "en": ["Scalable web applications", "DevOps with Docker", "CI/CD implementation"]
+      "es": ["Pipeline CI/CD", "Contenedorización Docker", "Apps clínicas en producción"],
+      "en": ["CI/CD pipeline", "Docker containerization", "Clinical apps in production"]
+    },
+    "tags": []
+  },
+  {
+    "id": "wegetit",
+    "title": {
+      "es": "Software Development Engineer / CTO",
+      "en": "Software Development Engineer / CTO"
+    },
+    "company": "WeGetIt",
+    "location": { "es": "Madrid", "en": "Madrid" },
+    "period": { "es": "Septiembre – Octubre 2019", "en": "September – October 2019" },
+    "description": {
+      "es": "Desarrollo web con React, jQuery y PHP/Laravel. Cloud AWS, Firebase y Google Cloud. Dirección de I+D y gestión ágil con Jira.",
+      "en": "Web development with React, jQuery and PHP/Laravel. AWS cloud, Firebase and Google Cloud. R&D leadership and agile management with Jira."
+    },
+    "technologies": ["React", "Laravel", "PHP", "AWS", "Firebase", "Jira"],
+    "achievements": {
+      "es": ["Liderazgo técnico como CTO", "Despliegue cloud AWS", "Metodología ágil"],
+      "en": ["Technical leadership as CTO", "AWS cloud deployment", "Agile methodology"]
     },
     "tags": []
   },
   {
     "id": "bq",
-    "title": {
-      "es": "Mobile Software Engineer",
-      "en": "Mobile Software Engineer"
-    },
+    "title": { "es": "Mobile Software Engineer", "en": "Mobile Software Engineer" },
     "company": "BQ",
-    "location": { "es": "España", "en": "Spain" },
-    "period": { "es": "Marzo 2018 - Julio 2019", "en": "March 2018 - July 2019" },
+    "location": { "es": "Las Rozas, Madrid", "en": "Las Rozas, Madrid" },
+    "period": { "es": "Marzo 2018 – Julio 2019", "en": "March 2018 – July 2019" },
     "description": {
-      "es": "Desarrollo de aplicación móvil (Zetup) con React Native para Android e iOS. Desarrollo de módulos en lenguaje nativo para React Native (Java, Kotlin, Swift y Objective-C). Gestión de proyectos con Jira (metodología ágil). Integración continua con Jenkins.",
-      "en": "Mobile app development (Zetup) with React Native for Android and iOS. Native modules for React Native (Java, Kotlin, Swift and Objective-C). Project management with Jira (agile methodology). Continuous integration with Jenkins."
+      "es": "App móvil Zetup con React Native. Módulos nativos en Java, Kotlin, Swift y Objective-C. CI con Jenkins y Firebase.",
+      "en": "Zetup mobile app with React Native. Native modules in Java, Kotlin, Swift and Objective-C. CI with Jenkins and Firebase."
     },
     "technologies": [
       "React Native",
@@ -101,28 +121,158 @@
       "Firebase"
     ],
     "achievements": {
-      "es": ["App móvil nativa", "Módulos nativos", "Metodologías ágiles"],
-      "en": ["Native mobile app", "Native modules", "Agile methodologies"]
+      "es": [
+        "Bridge nativo multiplataforma",
+        "Integración continua Jenkins",
+        "App publicada iOS/Android"
+      ],
+      "en": [
+        "Cross-platform native bridge",
+        "Jenkins continuous integration",
+        "Published iOS/Android app"
+      ]
     },
     "tags": []
   },
   {
     "id": "tumaker",
-    "title": {
-      "es": "SysAdmin & R&D Developer",
-      "en": "SysAdmin & R&D Developer"
-    },
+    "title": { "es": "SysAdmin & R&D Developer", "en": "SysAdmin & R&D Developer" },
     "company": "TuMaker S.L.",
-    "location": { "es": "España", "en": "Spain" },
-    "period": { "es": "Mayo 2017 - Marzo 2018", "en": "May 2017 - March 2018" },
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Mayo 2017 – Marzo 2018", "en": "May 2017 – March 2018" },
     "description": {
-      "es": "Desarrollo de entornos frontend y backend con ReactJS, Django, Python. Despliegue y mantenimiento de servidores con Proxmox, Linux, Amazon Web Services. Desarrollo de software con C++ y Qt Creator. Desarrollo de aplicación móvil (Voladd) con React Native.",
-      "en": "Frontend and backend development with ReactJS, Django, Python. Server deployment and maintenance with Proxmox, Linux, Amazon Web Services. Software development with C++ and Qt Creator. Mobile app (Voladd) with React Native."
+      "es": "Full stack con React, Django y Python. Infraestructura Proxmox, AWS y OpenVPN. Firmware C++/Qt y app Voladd con React Native.",
+      "en": "Full stack with React, Django and Python. Proxmox, AWS and OpenVPN infrastructure. C++/Qt firmware and Voladd app with React Native."
     },
     "technologies": ["React", "Django", "Python", "C++", "Qt", "AWS", "Proxmox", "React Native"],
     "achievements": {
-      "es": ["Desarrollo full stack", "Infraestructura cloud", "Apps multiplataforma"],
-      "en": ["Full stack development", "Cloud infrastructure", "Cross-platform apps"]
+      "es": ["I+D interno con Scrum", "Seguridad Linux", "Stack embebido + móvil"],
+      "en": ["Internal R&D with Scrum", "Linux security", "Embedded + mobile stack"]
+    },
+    "tags": []
+  },
+  {
+    "id": "wattiocorp",
+    "title": { "es": "SysAdmin & R&D Developer", "en": "SysAdmin & R&D Developer" },
+    "company": "Wattiocorp S.L.",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Febrero – Mayo 2017", "en": "February – May 2017" },
+    "description": {
+      "es": "Frontend/backend con AngularJS, NodeJS (pm2) e Ionic. Infraestructura Proxmox, AWS, Redis, MongoDB y MQTT. Software embebido C++/Qt.",
+      "en": "Frontend/backend with AngularJS, NodeJS (pm2) and Ionic. Proxmox, AWS, Redis, MongoDB and MQTT infrastructure. Embedded C++/Qt software."
+    },
+    "technologies": ["AngularJS", "Node.js", "Ionic", "C++", "Qt", "AWS", "MongoDB", "Redis"],
+    "achievements": {
+      "es": ["IoT y mensajería MQTT", "GitLab + Git Flow", "Soporte técnico in situ"],
+      "en": ["IoT and MQTT messaging", "GitLab + Git Flow", "On-site technical support"]
+    },
+    "tags": []
+  },
+  {
+    "id": "hakei",
+    "title": { "es": "SysAdmin & Full Stack Developer", "en": "SysAdmin & Full Stack Developer" },
+    "company": "Hakei Europe S.L.",
+    "location": { "es": "Vergara, Gipuzkoa", "en": "Vergara, Gipuzkoa" },
+    "period": { "es": "Octubre 2015 – Febrero 2017", "en": "October 2015 – February 2017" },
+    "description": {
+      "es": "Extranet, ecommerce Prestashop e intranet con Symfony3, AngularJS, React e Ionic. Virtualización Proxmox y administración Windows/Linux.",
+      "en": "Extranet, Prestashop ecommerce and intranet with Symfony3, AngularJS, React and Ionic. Proxmox virtualization and Windows/Linux administration."
+    },
+    "technologies": ["Symfony", "AngularJS", "React", "Ionic", "PHP", "Prestashop", "Proxmox"],
+    "achievements": {
+      "es": ["Ecommerce en producción", "Herramientas internas", "I+D con Scrum/Jira"],
+      "en": ["Production ecommerce", "Internal tools", "R&D with Scrum/Jira"]
+    },
+    "tags": []
+  },
+  {
+    "id": "tak-learning",
+    "title": {
+      "es": "System Administrator & Web Developer",
+      "en": "System Administrator & Web Developer"
+    },
+    "company": "TAK Learning",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Marzo – Octubre 2015", "en": "March – October 2015" },
+    "description": {
+      "es": "Apps web con Symfony, AngularJS e Ionic. Administración GNU/Linux, virtualización Proxmox, Nagios, seguridad (iptables, pfSense) y OwnCloud.",
+      "en": "Web apps with Symfony, AngularJS and Ionic. GNU/Linux administration, Proxmox virtualization, Nagios, security (iptables, pfSense) and OwnCloud."
+    },
+    "technologies": ["Symfony", "AngularJS", "Ionic", "PHP", "Linux", "Proxmox", "Nagios"],
+    "achievements": {
+      "es": ["Contacto directo con cliente", "Monitorización Nagios", "Cloud privada OwnCloud"],
+      "en": ["Direct client contact", "Nagios monitoring", "OwnCloud private cloud"]
+    },
+    "tags": []
+  },
+  {
+    "id": "ikasplay",
+    "title": { "es": "Desarrollador de aplicaciones web", "en": "Web Application Developer" },
+    "company": "Ikasplay",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Septiembre 2014 – Marzo 2015", "en": "September 2014 – March 2015" },
+    "description": {
+      "es": "Desarrollo web con jQuery, PHP y MySQL. WebApps híbridas con PhoneGap y Cordova para Android e iOS.",
+      "en": "Web development with jQuery, PHP and MySQL. Hybrid WebApps with PhoneGap and Cordova for Android and iOS."
+    },
+    "technologies": ["jQuery", "PHP", "MySQL", "PhoneGap", "Cordova", "HTML5"],
+    "achievements": {
+      "es": ["Apps híbridas multiplataforma", "Stack LAMP clásico"],
+      "en": ["Cross-platform hybrid apps", "Classic LAMP stack"]
+    },
+    "tags": []
+  },
+  {
+    "id": "enigmedia",
+    "title": { "es": "SysAdmin y Desarrollador", "en": "SysAdmin and Developer" },
+    "company": "Enigmedia",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Marzo – Julio 2014", "en": "March – July 2014" },
+    "description": {
+      "es": "SysAdmin con LDAP, Linux, Tomcat y PostgreSQL. I+D con interfaces Qt y C/C++.",
+      "en": "SysAdmin with LDAP, Linux, Tomcat and PostgreSQL. R&D with Qt interfaces and C/C++."
+    },
+    "technologies": ["Linux", "LDAP", "PostgreSQL", "Qt", "C++", "Tomcat"],
+    "achievements": {
+      "es": ["Virtualización y hardening", "Interfaces Qt en C++"],
+      "en": ["Virtualization and hardening", "Qt interfaces in C++"]
+    },
+    "tags": []
+  },
+  {
+    "id": "sernivel",
+    "title": { "es": "Técnico de sistemas", "en": "Systems Technician" },
+    "company": "SerNivel 3 – Ibermática (Bankoa)",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": { "es": "Febrero – Marzo 2014", "en": "February – March 2014" },
+    "description": {
+      "es": "Migración de servidores Windows Server 2003 a 2008 y estaciones Windows XP a Windows 7 en entorno bancario.",
+      "en": "Migration of Windows Server 2003 to 2008 and Windows XP to Windows 7 workstations in banking environment."
+    },
+    "technologies": ["Windows Server", "Active Directory", "Migration"],
+    "achievements": {
+      "es": ["Migración enterprise", "Entorno regulado bancario"],
+      "en": ["Enterprise migration", "Regulated banking environment"]
+    },
+    "tags": []
+  },
+  {
+    "id": "loyola",
+    "title": { "es": "SysAdmin", "en": "SysAdmin" },
+    "company": "Colegio San Ignacio de Loyola",
+    "location": { "es": "Donostia", "en": "San Sebastián" },
+    "period": {
+      "es": "Septiembre 2010 – Septiembre 2013",
+      "en": "September 2010 – September 2013"
+    },
+    "description": {
+      "es": "Dominio AD Windows Server 2008, firewalls Linux, Asterisk VoIP, redes Cisco/HP y desarrollo web PHP/MySQL.",
+      "en": "Windows Server 2008 AD domain, Linux firewalls, Asterisk VoIP, Cisco/HP networking and PHP/MySQL web development."
+    },
+    "technologies": ["Windows Server", "Linux", "Asterisk", "Cisco", "PHP", "MySQL"],
+    "achievements": {
+      "es": ["Infraestructura educativa completa", "Telefonía VoIP", "Red corporativa"],
+      "en": ["Complete educational infrastructure", "VoIP telephony", "Corporate network"]
     },
     "tags": []
   }
