@@ -11,11 +11,20 @@ Portfolio inteligente con **IA generativa 100% local en el navegador**, desarrol
 
 Un portfolio personal donde el **chat de IA es el protagonista**. Los visitantes preguntan directamente sobre experiencia, stack y proyectos; el CV completo vive en `/about` como documento profesional.
 
-| Ruta      | Propósito                                             |
-| --------- | ----------------------------------------------------- |
-| `/`       | Chat-first — asistente IA local con boot sequence     |
-| `/about`  | Perfil tipo LinkedIn — experiencia, skills, formación |
-| `/ai-lab` | Demo técnica TFM — métricas, proveedores, runtime     |
+| Ruta         | Propósito                                             |
+| ------------ | ----------------------------------------------------- |
+| `/es`, `/en` | Chat-first — asistente IA local con boot sequence     |
+| `/…/about`   | Perfil tipo LinkedIn — experiencia, skills, formación |
+| `/…/ai-lab`  | Demo técnica TFM — métricas, proveedores, runtime     |
+
+Rutas localizadas con `proxy.ts` (Next.js 16): redirección automática según `Accept-Language` y alternates hreflang en sitemap/metadata.
+
+## Novedades v0.4.0
+
+- **Multidioma indexable:** rutas `/es` y `/en` con metadata, sitemap y JSON-LD por idioma
+- **GitHub Stats nativo:** bloque propio con API pública cacheada (sin widget externo)
+- **RAG afinado:** umbral reducido, sinónimos ES/EN, certificaciones/soft skills indexados
+- **Chat compacto mobile-first:** barra de runtime, transcript flexible, sugerencias horizontales
 
 ## Arquitectura IA
 
@@ -49,7 +58,7 @@ pnpm install
 pnpm dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Abre [http://localhost:3000](http://localhost:3000) (redirige a `/es` o `/en`).
 
 ## Scripts
 
@@ -65,9 +74,10 @@ Abre [http://localhost:3000](http://localhost:3000).
 ## Estructura
 
 ```text
-app/              # Rutas: /, /about, /ai-lab + SEO (sitemap, robots, OG)
+app/              # Rutas: /[lang], /[lang]/about, /[lang]/ai-lab + SEO
 components/
-  ai/             # Chat, boot sequence, proveedores
+  ai/             # Chat compacto, runtime rail, boot sequence
+  github-stats.tsx# Stats GitHub nativos (Server Component)
   home/           # Hero chat-first, proof strip
   about/          # Perfil documento
 data/             # Base de conocimiento JSON bilingüe (fuente única de verdad)
