@@ -2,9 +2,10 @@
 
 import Link from "next/link"
 import { useLanguage } from "@/components/language-provider"
+import { localizedPath } from "@/lib/i18n/config"
 
 export function SiteFooter({ variant = "ink" }: { variant?: "ink" | "light" }) {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
   const isInk = variant === "ink"
 
   return (
@@ -18,14 +19,14 @@ export function SiteFooter({ variant = "ink" }: { variant?: "ink" | "light" }) {
       <p>
         © {new Date().getFullYear()} Andoni Vianez Ulloa ·{" "}
         <Link
-          href="/about"
+          href={localizedPath("/about", language)}
           className={isInk ? "hover:text-amber transition-colors" : "hover:underline"}
         >
           {t("nav.profile")}
         </Link>
         {" · "}
         <Link
-          href="/ai-lab"
+          href={localizedPath("/ai-lab", language)}
           className={isInk ? "hover:text-amber transition-colors" : "hover:underline"}
         >
           {t("nav.ailab")}

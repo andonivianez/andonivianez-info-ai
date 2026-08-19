@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "motion/react"
 import { useLanguage } from "@/components/language-provider"
 import { getProfile } from "@/lib/portfolio"
+import { localizedPath } from "@/lib/i18n/config"
 
 export function ProofStrip() {
   const { language, t } = useLanguage()
@@ -12,7 +13,7 @@ export function ProofStrip() {
 
   const items = [
     { label: t("home.proof.years"), value: `${profile.stats.yearsExperience}+` },
-    { label: t("home.proof.stack"), value: "React Native · Next.js · IA local" },
+    { label: t("home.proof.stack"), value: t("home.proof.stackValue") },
     { label: t("home.proof.location"), value: profile.location },
   ]
 
@@ -36,7 +37,7 @@ export function ProofStrip() {
           ))}
         </div>
         <Link
-          href="/about"
+          href={localizedPath("/about", language)}
           className="text-amber hover:text-amber/80 inline-flex items-center gap-2 text-sm font-medium transition-colors"
         >
           {t("home.viewProfile")}

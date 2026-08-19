@@ -3,7 +3,7 @@ import { buildContext, getInsufficientInfoMessage } from "@/lib/rag/context-buil
 
 describe("context-builder", () => {
   it("respects context budget", () => {
-    const result = buildContext("React Native mobile apps", "en", 500)
+    const result = buildContext("React Native mobile apps", "en", 500, 1)
     expect(result.context.length).toBeLessThanOrEqual(600)
   })
 

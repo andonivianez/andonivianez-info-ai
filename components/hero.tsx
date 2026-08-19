@@ -84,7 +84,7 @@ export function Hero() {
         </div>
 
         <div className="animate-bounce">
-          <a href="#about" aria-label={language === "es" ? "Ir a sobre mí" : "Go to about section"}>
+          <a href="#about" aria-label={t("hero.goToAbout")}>
             <ArrowDown className="text-muted-foreground mx-auto h-6 w-6" />
           </a>
         </div>

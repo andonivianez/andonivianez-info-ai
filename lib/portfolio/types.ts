@@ -97,7 +97,16 @@ export interface PortfolioData {
 }
 
 export type ChunkSource =
-  "profile" | "experience" | "project" | "technology" | "education" | "language" | "skill"
+  | "profile"
+  | "experience"
+  | "project"
+  | "technology"
+  | "education"
+  | "language"
+  | "skill"
+  | "certification"
+  | "softskill"
+  | "summary"
 
 export interface Chunk {
   id: string

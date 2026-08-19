@@ -1,12 +1,12 @@
 [
   {
-    "id": "master-tfm",
+    "id": "master-bigia",
     "degree": {
-      "es": "Máster en Ingeniería Informática (TFM en curso)",
-      "en": "Master's in Computer Engineering (thesis in progress)"
+      "es": "Máster en Desarrollo con Inteligencia Artificial (BigIA)",
+      "en": "Master's Degree in Development with Artificial Intelligence (BigIA)"
     },
-    "institution": "Universidad de Burgos (UBU)",
-    "period": "2024–2025",
+    "institution": "Universidad Isabel I",
+    "period": "2026",
     "type": "university"
   },
   {
