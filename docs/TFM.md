@@ -145,8 +145,8 @@ Para evaluar métricas: navegar a `/es/ai-lab` o `/en/ai-lab`, hacer varias preg
 
 ## 14. Referencias de entrega
 
-| Material          | Enlace                                                                                                   |
-| ----------------- | -------------------------------------------------------------------------------------------------------- |
-| Slides            | Ver [PRESENTACION.md](PRESENTACION.md) — URL pública: **TODO**                                           |
-| Vídeo             | Ver [GUION-VIDEO.md](GUION-VIDEO.md) — URL pública: **TODO**                                             |
-| Requisitos Fundae | [PDF oficial](https://campus.thebigschool.com/wp-content/uploads/2026/02/Documentacion-TFM-Fundae-1.pdf) |
+| Material          | Enlace                                                                                                                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Slides            | [TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) — [URL pública en GitHub](https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) |
+| Vídeo             | Ver [GUION-VIDEO.md](GUION-VIDEO.md) — URL pública: **TODO**                                                                                                                                                                    |
+| Requisitos Fundae | [PDF oficial](https://campus.thebigschool.com/wp-content/uploads/2026/02/Documentacion-TFM-Fundae-1.pdf)                                                                                                                        |

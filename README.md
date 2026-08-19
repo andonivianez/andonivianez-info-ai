@@ -113,6 +113,7 @@ docs/
   TFM.md          # Documentación académica
   PRESENTACION.md # Guion de slides (TFM)
   GUION-VIDEO.md  # Guion de vídeo (TFM)
+  TFM_Portfolio_IA_Local_Andoni_Vianez.pptx  # Deck de defensa
 ```
 
 ## Gitflow
@@ -137,23 +138,24 @@ Commits: [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, 
 
 ## Documentación TFM
 
-| Documento                                    | Contenido                                                 |
-| -------------------------------------------- | --------------------------------------------------------- |
-| [docs/TFM.md](docs/TFM.md)                   | Arquitectura, RAG, proveedores, limitaciones y resultados |
-| [docs/PRESENTACION.md](docs/PRESENTACION.md) | Guion de slides para la defensa                           |
-| [docs/GUION-VIDEO.md](docs/GUION-VIDEO.md)   | Guion de vídeo con captura de pantalla                    |
+| Documento                                                                                        | Contenido                                                 |
+| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| [docs/TFM.md](docs/TFM.md)                                                                       | Arquitectura, RAG, proveedores, limitaciones y resultados |
+| [docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) | Slides de defensa (PowerPoint)                            |
+| [docs/PRESENTACION.md](docs/PRESENTACION.md)                                                     | Guion / notas de orador de las slides                     |
+| [docs/GUION-VIDEO.md](docs/GUION-VIDEO.md)                                                       | Guion de vídeo con captura de pantalla                    |
 
 ## Entrega TFM (Fundae)
 
 Material exigido por el máster BigIA — [requisitos oficiales](https://campus.thebigschool.com/wp-content/uploads/2026/02/Documentacion-TFM-Fundae-1.pdf):
 
-| Entregable                     | URL                                                   |
-| ------------------------------ | ----------------------------------------------------- |
-| Repositorio GitHub (público)   | https://github.com/andonivianez/andonivianez-info-ai  |
-| Despliegue en producción       | https://www.andonivianez.info                         |
-| Slides                         | **TODO:** añadir enlace público tras publicar el deck |
-| Vídeo (captura de pantalla)    | **TODO:** añadir enlace público tras grabar y subir   |
-| Usuario / contraseña de prueba | No aplica (sin autenticación)                         |
+| Entregable                     | URL                                                                                                                                                             |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Repositorio GitHub (público)   | https://github.com/andonivianez/andonivianez-info-ai                                                                                                            |
+| Despliegue en producción       | https://www.andonivianez.info                                                                                                                                   |
+| Slides                         | [docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) |
+| Vídeo (captura de pantalla)    | **TODO:** añadir enlace público tras grabar y subir                                                                                                             |
+| Usuario / contraseña de prueba | No aplica (sin autenticación)                                                                                                                                   |
 
 ## Licencia
 

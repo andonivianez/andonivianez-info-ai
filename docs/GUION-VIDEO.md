@@ -114,7 +114,7 @@ Andoni Vianez Ulloa
 
 🌐 https://www.andonivianez.info
 📦 https://github.com/andonivianez/andonivianez-info-ai
-📊 Slides: TODO
+📊 Slides: https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx
 
 Portfolio chat-first con RAG, Chrome Built-in AI, WebLLM y fallback extractivo.
 0 APIs de pago. Privacidad por diseño.
@@ -125,6 +125,6 @@ Portfolio chat-first con RAG, Chrome Built-in AI, WebLLM y fallback extractivo.
 ## Después de publicar
 
 1. Copiar URL del vídeo
-2. Sustituir `TODO` en [README.md](../README.md) → tabla “Entrega TFM”
-3. Sustituir `TODO` en [docs/TFM.md](TFM.md) → sección 14
+2. Sustituir `TODO` del vídeo en [README.md](../README.md) → tabla “Entrega TFM”
+3. Sustituir `TODO` del vídeo en [docs/TFM.md](TFM.md) → sección 14
 4. Rellenar formulario de entrega del campus (fecha límite: **20/07/2026**)

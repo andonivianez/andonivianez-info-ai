@@ -1,6 +1,9 @@
 # Guion de presentación — TFM Portfolio IA Local
 
-Copia cada slide a Canva, Google Slides o PowerPoint. Duración estimada: **10–12 minutos**.
+**Deck oficial (adjunto al repo):** [TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](TFM_Portfolio_IA_Local_Andoni_Vianez.pptx)  
+**URL pública:** https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx
+
+Este markdown es el guion / notas de orador. Duración estimada: **10–12 minutos**.
 
 ---
 
@@ -176,16 +179,17 @@ Usuario → AIChat → useAIAssistant → RAG (chunker + retriever)
 
 - **Live:** www.andonivianez.info
 - **Repo:** github.com/andonivianez/andonivianez-info-ai
-- **Vídeo:** TODO (enlace público)
+- **Vídeo:** pendiente de grabar (ver [GUION-VIDEO.md](GUION-VIDEO.md))
 - **Contacto:** LinkedIn / GitHub / Malt
 
 > **Nota de orador (30 s):** Agradece. Invita a probar el chat en sus propios navegadores. Preguntas.
 
 ---
 
-## Checklist antes de publicar el deck
+## Checklist del deck
 
-- [ ] Exportar como PDF o enlace público (Google Slides / Canva)
-- [ ] Pegar URL en README.md → sección “Entrega TFM”
-- [ ] Pegar URL en el formulario de entrega del campus
-- [ ] Revisar que no aparezcan datos sensibles (teléfono, DNI)
+- [x] Deck PowerPoint adjunto en `docs/`
+- [x] URL pública en README → sección “Entrega TFM”
+- [x] Enlaces clicables a web, repo, LinkedIn, GitHub y Malt
+- [ ] Pegar la URL de GitHub en el formulario de entrega del campus
+- [x] Sin datos sensibles (teléfono, DNI)
