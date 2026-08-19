@@ -22,7 +22,7 @@ export function SuggestedQuestions({
     <div
       className={cn(
         "flex [scrollbar-width:none] gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden",
-        isHero && "-mx-1 snap-x snap-mandatory px-1 sm:mx-0 sm:px-0",
+        isHero && "-mx-4 snap-x snap-mandatory px-4 sm:mx-0 sm:px-0",
       )}
     >
       {questions.map((question) => (
