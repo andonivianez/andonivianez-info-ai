@@ -1,52 +1,152 @@
 # Portfolio IA Local — Documentación TFM
 
-## Objetivo
+**Autor:** Andoni Vianez Ulloa  
+**Máster:** Desarrollo con Inteligencia Artificial (BigIA) — Universidad Isabel I (2026)  
+**Repositorio:** https://github.com/andonivianez/andonivianez-info-ai  
+**Despliegue:** https://www.andonivianez.info
 
-Demostrar experimentalmente que es posible construir un portfolio inteligente y privado utilizando IA generativa ejecutada localmente en navegadores modernos.
+---
 
-## Arquitectura
+## 1. Objetivo
+
+Demostrar experimentalmente que es posible construir un **portfolio inteligente y privado** utilizando IA generativa ejecutada **localmente en el navegador** del visitante, sin depender de APIs de pago ni enviar datos personales a terceros.
+
+El visitante puede preguntar en lenguaje natural sobre experiencia, stack, proyectos o formación; el sistema recupera contexto relevante del portfolio y genera (o sintetiza) una respuesta fundamentada.
+
+## 2. Hipótesis de trabajo
+
+1. Un RAG ligero sobre datos estructurados (`data/*.json`) es suficiente para responder la mayoría de preguntas de un reclutador o cliente técnico.
+2. La cascada Chrome AI → WebLLM → fallback garantiza **disponibilidad universal** sin sacrificar privacidad cuando el hardware lo permite.
+3. Un diseño **chat-first** mejora la experiencia frente a un CV estático, manteniendo el perfil completo en `/about` para SEO y lectura lineal.
+
+## 3. Arquitectura general
 
 ```text
-Pregunta → Retriever → Context Builder → AIProvider → Respuesta
-                ↑                              ↑
-           data/*.json              Chrome AI / WebLLM / Fallback
+Visitante → AIChat → useAIAssistant
+                         │
+                         ├─ buildPromptBundle (RAG)
+                         │     ├─ chunker.ts    → indexa data/*.json
+                         │     ├─ retriever.ts  → scoring + sinónimos ES/EN
+                         │     └─ context-builder.ts → presupuesto ~2000 chars
+                         │
+                         └─ AIProviderManager
+                               ├─ ChromeAIProvider   (Gemini Nano / Prompt API)
+                               ├─ WebLLMProvider     (WebGPU + Web Worker)
+                               └─ FallbackProvider   (búsqueda extractiva)
 ```
 
-## Proveedores de IA
+**Frontend:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4.  
+**Datos:** JSON bilingüe (`es` / `en`) como fuente única de verdad.  
+**Despliegue:** Vercel (SSG + proxy de locale en `proxy.ts`).
 
-| Prioridad | Proveedor                        | Requisitos                    |
-| --------- | -------------------------------- | ----------------------------- |
-| 1         | Chrome Built-in AI (Gemini Nano) | Chrome 148+, gesto de usuario |
-| 2         | WebLLM + WebGPU                  | WebGPU, ~1-2 GB descarga      |
-| 3         | Fallback extractivo              | Siempre disponible            |
+## 4. Proveedores de IA
 
-## RAG local
+| Prioridad | Proveedor                        | Requisitos                                         | Comportamiento                                  |
+| --------- | -------------------------------- | -------------------------------------------------- | ----------------------------------------------- |
+| 1         | Chrome Built-in AI (Gemini Nano) | Chrome 148+, gesto de usuario, hardware compatible | Generación local vía Prompt API                 |
+| 2         | WebLLM + WebGPU                  | Navegador con WebGPU, ~1–2 GB descarga inicial     | Modelo en Web Worker                            |
+| 3         | Fallback extractivo              | Siempre disponible                                 | Respuesta basada en chunks recuperados, sin LLM |
 
-- **chunker.ts**: fragmenta el portfolio en chunks indexables
-- **retriever.ts**: búsqueda ponderada con sinónimos ES/EN
-- **context-builder.ts**: presupuesto de contexto (~2000 chars) y umbral de confianza
+El `AIProviderManager` selecciona el mejor proveedor disponible en tiempo de ejecución. Si ningún modelo generativo está listo, el fallback garantiza una respuesta útil.
 
-## Métricas
+## 5. RAG local
 
-Registradas en `localStorage` (sin contenido de preguntas). Visualizables en `/ai-lab`.
+### 5.1 Indexación (`lib/rag/chunker.ts`)
 
-## Privacidad
+Fragmenta el portfolio en chunks indexables a partir de:
 
-Cuando el proveedor activo es generativo y local, se muestra el aviso de IA privada. En modo fallback, se indica que no hay modelo generativo.
+- Perfil, experiencia, proyectos, educación, skills (tecnologías, certificaciones, soft skills)
+- Chunks-resumen por categoría para preguntas amplias (“¿Qué tecnologías domina?”)
 
-## Limitaciones conocidas
+### 5.2 Recuperación (`lib/rag/retriever.ts`)
+
+- Tokenización con eliminación de stopwords (conservando términos semánticos)
+- Sinónimos ES ↔ EN para consultas bilingües
+- `sourceBoost` según perfil de audiencia (reclutador, técnico, etc.)
+- Umbral mínimo configurable (`AI_CONFIG.minRetrievalScore`)
+
+### 5.3 Construcción de contexto (`lib/rag/context-builder.ts`)
+
+- Presupuesto de ~2000 caracteres
+- Si el score top es insuficiente, devuelve mensaje de “información insuficiente” sin llamar al modelo
+- El contexto se pasa explícitamente al proveedor fallback (bug corregido en v0.4.0)
+
+## 6. Privacidad
+
+- **0 peticiones** a APIs de pago (OpenAI, Anthropic, etc.)
+- Las preguntas **no se almacenan** en servidor ni en métricas
+- Cuando el proveedor activo es generativo y local, se muestra aviso de IA privada
+- En modo fallback, se indica que no hay modelo generativo activo
+
+## 7. Multidioma y SEO
+
+- Rutas `/es` y `/en` con `generateStaticParams`
+- `proxy.ts` redirige según `Accept-Language`
+- Metadata, sitemap y JSON-LD con alternates hreflang
+- Objetivo: indexación en ambos idiomas para visibilidad profesional
+
+## 8. Métricas (`/ai-lab`)
+
+Registradas en `localStorage` del navegador (sin texto de preguntas):
+
+- Proveedor utilizado, tiempos de retrieval/generación
+- Longitud de contexto y respuesta, score top, éxito/error
+- Botón “Clear metrics” para reiniciar la sesión de demo
+
+Útil para la defensa del TFM: demostrar latencias reales en distintos proveedores.
+
+## 9. Calidad de software
+
+| Área            | Herramienta                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| Tests unitarios | Vitest (138 tests, cobertura en módulos core)                     |
+| Tests E2E       | Playwright (14 tests: portfolio, a11y, responsive)                |
+| CI              | GitHub Actions (lint, typecheck, coverage, build, e2e)            |
+| Commits         | Conventional Commits + Commitlint                                 |
+| Ramas           | Gitflow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) |
+
+## 10. Resultados esperados
+
+| Escenario                        | Resultado                                            |
+| -------------------------------- | ---------------------------------------------------- |
+| Cualquier navegador              | Fallback extractivo responde con chunks relevantes   |
+| Chrome + hardware compatible     | Gemini Nano genera respuestas naturales en local     |
+| Chrome/Edge + WebGPU             | WebLLM descarga modelo y genera en Web Worker        |
+| Safari / iOS sin WebGPU          | Solo fallback (limitación documentada)               |
+| Preguntas sugeridas (5 perfiles) | `hasRelevantContext === true` tras tuning RAG v0.4.0 |
+
+## 11. Limitaciones conocidas
 
 - Chrome AI requiere hardware compatible y descarga inicial del modelo
 - WebLLM no funciona en iOS/Safari sin WebGPU
+- Los tests de proveedores reales no se ejecutan en CI (requieren hardware del runner)
 - TypeScript 5.9 (TS 7 no es compatible aún con typescript-eslint; ver issue #10940)
-- Los tests de proveedores reales no se ejecutan en CI (requieren hardware)
+- El fallback no “inventa”: si no hay chunks relevantes, comunica la insuficiencia
 
-## Comandos
+## 12. Trabajo futuro
+
+- Embeddings locales para retrieval semántico (actualmente lexical + sinónimos)
+- Modo offline completo con Service Worker para cache del modelo WebLLM
+- Panel de administración para editar `data/*.json` sin tocar el repo
+- A/B de prompts según audiencia detectada
+
+## 13. Reproducción
 
 ```bash
-pnpm dev          # Desarrollo
-pnpm build        # Build producción
+corepack enable
+pnpm install
+pnpm dev          # http://localhost:3000 → /es o /en
 pnpm test         # Tests unitarios
-pnpm e2e          # Tests end-to-end
-pnpm typecheck    # Verificación de tipos
+pnpm e2e          # Tests end-to-end (requiere Playwright)
+pnpm build        # Build producción
 ```
+
+Para evaluar métricas: navegar a `/es/ai-lab` o `/en/ai-lab`, hacer varias preguntas en el chat de la home y volver al AI Lab.
+
+## 14. Referencias de entrega
+
+| Material          | Enlace                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| Slides            | Ver [PRESENTACION.md](PRESENTACION.md) — URL pública: **TODO**                                           |
+| Vídeo             | Ver [GUION-VIDEO.md](GUION-VIDEO.md) — URL pública: **TODO**                                             |
+| Requisitos Fundae | [PDF oficial](https://campus.thebigschool.com/wp-content/uploads/2026/02/Documentacion-TFM-Fundae-1.pdf) |
