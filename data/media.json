@@ -1,0 +1,38 @@
+[
+  {
+    "id": "opground-discovery-17",
+    "type": "podcast",
+    "title": {
+      "es": "#17 - Andoni Vianez, Fullstack developer, CTO & Teacher",
+      "en": "#17 - Andoni Vianez, Fullstack developer, CTO & Teacher"
+    },
+    "platform": {
+      "es": "Discovery Tech Stories — Opground",
+      "en": "Discovery Tech Stories — Opground"
+    },
+    "date": "2021",
+    "url": "https://www.youtube.com/watch?v=JxUR_vduGEw",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/JxUR_vduGEw",
+    "thumbnail": "/media/opground-17.jpg",
+    "summary": {
+      "es": "Entrevista en el podcast Discovery Tech Stories de Opground sobre mi trayectoria: el paso de administración de sistemas a desarrollo full stack, el perfil T-shaped que combina infraestructura y software, la docencia IT freelance desde 2010 y proyectos tempranos en web y móvil.",
+      "en": "Interview on Opground's Discovery Tech Stories podcast about my career: the transition from systems administration to full stack development, the T-shaped profile combining infrastructure and software, freelance IT teaching since 2010, and early web and mobile projects."
+    },
+    "topics": {
+      "es": [
+        "Transición de sysadmin a desarrollo",
+        "Perfil T-shaped (sistemas + desarrollo)",
+        "Docencia IT freelance",
+        "Experiencia en startups y pymes",
+        "Trayectoria desde los 17 años en informática"
+      ],
+      "en": [
+        "Transition from sysadmin to development",
+        "T-shaped profile (systems + development)",
+        "Freelance IT teaching",
+        "Startup and SME experience",
+        "Career in IT since age 17"
+      ]
+    }
+  }
+]

@@ -32,7 +32,7 @@ describe("ai-metrics", () => {
 
   it("caps stored entries", () => {
     const store = new LocalStorageMetricsStore()
-    for (let i = 0; i < 510; i += 1) {
+    for (let i = 0; i < 250; i += 1) {
       store.add(
         createMetric({
           provider: "fallback",
@@ -50,7 +50,64 @@ describe("ai-metrics", () => {
         }),
       )
     }
-    expect(store.list().length).toBeLessThanOrEqual(500)
+    expect(store.list().length).toBeLessThanOrEqual(200)
+  })
+
+  it("does not throw when localStorage quota is exceeded", () => {
+    const store = new LocalStorageMetricsStore()
+    store.add(
+      createMetric({
+        provider: "fallback",
+        questionLength: 1,
+        contextLength: 1,
+        responseLength: 1,
+        retrievalTime: 1,
+        generationTime: 1,
+        totalTime: 1,
+        success: true,
+        answeredWithoutLLM: true,
+        chunksRetrieved: 1,
+        topScore: 1,
+        locale: "es",
+      }),
+    )
+
+    const originalSetItem = Storage.prototype.setItem
+    let attempts = 0
+    Storage.prototype.setItem = function setItemMock(key: string, value: string) {
+      if (key === "portfolio-ai-metrics") {
+        attempts += 1
+        if (attempts === 1) {
+          const error = new DOMException("Quota exceeded", "QuotaExceededError")
+          throw error
+        }
+      }
+      return originalSetItem.call(this, key, value)
+    }
+
+    expect(() =>
+      store.add(
+        createMetric({
+          provider: "chrome-ai",
+          questionLength: 2,
+          contextLength: 2,
+          responseLength: 2,
+          retrievalTime: 2,
+          generationTime: 2,
+          totalTime: 2,
+          success: true,
+          answeredWithoutLLM: false,
+          chunksRetrieved: 2,
+          topScore: 2,
+          locale: "es",
+          topic: "faq:pricing",
+          matchedTerms: ["react"],
+        }),
+      ),
+    ).not.toThrow()
+
+    Storage.prototype.setItem = originalSetItem
+    expect(store.list().length).toBeGreaterThan(0)
   })
 
   it("summarizes empty and mixed metrics and exports them", () => {

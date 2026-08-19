@@ -28,6 +28,9 @@ export interface Profile {
     technologies: number
     projects: number
   }
+  availability?: Localized<string>
+  openTo?: Localized<string[]>
+  workModel?: Localized<string>
 }
 
 export interface Experience {
@@ -39,7 +42,12 @@ export interface Experience {
   description: Localized<string>
   technologies: string[]
   achievements: Localized<string[]>
-  tags: ("current" | "freelance")[]
+  tags: ("current" | "freelance" | "teaching")[]
+  industry?: Localized<string>
+  teamSize?: Localized<string>
+  scope?: "employment" | "freelance"
+  clients?: Localized<string[]>
+  featured?: boolean
 }
 
 export interface Project {
@@ -51,6 +59,38 @@ export interface Project {
   url?: string
   github?: string
   category: Localized<string>
+  problem?: Localized<string>
+  solution?: Localized<string>
+  result?: Localized<string>
+}
+
+export interface Service {
+  id: string
+  title: Localized<string>
+  description: Localized<string>
+  deliverables: Localized<string[]>
+  technologies: string[]
+  pricing?: Localized<string>
+}
+
+export interface FaqEntry {
+  id: string
+  question: Localized<string>
+  answer: Localized<string>
+  category: "hiring" | "technical" | "general" | "boundaries" | "personal"
+}
+
+export interface MediaAppearance {
+  id: string
+  type: "podcast" | "video" | "article" | "talk"
+  title: Localized<string>
+  platform: Localized<string>
+  date: string
+  url: string
+  embedUrl?: string
+  thumbnail?: string
+  summary: Localized<string>
+  topics: Localized<string[]>
 }
 
 export interface SkillCategory {
@@ -88,6 +128,9 @@ export interface PortfolioData {
   profile: Profile
   experience: Experience[]
   projects: Project[]
+  services: Service[]
+  faq: FaqEntry[]
+  media: MediaAppearance[]
   skills: SkillCategory[]
   education: EducationEntry[]
   languages: LanguageEntry[]
@@ -107,6 +150,11 @@ export type ChunkSource =
   | "certification"
   | "softskill"
   | "summary"
+  | "service"
+  | "faq"
+  | "availability"
+  | "boundary"
+  | "media"
 
 export interface Chunk {
   id: string

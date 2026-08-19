@@ -11,11 +11,12 @@ Portfolio inteligente con **IA generativa 100% local en el navegador**, desarrol
 
 Un portfolio personal donde el **chat de IA es el protagonista**. Los visitantes preguntan directamente sobre experiencia, stack y proyectos; el CV completo vive en `/about` como documento profesional.
 
-| Ruta         | Propósito                                             |
-| ------------ | ----------------------------------------------------- |
-| `/es`, `/en` | Chat-first — asistente IA local con boot sequence     |
-| `/…/about`   | Perfil tipo LinkedIn — experiencia, skills, formación |
-| `/…/ai-lab`  | Demo técnica TFM — métricas, proveedores, runtime     |
+| Ruta         | Propósito                                                                                    |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| `/es`, `/en` | Chat-first — asistente IA local con boot sequence                                            |
+| `/…/about`   | Perfil tipo LinkedIn — experiencia, servicios freelance, FAQ, entrevistas, skills, formación |
+| `/…/ai-lab`  | Demo técnica TFM — métricas, proveedores, runtime, distribución de temas                     |
+| `/…/legal/*` | Aviso legal, privacidad (RGPD) y cookies                                                     |
 
 Rutas localizadas con `proxy.ts` (Next.js 16): redirección automática según `Accept-Language` y alternates hreflang en sitemap/metadata.
 
@@ -35,7 +36,9 @@ Rutas localizadas con `proxy.ts` (Next.js 16): redirección automática según `
 
 - **Multidioma indexable:** rutas `/es` y `/en` con metadata, sitemap y JSON-LD por idioma
 - **GitHub Stats nativo:** bloque propio con API pública cacheada (sin widget externo)
-- **RAG afinado:** umbral reducido, sinónimos ES/EN, certificaciones/soft skills indexados
+- **RAG afinado:** alias (RN, TS, K8s), lematización, tolerancia a erratas, FAQ ampliada (~40 entradas), límites honestos y banco de ~100 preguntas con tests de regresión
+- **Chat conversacional:** saludos, meta-preguntas, despedida, detección de euskera, memoria de seguimiento y sugerencias dinámicas tras cada respuesta
+- **Entrevista Opground:** sección en About con carátula local y vídeo YouTube bajo demanda (`youtube-nocookie`)
 - **Chat compacto mobile-first:** barra de runtime, transcript flexible, sugerencias horizontales
 
 ## Arquitectura IA
@@ -51,7 +54,8 @@ Usuario → AIChat → useAIAssistant → RAG (chunker + retriever)
 
 - **Privacidad:** 0 peticiones a APIs de pago (OpenAI, Anthropic, etc.)
 - **RAG local:** retrieval ponderado sobre `data/*.json` bilingüe
-- **Métricas:** localStorage sin almacenar texto de preguntas
+- **Métricas:** localStorage sin almacenar texto de preguntas; analítica agregada opcional vía Vercel Analytics (tema, proveedor, idioma — sin texto literal)
+- **Legal:** aviso legal, política de privacidad (RGPD) y cookies en `/legal/*` con aviso informativo de consentimiento
 
 ## Stack
 

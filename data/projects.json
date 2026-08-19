@@ -9,6 +9,18 @@
       "es": "Portfolio profesional inteligente con IA generativa ejecutada localmente en el navegador. Implementa RAG, Chrome Built-in AI, WebLLM/WebGPU y fallback extractivo sin servicios de IA de pago.",
       "en": "Intelligent professional portfolio with generative AI running locally in the browser. Implements RAG, Chrome Built-in AI, WebLLM/WebGPU and extractive fallback without paid AI services."
     },
+    "problem": {
+      "es": "Los portfolios estáticos no responden preguntas de recruiters ni clientes; las soluciones con APIs de pago comprometen la privacidad y generan costes recurrentes.",
+      "en": "Static portfolios don't answer recruiter or client questions; paid API solutions compromise privacy and generate recurring costs."
+    },
+    "solution": {
+      "es": "Asistente conversacional con RAG léxico sobre JSON estructurado, abstracción multi-proveedor (Chrome Prompt API → WebLLM → fallback extractivo) y métricas experimentales en /ai-lab.",
+      "en": "Conversational assistant with lexical RAG over structured JSON, multi-provider abstraction (Chrome Prompt API → WebLLM → extractive fallback) and experimental metrics in /ai-lab."
+    },
+    "result": {
+      "es": "Portfolio funcional desplegado en Vercel con IA 100% local, sin claves API ni backend de inferencia. TFM del Máster BigIA (2026).",
+      "en": "Functional portfolio deployed on Vercel with 100% local AI, no API keys or inference backend. BigIA Master's thesis (2026)."
+    },
     "technologies": [
       "Next.js",
       "TypeScript",
@@ -42,6 +54,18 @@
       "es": "Aplicación móvil multiplataforma desarrollada con React Native para Android e iOS, con módulos nativos en Java, Kotlin, Swift y Objective-C.",
       "en": "Cross-platform mobile application built with React Native for Android and iOS, with native modules in Java, Kotlin, Swift and Objective-C."
     },
+    "problem": {
+      "es": "BQ necesitaba una app de configuración de dispositivos que accediera a hardware nativo (sensores, conectividad) manteniendo un único codebase para iOS y Android.",
+      "en": "BQ needed a device configuration app that accessed native hardware (sensors, connectivity) while maintaining a single codebase for iOS and Android."
+    },
+    "solution": {
+      "es": "App React Native con bridge nativo multiplataforma, CI con Jenkins y distribución via Firebase para releases regulares.",
+      "en": "React Native app with cross-platform native bridge, CI with Jenkins and Firebase distribution for regular releases."
+    },
+    "result": {
+      "es": "App Zetup publicada en App Store y Google Play, con módulos nativos funcionales y pipeline de integración continua.",
+      "en": "Zetup app published on App Store and Google Play, with functional native modules and continuous integration pipeline."
+    },
     "technologies": ["React Native", "Java", "Kotlin", "Swift", "Objective-C", "Firebase"],
     "highlights": {
       "es": ["App móvil nativa", "Módulos nativos", "CI con Jenkins"],
@@ -55,6 +79,18 @@
     "description": {
       "es": "Aplicación móvil multiplataforma con React Native para gestión de impresión 3D, integrada con backend Django y despliegue en AWS.",
       "en": "Cross-platform mobile app with React Native for 3D printing management, integrated with Django backend and AWS deployment."
+    },
+    "problem": {
+      "es": "TuMaker necesitaba controlar impresoras 3D remotamente desde móvil, con sincronización con el backend de gestión de proyectos.",
+      "en": "TuMaker needed to control 3D printers remotely from mobile, with synchronization to the project management backend."
+    },
+    "solution": {
+      "es": "App React Native con backend Django en AWS, firmware C++/Qt en las impresoras y comunicación via API REST.",
+      "en": "React Native app with Django backend on AWS, C++/Qt firmware on printers and communication via REST API."
+    },
+    "result": {
+      "es": "Stack embebido + móvil + cloud integrado, permitiendo monitorización y control remoto de impresoras.",
+      "en": "Integrated embedded + mobile + cloud stack, enabling remote printer monitoring and control."
     },
     "technologies": ["React Native", "Django", "Python", "AWS", "C++"],
     "highlights": {
@@ -72,6 +108,18 @@
     "description": {
       "es": "Desarrollo de firmware embebido en C++/Qt para dispositivos IoT y domótica, con integración MQTT y backend Node.js.",
       "en": "Embedded firmware development in C++/Qt for IoT and home automation devices, with MQTT integration and Node.js backend."
+    },
+    "problem": {
+      "es": "Wattiocorp necesitaba firmware fiable para dispositivos de domótica con comunicación MQTT y gestión remota desde plataforma web.",
+      "en": "Wattiocorp needed reliable firmware for home automation devices with MQTT communication and remote management from a web platform."
+    },
+    "solution": {
+      "es": "Firmware C++/Qt desplegado en dispositivos de producción, con arquitectura IoT basada en MQTT, Redis y MongoDB en backend Node.js.",
+      "en": "C++/Qt firmware deployed on production devices, with IoT architecture based on MQTT, Redis and MongoDB on Node.js backend."
+    },
+    "result": {
+      "es": "Firmware embebido en producción para domótica, con soporte técnico in situ y GitLab + Git Flow.",
+      "en": "Embedded firmware in production for home automation, with on-site technical support and GitLab + Git Flow."
     },
     "technologies": ["C++", "Qt", "MQTT", "Embedded", "Node.js"],
     "highlights": {

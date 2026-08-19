@@ -51,6 +51,10 @@ El `AIProviderManager` selecciona el mejor proveedor disponible en tiempo de eje
 
 ## 5. RAG local
 
+- Chunker ampliado: experiencias (ConnectHealth, Titaneumáticos, docencia), FAQ (~40 entradas), límites honestos (`boundary`), entrevista Opground (`media`).
+- Retriever mejorado: alias (RN, TS, K8s), lematización ligera, fuzzy match, mínimo 2 tokens coincidentes, `minScore` recalibrado a 2.
+- Banco de ~100 preguntas con test de regresión (`question-bank.test.ts`).
+
 ### 5.1 Indexación (`lib/rag/chunker.ts`)
 
 Fragmenta el portfolio en chunks indexables a partir de:
@@ -73,9 +77,12 @@ Fragmenta el portfolio en chunks indexables a partir de:
 
 ## 6. Privacidad
 
-- **0 peticiones** a APIs de pago (OpenAI, Anthropic, etc.)
-- Las preguntas **no se almacenan** en servidor ni en métricas
-- Cuando el proveedor activo es generativo y local, se muestra aviso de IA privada
+- **0 peticiones** a APIs de pago (OpenAI, Anthropic, etc.) para inferencia
+- Las preguntas **no se almacenan** en servidor ni en métricas locales (solo longitudes y tiempos)
+- Analítica agregada opcional (Vercel Analytics): tema detectado del vocabulario controlado, proveedor, idioma y latencia en rangos — **sin texto literal** de las preguntas, sujeta a consentimiento del visitante
+- Páginas legales: aviso legal (LSSI), política de privacidad (RGPD) y cookies
+- Transparencia de IA (Reglamento UE): el visitante sabe que interactúa con un asistente automatizado
+- Cuando el proveedor activo es generativo y local, se muestra aviso de IA privada con enlace a la política
 - En modo fallback, se indica que no hay modelo generativo activo
 
 ## 7. Multidioma y SEO
@@ -91,7 +98,11 @@ Registradas en `localStorage` del navegador (sin texto de preguntas):
 
 - Proveedor utilizado, tiempos de retrieval/generación
 - Longitud de contexto y respuesta, score top, éxito/error
+- Tema clasificado (`source:sourceId`) y términos del vocabulario controlado
+- Distribución de temas y tasa de preguntas sin contexto en el dashboard
 - Botón “Clear metrics” para reiniciar la sesión de demo
+
+Eventos agregados en Vercel Analytics (`chat_question`, `chat_gap`) si el visitante acepta analítica.
 
 Útil para la defensa del TFM: demostrar latencias reales en distintos proveedores.
 

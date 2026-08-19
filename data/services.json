@@ -1,0 +1,152 @@
+[
+  {
+    "id": "fullstack-web",
+    "title": {
+      "es": "Desarrollo web full stack",
+      "en": "Full stack web development"
+    },
+    "description": {
+      "es": "Aplicaciones web a medida con React, Next.js, Node.js o Symfony. Desde el diseño de arquitectura hasta el despliegue en producción, incluyendo CI/CD y mantenimiento evolutivo.",
+      "en": "Custom web applications with React, Next.js, Node.js or Symfony. From architecture design to production deployment, including CI/CD and evolutionary maintenance."
+    },
+    "deliverables": {
+      "es": [
+        "Aplicación web funcional desplegada",
+        "Repositorio con documentación técnica",
+        "Pipeline CI/CD configurado",
+        "Formación básica al equipo del cliente"
+      ],
+      "en": [
+        "Deployed functional web application",
+        "Repository with technical documentation",
+        "Configured CI/CD pipeline",
+        "Basic training for the client team"
+      ]
+    },
+    "technologies": ["React", "Next.js", "TypeScript", "Node.js", "Symfony", "Docker"],
+    "pricing": {
+      "es": "Proyecto cerrado o bolsa de horas · Presupuesto tras análisis inicial",
+      "en": "Fixed project or hourly retainer · Quote after initial analysis"
+    }
+  },
+  {
+    "id": "mobile-apps",
+    "title": {
+      "es": "Apps móviles multiplataforma",
+      "en": "Cross-platform mobile apps"
+    },
+    "description": {
+      "es": "Desarrollo de apps iOS y Android con React Native, incluyendo módulos nativos cuando el hardware lo requiere. Experiencia publicando en App Store y Google Play.",
+      "en": "iOS and Android app development with React Native, including native modules when hardware requires it. Experience publishing on App Store and Google Play."
+    },
+    "deliverables": {
+      "es": [
+        "App publicada o lista para publicación",
+        "Integración con backend existente o nuevo",
+        "Módulos nativos si aplica",
+        "Documentación de despliegue"
+      ],
+      "en": [
+        "Published or publication-ready app",
+        "Integration with existing or new backend",
+        "Native modules if applicable",
+        "Deployment documentation"
+      ]
+    },
+    "technologies": ["React Native", "TypeScript", "Firebase", "Java", "Kotlin", "Swift"],
+    "pricing": {
+      "es": "Proyecto cerrado · Presupuesto según alcance y plataformas",
+      "en": "Fixed project · Quote based on scope and platforms"
+    }
+  },
+  {
+    "id": "ai-applied",
+    "title": {
+      "es": "IA aplicada y asistentes inteligentes",
+      "en": "Applied AI and intelligent assistants"
+    },
+    "description": {
+      "es": "Integración de IA en productos existentes: RAG sobre documentación propia, asistentes conversacionales, modelos locales en navegador y abstracción multi-proveedor. Sin dependencia obligatoria de APIs de pago.",
+      "en": "AI integration into existing products: RAG over proprietary documentation, conversational assistants, browser-local models and multi-provider abstraction. No mandatory dependency on paid APIs."
+    },
+    "deliverables": {
+      "es": [
+        "Prototipo funcional con IA integrada",
+        "Pipeline RAG sobre datos del cliente",
+        "Evaluación de proveedores (local vs. cloud)",
+        "Documentación de arquitectura y costes"
+      ],
+      "en": [
+        "Functional prototype with integrated AI",
+        "RAG pipeline over client data",
+        "Provider evaluation (local vs. cloud)",
+        "Architecture and cost documentation"
+      ]
+    },
+    "technologies": ["RAG", "WebLLM", "Chrome Prompt API", "Next.js", "TypeScript", "Node.js"],
+    "pricing": {
+      "es": "Consultoría + desarrollo por fases · Presupuesto tras auditoría inicial",
+      "en": "Consulting + phased development · Quote after initial audit"
+    }
+  },
+  {
+    "id": "devops-infra",
+    "title": {
+      "es": "DevOps e infraestructura",
+      "en": "DevOps and infrastructure"
+    },
+    "description": {
+      "es": "Migraciones cloud (AWS), contenedorización Docker, CI/CD, administración Linux/Windows Server y hardening de seguridad. Ideal para pymes que necesitan modernizar su infraestructura sin un equipo dedicado.",
+      "en": "Cloud migrations (AWS), Docker containerization, CI/CD, Linux/Windows Server administration and security hardening. Ideal for SMEs that need to modernize infrastructure without a dedicated team."
+    },
+    "deliverables": {
+      "es": [
+        "Infraestructura documentada y automatizada",
+        "Pipelines CI/CD operativos",
+        "Monitorización básica configurada",
+        "Plan de mantenimiento"
+      ],
+      "en": [
+        "Documented and automated infrastructure",
+        "Operational CI/CD pipelines",
+        "Basic monitoring configured",
+        "Maintenance plan"
+      ]
+    },
+    "technologies": ["AWS", "Docker", "GitHub Actions", "Linux", "Nginx", "Proxmox"],
+    "pricing": {
+      "es": "Proyecto de migración o bolsa de horas mensual",
+      "en": "Migration project or monthly hourly retainer"
+    }
+  },
+  {
+    "id": "technical-consulting",
+    "title": {
+      "es": "Consultoría técnica y arquitectura",
+      "en": "Technical consulting and architecture"
+    },
+    "description": {
+      "es": "Auditoría de código, revisión de arquitectura, selección de stack, estimación de proyectos y acompañamiento técnico a equipos de desarrollo. Perfil T-Shaped con visión dev+infra.",
+      "en": "Code audit, architecture review, stack selection, project estimation and technical mentoring for development teams. T-Shaped profile with dev+infra vision."
+    },
+    "deliverables": {
+      "es": [
+        "Informe de auditoría con recomendaciones",
+        "Propuesta de arquitectura",
+        "Estimación de esfuerzo y costes",
+        "Sesiones de acompañamiento (opcional)"
+      ],
+      "en": [
+        "Audit report with recommendations",
+        "Architecture proposal",
+        "Effort and cost estimation",
+        "Mentoring sessions (optional)"
+      ]
+    },
+    "technologies": ["Architecture review", "Code review", "Stack selection", "Agile/Scrum"],
+    "pricing": {
+      "es": "Por sesión o paquete de horas · Tarifa consultable",
+      "en": "Per session or hourly package · Rate on request"
+    }
+  }
+]

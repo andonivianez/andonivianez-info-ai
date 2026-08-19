@@ -1,7 +1,11 @@
 "use client"
 
 import { useCallback, useRef, useState } from "react"
+import { trackChatGap, trackChatQuestion } from "@/lib/analytics/events"
+import { classifyTopic } from "@/lib/analytics/topic"
+import { rewriteQueryWithHistory } from "@/lib/ai/follow-up"
 import { buildPromptBundle } from "@/lib/ai/providers/fallback"
+import { getFollowUpQuestions } from "@/lib/ai/suggested-followups"
 import type { AudienceType } from "@/lib/audience/profiles"
 import type { ProviderId } from "@/lib/ai/types"
 import { createMetric, metricsStore } from "@/lib/metrics/ai-metrics"
@@ -23,6 +27,7 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
   const [isGenerating, setIsGenerating] = useState(false)
+  const [followUpQuestions, setFollowUpQuestions] = useState<string[]>([])
   const abortRef = useRef<AbortController | null>(null)
 
   const ask = useCallback(
@@ -34,9 +39,13 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
         role: "user",
         content: question.trim(),
       }
+      const historyBeforeAsk = messages
       setMessages((prev) => [...prev, userMessage])
       setInput("")
       setIsGenerating(true)
+      setFollowUpQuestions([])
+
+      const retrievalQuery = rewriteQueryWithHistory(question.trim(), historyBeforeAsk)
 
       const startedAt = performance.now()
       let retrievalTime = 0
@@ -44,6 +53,7 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
       let responseText = ""
       let success = true
       let errorType: string | undefined
+      let bundle = buildPromptBundle(retrievalQuery, locale, audience)
 
       try {
         if (!runtime.initialized) {
@@ -51,8 +61,9 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
         }
 
         const retrievalStarted = performance.now()
-        const bundle = buildPromptBundle(question, locale, audience)
+        bundle = buildPromptBundle(retrievalQuery, locale, audience)
         retrievalTime = performance.now() - retrievalStarted
+        const updatedClassification = classifyTopic(bundle.chunks, question)
 
         if (!bundle.hasRelevantContext) {
           responseText = bundle.insufficientMessage
@@ -62,6 +73,10 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
             content: responseText,
           }
           setMessages((prev) => [...prev, assistantMessage])
+
+          if (!bundle.conversationalReply) {
+            trackChatGap(question, updatedClassification, locale, audience)
+          }
 
           metricsStore.add(
             createMetric({
@@ -77,6 +92,8 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
               chunksRetrieved: 0,
               topScore: bundle.topScore,
               locale,
+              topic: updatedClassification.topic,
+              matchedTerms: updatedClassification.matchedTerms,
             }),
           )
           return
@@ -91,18 +108,14 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
           const assistantId = createMessageId()
           setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }])
 
-          for await (const chunk of provider.stream(
-            prompt,
-            bundle.context,
-            abortRef.current.signal,
-          )) {
+          for await (const chunk of provider.stream(prompt, undefined, abortRef.current.signal)) {
             responseText += chunk
             setMessages((prev) =>
               prev.map((msg) => (msg.id === assistantId ? { ...msg, content: responseText } : msg)),
             )
           }
         } else {
-          responseText = await provider.generate(prompt, bundle.context, abortRef.current.signal)
+          responseText = await provider.generate(prompt, undefined, abortRef.current.signal)
           setMessages((prev) => [
             ...prev,
             { id: createMessageId(), role: "assistant", content: responseText },
@@ -110,6 +123,7 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
         }
 
         generationTime = performance.now() - generationStarted
+        setFollowUpQuestions(getFollowUpQuestions(bundle.chunks, locale))
       } catch (err) {
         success = false
         errorType = err instanceof Error ? err.name : "UnknownError"
@@ -122,28 +136,45 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
           { id: createMessageId(), role: "assistant", content: responseText },
         ])
       } finally {
+        const totalTime = performance.now() - startedAt
+        const finalClassification = classifyTopic(bundle.chunks, question)
+        const providerId = (runtime.activeProviderId ?? "fallback") as ProviderId
+
+        trackChatQuestion({
+          topic: finalClassification.topic,
+          matchedTerms: finalClassification.matchedTerms,
+          provider: providerId,
+          locale,
+          answered: bundle.hasRelevantContext && success,
+          audience,
+          totalTimeMs: totalTime,
+          questionLength: question.length,
+        })
+
         metricsStore.add(
           createMetric({
-            provider: (runtime.activeProviderId ?? "fallback") as ProviderId,
+            provider: providerId,
             questionLength: question.length,
-            contextLength: buildPromptBundle(question, locale, audience).context.length,
+            contextLength: bundle.context.length,
             responseLength: responseText.length,
             retrievalTime,
             generationTime,
-            totalTime: performance.now() - startedAt,
+            totalTime,
             success,
             errorType,
             answeredWithoutLLM: !runtime.activeProvider?.isGenerative,
-            chunksRetrieved: buildPromptBundle(question, locale, audience).chunks.length,
-            topScore: buildPromptBundle(question, locale, audience).topScore,
+            chunksRetrieved: bundle.chunks.length,
+            topScore: bundle.topScore,
             locale,
+            topic: finalClassification.topic,
+            matchedTerms: finalClassification.matchedTerms,
           }),
         )
         setIsGenerating(false)
         abortRef.current = null
       }
     },
-    [isGenerating, locale, audience, runtime],
+    [isGenerating, locale, audience, runtime, messages],
   )
 
   const cancel = useCallback(() => {
@@ -154,6 +185,7 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
   const clear = useCallback(() => {
     setMessages([])
     setInput("")
+    setFollowUpQuestions([])
   }, [])
 
   return {
@@ -162,6 +194,7 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
     input,
     setInput,
     isGenerating,
+    followUpQuestions,
     ask,
     cancel,
     clear,

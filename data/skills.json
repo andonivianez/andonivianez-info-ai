@@ -86,6 +86,17 @@
         { "name": "Docker/Proxmox", "level": 85 },
         { "name": "Linux/Windows Server", "level": 88 }
       ]
+    },
+    {
+      "id": "ai",
+      "titleKey": "skills.ai",
+      "icon": "◇",
+      "skills": [
+        { "name": "RAG / Retrieval", "level": 85 },
+        { "name": "WebLLM / Local LLM", "level": 82 },
+        { "name": "Chrome Prompt API", "level": 80 },
+        { "name": "AI SDK / LLM Integration", "level": 78 }
+      ]
     }
   ],
   "languages": [

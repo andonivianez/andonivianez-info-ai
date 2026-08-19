@@ -16,11 +16,14 @@ describe("chunker", () => {
     expect(esChunks[0]?.text).not.toEqual(enChunks[0]?.text)
   })
 
-  it("indexes certifications, soft skills and summaries", () => {
+  it("indexes certifications, soft skills, summaries, services and faq", () => {
     const chunks = buildChunks("es")
     expect(chunks.some((c) => c.source === "certification")).toBe(true)
     expect(chunks.some((c) => c.source === "softskill")).toBe(true)
     expect(chunks.some((c) => c.source === "summary")).toBe(true)
+    expect(chunks.some((c) => c.source === "service")).toBe(true)
+    expect(chunks.some((c) => c.source === "faq")).toBe(true)
+    expect(chunks.some((c) => c.source === "availability")).toBe(true)
     expect(getChunksBySource("education", "es").length).toBeGreaterThan(0)
   })
 })

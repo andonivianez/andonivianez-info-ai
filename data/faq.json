@@ -1,0 +1,470 @@
+[
+  {
+    "id": "availability",
+    "question": {
+      "es": "¿Estás disponible para proyectos freelance?",
+      "en": "Are you available for freelance projects?"
+    },
+    "answer": {
+      "es": "Sí. Mi disponibilidad depende del proyecto y se valora en el kick-off, compatible con mi empleo actual en Orbis Tecnología Eléctrica. Prefiero proyectos con duración definida o bolsa de horas mensual.",
+      "en": "Yes. My availability depends on the project and is assessed at kick-off, compatible with my current employment at Orbis Tecnología Eléctrica. I prefer projects with a defined duration or monthly hourly retainer."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "pricing",
+    "question": {
+      "es": "¿Cuáles son tus tarifas?",
+      "en": "What are your rates?"
+    },
+    "answer": {
+      "es": "Trabajo por proyecto cerrado o bolsa de horas, con presupuesto personalizado tras un análisis inicial del alcance. Para consultar tarifas concretas, escríbeme a andoni.bartolo@gmail.com o a través de mi perfil en Malt.",
+      "en": "I work on fixed projects or hourly retainers, with a customized quote after an initial scope analysis. To inquire about specific rates, email me at andoni.bartolo@gmail.com or through my Malt profile."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "remote",
+    "question": {
+      "es": "¿Trabajas en remoto?",
+      "en": "Do you work remotely?"
+    },
+    "answer": {
+      "es": "Sí, el remoto es mi modalidad preferente. También puedo trabajar en híbrido en el País Vasco (Gipuzkoa) para reuniones puntuales o kick-offs de proyecto.",
+      "en": "Yes, remote is my preferred mode. I can also work hybrid in the Basque Country (Gipuzkoa) for occasional meetings or project kick-offs."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "invoicing",
+    "question": {
+      "es": "¿Facturas como autónomo?",
+      "en": "Do you invoice as self-employed?"
+    },
+    "answer": {
+      "es": "Sí, facturo como autónomo (Andoni Vianez Ulloa, NIF 72523047K). Emito facturas conforme a la normativa española.",
+      "en": "Yes, I invoice as self-employed (Andoni Vianez Ulloa, Tax ID 72523047K). I issue invoices in compliance with Spanish regulations."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "project-types",
+    "question": {
+      "es": "¿Qué tipo de proyectos aceptas?",
+      "en": "What types of projects do you accept?"
+    },
+    "answer": {
+      "es": "Desarrollo web full stack (React, Next.js, Node.js, Symfony), apps móviles con React Native, integración de IA aplicada (RAG, asistentes), DevOps/infraestructura (AWS, Docker, CI/CD) y consultoría técnica. Trabajo principalmente con pymes y autónomos del País Vasco y remoto en España.",
+      "en": "Full stack web development (React, Next.js, Node.js, Symfony), mobile apps with React Native, applied AI integration (RAG, assistants), DevOps/infrastructure (AWS, Docker, CI/CD) and technical consulting. I mainly work with SMEs and freelancers in the Basque Country and remotely across Spain."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "nda",
+    "question": {
+      "es": "¿Firmas acuerdos de confidencialidad (NDA)?",
+      "en": "Do you sign non-disclosure agreements (NDA)?"
+    },
+    "answer": {
+      "es": "Sí, firmo NDA y acuerdos de confidencialidad sin problema cuando el proyecto lo requiera.",
+      "en": "Yes, I sign NDAs and confidentiality agreements without issue when the project requires it."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "contract",
+    "question": {
+      "es": "¿Trabajas con contrato de prestación de servicios?",
+      "en": "Do you work with a service provision contract?"
+    },
+    "answer": {
+      "es": "Sí. Siempre formalizo el trabajo con contrato de prestación de servicios que define alcance, plazos, entregables y condiciones de pago.",
+      "en": "Yes. I always formalize work with a service provision contract defining scope, deadlines, deliverables and payment terms."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "ip-transfer",
+    "question": {
+      "es": "¿Cedes la propiedad del código al cliente?",
+      "en": "Do you transfer code ownership to the client?"
+    },
+    "answer": {
+      "es": "Sí, la cesión de derechos de propiedad intelectual del código desarrollado a medida se acuerda en el contrato, normalmente a favor del cliente tras el pago.",
+      "en": "Yes, intellectual property rights for custom-developed code are agreed in the contract, typically transferred to the client upon payment."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "maintenance",
+    "question": {
+      "es": "¿Ofreces mantenimiento después de la entrega?",
+      "en": "Do you offer maintenance after delivery?"
+    },
+    "answer": {
+      "es": "Sí. Puedo asumir mantenimiento evolutivo y correctivo tras la entrega, ya sea con bolsa de horas mensual o acuerdo puntual según necesidades.",
+      "en": "Yes. I can take on evolutionary and corrective maintenance after delivery, either with a monthly hourly retainer or ad-hoc agreement as needed."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "hourly-retainer",
+    "question": {
+      "es": "¿Trabajas con bolsa de horas mensual?",
+      "en": "Do you work with a monthly hourly retainer?"
+    },
+    "answer": {
+      "es": "Sí, la bolsa de horas mensual es una de mis modalidades preferidas para proyectos con evolución continua o soporte recurrente.",
+      "en": "Yes, a monthly hourly retainer is one of my preferred modes for projects with continuous evolution or recurring support."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "legacy-rescue",
+    "question": {
+      "es": "¿Recoges proyectos ya empezados por otros?",
+      "en": "Do you take over projects started by others?"
+    },
+    "answer": {
+      "es": "Sí. Tengo experiencia recogiendo proyectos legacy o a medio hacer: analizo el código existente, identifico deuda técnica y propongo un plan de continuación realista.",
+      "en": "Yes. I have experience taking over legacy or half-finished projects: I analyze existing code, identify technical debt and propose a realistic continuation plan."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "start-time",
+    "question": {
+      "es": "¿Cuándo podrías empezar un proyecto nuevo?",
+      "en": "When could you start a new project?"
+    },
+    "answer": {
+      "es": "Depende de mi carga actual en Orbis y en otros compromisos freelance. Lo consultamos en el primer contacto y te doy una fecha realista en el kick-off.",
+      "en": "It depends on my current workload at Orbis and other freelance commitments. We discuss it on first contact and I give you a realistic date at kick-off."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "direct-client",
+    "question": {
+      "es": "¿Prefieres trabajar directamente con el cliente final?",
+      "en": "Do you prefer working directly with the end client?"
+    },
+    "answer": {
+      "es": "Sí. Prefiero el trato directo con quien necesita el proyecto: comunicación más clara, menos capas y mejor alineación con el objetivo de negocio.",
+      "en": "Yes. I prefer dealing directly with whoever needs the project: clearer communication, fewer layers and better alignment with the business goal."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "employment-search",
+    "question": {
+      "es": "¿Estás buscando empleo?",
+      "en": "Are you looking for employment?"
+    },
+    "answer": {
+      "es": "No busco cambio de empleo. Estoy satisfecho en Orbis y compagino mi trabajo con proyectos freelance selectos.",
+      "en": "I'm not looking to change jobs. I'm happy at Orbis and combine my work with select freelance projects."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "why-hire",
+    "question": {
+      "es": "¿Por qué contratarte a ti?",
+      "en": "Why hire you?"
+    },
+    "answer": {
+      "es": "Porque cubro desarrollo e infraestructura en una sola persona, tengo más de 15 años en sectores muy distintos (energía, salud, IoT, industria, educación), domino móvil con módulos nativos y puedo ir del firmware a la nube. Además, hablas directamente con quien programa.",
+      "en": "Because I cover development and infrastructure in one person, I have 15+ years across very different sectors (energy, healthcare, IoT, industry, education), I master mobile with native modules and can go from firmware to cloud. Plus, you talk directly to the person who codes."
+    },
+    "category": "hiring"
+  },
+  {
+    "id": "no-design",
+    "question": {
+      "es": "¿Haces diseño gráfico o UI desde cero?",
+      "en": "Do you do graphic design or UI from scratch?"
+    },
+    "answer": {
+      "es": "No soy diseñador gráfico. Implemento interfaces a partir de diseños existentes (Figma, etc.) o con component libraries como shadcn/ui. Si necesitas identidad visual o UI/UX desde cero, te recomiendo colaborar con un diseñador.",
+      "en": "I'm not a graphic designer. I implement interfaces from existing designs (Figma, etc.) or with component libraries like shadcn/ui. If you need visual identity or UI/UX from scratch, I recommend collaborating with a designer."
+    },
+    "category": "boundaries"
+  },
+  {
+    "id": "no-java-net",
+    "question": {
+      "es": "¿Trabajas con Java o .NET enterprise?",
+      "en": "Do you work with Java or enterprise .NET?"
+    },
+    "answer": {
+      "es": "No es mi especialidad. Mi backend habitual es Node.js, PHP/Symfony y Python/Django. Para ecosistemas Java/.NET enterprise recomiendo un perfil especializado.",
+      "en": "That's not my specialty. My usual backend is Node.js, PHP/Symfony and Python/Django. For Java/.NET enterprise ecosystems I recommend a specialized profile."
+    },
+    "category": "boundaries"
+  },
+  {
+    "id": "no-vue-svelte",
+    "question": {
+      "es": "¿Trabajas con Vue o Svelte?",
+      "en": "Do you work with Vue or Svelte?"
+    },
+    "answer": {
+      "es": "No. Mi stack frontend principal es React, Next.js y Angular. Si tu proyecto ya está en Vue o Svelte, puedo orientarte, pero no es donde aporto más valor.",
+      "en": "No. My main frontend stack is React, Next.js and Angular. If your project is already in Vue or Svelte, I can guide you, but that's not where I add the most value."
+    },
+    "category": "boundaries"
+  },
+  {
+    "id": "no-ml-training",
+    "question": {
+      "es": "¿Entrenas modelos de machine learning desde cero?",
+      "en": "Do you train machine learning models from scratch?"
+    },
+    "answer": {
+      "es": "No entreno modelos desde cero ni hago data science pura. Sí integro IA aplicada: RAG, asistentes, modelos locales en navegador (WebLLM, Chrome Prompt API) y LLMs vía AI SDK.",
+      "en": "I don't train models from scratch or do pure data science. I do integrate applied AI: RAG, assistants, browser-local models (WebLLM, Chrome Prompt API) and LLMs via AI SDK."
+    },
+    "category": "boundaries"
+  },
+  {
+    "id": "languages-spoken",
+    "question": {
+      "es": "¿En qué idiomas trabajas?",
+      "en": "What languages do you work in?"
+    },
+    "answer": {
+      "es": "Castellano (nativo), euskera (B2), inglés (B1/B2 profesional básico) y portugués (nivel medio). Puedo comunicarme con clientes en castellano, euskera e inglés.",
+      "en": "Spanish (native), Basque (B2), English (B1/B2 basic professional) and Portuguese (intermediate). I can communicate with clients in Spanish, Basque and English."
+    },
+    "category": "general"
+  },
+  {
+    "id": "ai-experience",
+    "question": {
+      "es": "¿Qué experiencia tienes con IA?",
+      "en": "What AI experience do you have?"
+    },
+    "answer": {
+      "es": "He desarrollado un portfolio con IA 100% local (TFM Máster BigIA): RAG léxico sobre datos estructurados, abstracción multi-proveedor (Chrome Prompt API, WebLLM, fallback extractivo), métricas experimentales y evaluación de latencia. También tengo formación en ciberseguridad y auditoría de aplicaciones web.",
+      "en": "I built a portfolio with 100% local AI (BigIA Master's thesis): lexical RAG over structured data, multi-provider abstraction (Chrome Prompt API, WebLLM, extractive fallback), experimental metrics and latency evaluation. I also have training in cybersecurity and web application auditing."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "contact",
+    "question": {
+      "es": "¿Cómo puedo contactarte?",
+      "en": "How can I contact you?"
+    },
+    "answer": {
+      "es": "Por email (andoni.bartolo@gmail.com), LinkedIn (linkedin.com/in/andoni-vianez) o Malt (malt.es/profile/andonivianez). Respondo en castellano, euskera o inglés.",
+      "en": "By email (andoni.bartolo@gmail.com), LinkedIn (linkedin.com/in/andoni-vianez) or Malt (malt.es/profile/andonivianez). I respond in Spanish, Basque or English."
+    },
+    "category": "general"
+  },
+  {
+    "id": "teaching",
+    "question": {
+      "es": "¿Das clases o formación?",
+      "en": "Do you teach or provide training?"
+    },
+    "answer": {
+      "es": "Sí. Llevo más de 15 años como profesor TIC freelance (Windows, Office, hardware, nociones web) y he impartido formación profesional en INKORFORMACION sobre APIs cloud.",
+      "en": "Yes. I've been a freelance ICT teacher for 15+ years (Windows, Office, hardware, web basics) and taught professional training at INKORFORMACION on cloud APIs."
+    },
+    "category": "general"
+  },
+  {
+    "id": "proudest-project",
+    "question": {
+      "es": "¿Cuál ha sido tu proyecto más complejo?",
+      "en": "What has been your most complex project?"
+    },
+    "answer": {
+      "es": "La app Zetup en BQ: React Native con módulos nativos en Java, Kotlin, Swift y Objective-C para acceder a hardware del dispositivo, más comunicación IoT con BLE, MQTT y REST, CI con Jenkins y publicación en App Store y Google Play.",
+      "en": "The Zetup app at BQ: React Native with native modules in Java, Kotlin, Swift and Objective-C for device hardware access, plus IoT communication with BLE, MQTT and REST, CI with Jenkins and publication on App Store and Google Play."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "react-native",
+    "question": {
+      "es": "¿Qué experiencia tienes con React Native?",
+      "en": "What React Native experience do you have?"
+    },
+    "answer": {
+      "es": "Llevo React Native desde BQ (2018-2019) con módulos nativos, pasando por Onkologikoa (Ionic-React), TuMaker (Voladd), ConnectHealth (apps de salud) y Orbis (apps iOS/Android en producción).",
+      "en": "I've used React Native since BQ (2018-2019) with native modules, through Onkologikoa (Ionic-React), TuMaker (Voladd), ConnectHealth (healthcare apps) and Orbis (iOS/Android apps in production)."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "embedded",
+    "question": {
+      "es": "¿Tienes experiencia con firmware y embebido?",
+      "en": "Do you have firmware and embedded experience?"
+    },
+    "answer": {
+      "es": "Sí. He desarrollado firmware C++/Qt en Wattiocorp (domótica IoT con MQTT) y TuMaker (impresoras 3D), con despliegue en dispositivos de producción y cross-compiling para ARM.",
+      "en": "Yes. I developed C++/Qt firmware at Wattiocorp (IoT home automation with MQTT) and TuMaker (3D printers), deployed on production devices with ARM cross-compiling."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "healthcare",
+    "question": {
+      "es": "¿Tienes experiencia en el sector salud?",
+      "en": "Do you have healthcare sector experience?"
+    },
+    "answer": {
+      "es": "Sí. Desarrollé apps clínicas en Fundación Onkologikoa (React/TypeScript, Symfony, Docker, entorno hospitalario) y apps de salud multiplataforma en ConnectHealth con React Native.",
+      "en": "Yes. I developed clinical apps at Fundación Onkologikoa (React/TypeScript, Symfony, Docker, hospital environment) and cross-platform health apps at ConnectHealth with React Native."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "energy",
+    "question": {
+      "es": "¿Tienes experiencia en el sector energía?",
+      "en": "Do you have energy sector experience?"
+    },
+    "answer": {
+      "es": "Sí. Actualmente desarrollo el stack web y móvil de productos de gestión energética en Orbis Tecnología Eléctrica, con React, Angular, Node.js y React Native en producción continua.",
+      "en": "Yes. I currently develop the web and mobile stack for energy management products at Orbis Tecnología Eléctrica, with React, Angular, Node.js and React Native in continuous production."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "devops",
+    "question": {
+      "es": "¿Haces DevOps e infraestructura?",
+      "en": "Do you do DevOps and infrastructure?"
+    },
+    "answer": {
+      "es": "Sí. Llevo más de 15 años combinando desarrollo con sysadmin: Docker, CI/CD (GitHub Actions, Jenkins), AWS, Proxmox, Linux/Windows Server, pfSense y hardening. Puedo cubrir infra y código en un solo perfil.",
+      "en": "Yes. I've combined development with sysadmin for 15+ years: Docker, CI/CD (GitHub Actions, Jenkins), AWS, Proxmox, Linux/Windows Server, pfSense and hardening. I can cover infra and code in one profile."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "interview-podcast",
+    "question": {
+      "es": "¿Te han entrevistado en algún podcast?",
+      "en": "Have you been interviewed on any podcast?"
+    },
+    "answer": {
+      "es": "Sí. Aparecí en el episodio #17 de Discovery Tech Stories de Opground (2021), donde hablé de mi trayectoria, el paso de sysadmin a desarrollo, mi perfil T-shaped y la docencia IT. Puedes verlo en la sección Entrevistas de mi About o en YouTube.",
+      "en": "Yes. I appeared on episode #17 of Opground's Discovery Tech Stories (2021), where I talked about my career, the sysadmin-to-developer transition, my T-shaped profile and IT teaching. You can watch it in the Interviews section of my About page or on YouTube."
+    },
+    "category": "general"
+  },
+  {
+    "id": "location",
+    "question": {
+      "es": "¿Dónde vives?",
+      "en": "Where do you live?"
+    },
+    "answer": {
+      "es": "Vivo en Astigarraga, Gipuzkoa (País Vasco). Trabajo principalmente en remoto y puedo desplazarme en Gipuzkoa para reuniones puntuales.",
+      "en": "I live in Astigarraga, Gipuzkoa (Basque Country). I mainly work remotely and can travel within Gipuzkoa for occasional meetings."
+    },
+    "category": "personal"
+  },
+  {
+    "id": "music",
+    "question": {
+      "es": "¿Tocas algún instrumento?",
+      "en": "Do you play any instrument?"
+    },
+    "answer": {
+      "es": "Sí. Tengo formación musical en txistu y percusión (Conservatorio, nivel 2). Es un hobby que complementa mi perfil técnico.",
+      "en": "Yes. I have musical training in txistu and percussion (Conservatory, level 2). It's a hobby that complements my technical profile."
+    },
+    "category": "personal"
+  },
+  {
+    "id": "hobbies",
+    "question": {
+      "es": "¿Qué haces en tu tiempo libre?",
+      "en": "What do you do in your free time?"
+    },
+    "answer": {
+      "es": "En mi tiempo libre experimento con Arduino y Raspberry Pi, toco txistu y percusión, y sigo aprendiendo sobre electrónica e informática por cuenta propia.",
+      "en": "In my free time I experiment with Arduino and Raspberry Pi, play txistu and percussion, and keep learning about electronics and computing on my own."
+    },
+    "category": "personal"
+  },
+  {
+    "id": "master-bigia",
+    "question": {
+      "es": "¿Qué es el máster BigIA?",
+      "en": "What is the BigIA master's degree?"
+    },
+    "answer": {
+      "es": "Es el Máster en Desarrollo con Inteligencia Artificial de la Universidad Isabel I (2026). Mi TFM fue este portfolio con IA 100% local: RAG, multi-proveedor y métricas experimentales.",
+      "en": "It's the Master's Degree in Development with Artificial Intelligence from Universidad Isabel I (2026). My thesis was this portfolio with 100% local AI: RAG, multi-provider and experimental metrics."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "github",
+    "question": {
+      "es": "¿Tienes código en GitHub?",
+      "en": "Do you have code on GitHub?"
+    },
+    "answer": {
+      "es": "Sí. Mi perfil es github.com/andonivianez con proyectos de IoT, APIs, apps móviles y herramientas de desarrollo. Algunos proyectos profesionales son privados por acuerdo con clientes.",
+      "en": "Yes. My profile is github.com/andonivianez with IoT, API, mobile app and development tool projects. Some professional projects are private due to client agreements."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "rag-portfolio",
+    "question": {
+      "es": "¿Cómo funciona el RAG de este portfolio?",
+      "en": "How does this portfolio's RAG work?"
+    },
+    "answer": {
+      "es": "Es un RAG léxico sobre datos JSON locales: indexo mi CV en chunks, recupero los más relevantes por scoring de tokens y sinónimos, y los paso como contexto a modelos locales (Chrome Prompt API, WebLLM) o a un fallback extractivo. Sin APIs de pago ni envío de datos a servidores externos.",
+      "en": "It's a lexical RAG over local JSON data: I index my CV into chunks, retrieve the most relevant ones by token and synonym scoring, and pass them as context to local models (Chrome Prompt API, WebLLM) or an extractive fallback. No paid APIs or sending data to external servers."
+    },
+    "category": "technical"
+  },
+  {
+    "id": "privacy-chat",
+    "question": {
+      "es": "¿Guardas lo que escribo en el chat?",
+      "en": "Do you store what I write in the chat?"
+    },
+    "answer": {
+      "es": "No guardo el texto literal de tus preguntas. El procesamiento es local en tu navegador. Solo registro métricas agregadas anónimas (tema, idioma, proveedor) si aceptas analítica. Más detalle en la política de privacidad.",
+      "en": "I don't store the literal text of your questions. Processing is local in your browser. I only record anonymous aggregated metrics (topic, language, provider) if you accept analytics. More details in the privacy policy."
+    },
+    "category": "general"
+  },
+  {
+    "id": "cto-experience",
+    "question": {
+      "es": "¿Has sido CTO?",
+      "en": "Have you been a CTO?"
+    },
+    "answer": {
+      "es": "Sí. Fui CTO en Titaneumáticos (2018-2023) y CTO en la startup WeGetIt (2019), además de rol dual de desarrollo y dirección técnica.",
+      "en": "Yes. I was CTO at Titaneumáticos (2018-2023) and CTO at startup WeGetIt (2019), plus dual development and technical leadership roles."
+    },
+    "category": "general"
+  },
+  {
+    "id": "sectors",
+    "question": {
+      "es": "¿En qué sectores has trabajado?",
+      "en": "What sectors have you worked in?"
+    },
+    "answer": {
+      "es": "Energía (Orbis), salud (Onkologikoa, ConnectHealth), IoT/domótica (Wattiocorp), electrónica de consumo (BQ), impresión 3D (TuMaker), industria (Titaneumáticos), educación, banca (Bankoa), retail/ecommerce y servicios profesionales como freelance.",
+      "en": "Energy (Orbis), healthcare (Onkologikoa, ConnectHealth), IoT/home automation (Wattiocorp), consumer electronics (BQ), 3D printing (TuMaker), industry (Titaneumáticos), education, banking (Bankoa), retail/ecommerce and professional services as a freelancer."
+    },
+    "category": "general"
+  }
+]

@@ -87,6 +87,35 @@ export function AboutProfile() {
             {profile.social.linkedinConnections} {t("about.connections")}
           </p>
         )}
+
+        {(profile.availability || profile.workModel || profile.openTo) && (
+          <div className="border-border bg-muted/40 mt-8 rounded-lg border p-4">
+            <h2 className="mb-3 text-sm font-semibold">{t("about.availability.title")}</h2>
+            {profile.availability && (
+              <p className="text-muted-foreground text-sm">{profile.availability}</p>
+            )}
+            {profile.workModel && (
+              <p className="text-muted-foreground mt-1 text-sm">{profile.workModel}</p>
+            )}
+            {profile.openTo && profile.openTo.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {profile.openTo.map((item) => (
+                  <span
+                    key={item}
+                    className="bg-background text-foreground rounded-full border px-2.5 py-0.5 text-xs"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
+            <div className="mt-4">
+              <Button asChild size="sm">
+                <a href={`mailto:${profile.email}`}>{t("about.availability.contact")}</a>
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </motion.header>
   )

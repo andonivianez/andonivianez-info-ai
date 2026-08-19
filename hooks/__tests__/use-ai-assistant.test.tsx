@@ -47,6 +47,15 @@ describe("useAIAssistant", () => {
     expect(result.current.messages[1]?.content).toMatch(/No encuentro/)
   })
 
+  it("answers greetings without requiring portfolio context", async () => {
+    const { result } = renderHook(() => useAIAssistant("es"))
+    await act(async () => {
+      await result.current.ask("hola")
+    })
+    expect(result.current.messages[1]?.content).toMatch(/Hola/)
+    expect(result.current.messages[1]?.content).not.toMatch(/No encuentro información suficiente/)
+  })
+
   it("streams a relevant answer and can clear it", async () => {
     stream.mockImplementation(async function* () {
       yield "React "

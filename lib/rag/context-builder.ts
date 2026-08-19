@@ -57,6 +57,6 @@ export function buildContext(
 
 export function getInsufficientInfoMessage(locale: Locale): string {
   return locale === "es"
-    ? "No encuentro información suficiente en el portfolio para responder con seguridad."
-    : "I cannot find enough information in the portfolio to answer confidently."
+    ? "No encuentro información suficiente en el portfolio para responder con seguridad. Puedes preguntarme por experiencia, servicios freelance, proyectos, disponibilidad o cómo contactar."
+    : "I cannot find enough information in the portfolio to answer confidently. You can ask about experience, freelance services, projects, availability or how to get in touch."
 }

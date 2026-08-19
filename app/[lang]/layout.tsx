@@ -3,10 +3,11 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { LanguageProvider } from "@/components/language-provider"
 import { JsonLd } from "@/components/seo/json-ld"
+import { ConsentNotice } from "@/components/legal/consent-notice"
+import { AnalyticsGate } from "@/components/analytics/analytics-gate"
 import { buildRootMetadata } from "@/lib/i18n/metadata"
 import { generateStaticParams, resolveLocale } from "@/lib/i18n/routing"
 import type { AppLocale } from "@/lib/i18n/config"
@@ -48,8 +49,9 @@ export default async function LangLayout({
         <JsonLd locale={locale} />
         <LanguageProvider language={locale}>
           <Suspense fallback={null}>{children}</Suspense>
+          <ConsentNotice />
         </LanguageProvider>
-        <Analytics />
+        <AnalyticsGate />
       </body>
     </html>
   )

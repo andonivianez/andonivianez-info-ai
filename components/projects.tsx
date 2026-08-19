@@ -42,7 +42,7 @@ export function Projects({ variant = "default" }: ProjectsProps) {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
             >
-              <Card>
+              <Card className="h-full">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base">{project.name}</CardTitle>
                   <Badge variant="outline" className="w-fit text-xs">
@@ -51,6 +51,30 @@ export function Projects({ variant = "default" }: ProjectsProps) {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <p className="text-muted-foreground text-sm">{project.description}</p>
+                  {project.problem && (
+                    <div>
+                      <h4 className="mb-1 text-xs font-medium tracking-wide uppercase">
+                        {t("projects.problem")}
+                      </h4>
+                      <p className="text-muted-foreground text-sm">{project.problem}</p>
+                    </div>
+                  )}
+                  {project.solution && (
+                    <div>
+                      <h4 className="mb-1 text-xs font-medium tracking-wide uppercase">
+                        {t("projects.solution")}
+                      </h4>
+                      <p className="text-muted-foreground text-sm">{project.solution}</p>
+                    </div>
+                  )}
+                  {project.result && (
+                    <div>
+                      <h4 className="mb-1 text-xs font-medium tracking-wide uppercase">
+                        {t("projects.result")}
+                      </h4>
+                      <p className="text-muted-foreground text-sm">{project.result}</p>
+                    </div>
+                  )}
                   <div className="flex flex-wrap gap-1.5">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">

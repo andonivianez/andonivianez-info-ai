@@ -22,9 +22,12 @@ export function AIChat({ variant = "default" }: AIChatProps) {
   const [audience] = useState<AudienceType>("default")
   const [bootDone, setBootDone] = useState(variant !== "hero")
   const assistant = useAIAssistant(language, audience)
-  const questions = getSuggestedQuestions(audience, language)
+  const questions =
+    assistant.followUpQuestions.length > 0
+      ? assistant.followUpQuestions
+      : getSuggestedQuestions(audience, language)
   const isHero = variant === "hero"
-  const showSuggestions = assistant.messages.length === 0
+  const showSuggestions = !assistant.isGenerating
 
   const providerLabel = (() => {
     const id = assistant.activeProviderId

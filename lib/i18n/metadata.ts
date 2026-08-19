@@ -9,6 +9,9 @@ export const pageMetadata: Record<
     home: { title: string; description: string }
     about: { title: string; description: string }
     aiLab: { title: string; description: string }
+    legalNotice: { title: string; description: string }
+    legalPrivacy: { title: string; description: string }
+    legalCookies: { title: string; description: string }
   }
 > = {
   es: {
@@ -27,6 +30,19 @@ export const pageMetadata: Record<
       description:
         "Demostración técnica y métricas del portfolio inteligente con IA local — TFM Andoni Vianez.",
     },
+    legalNotice: {
+      title: "Aviso legal",
+      description: "Aviso legal del portfolio profesional de Andoni Vianez Ulloa.",
+    },
+    legalPrivacy: {
+      title: "Política de privacidad",
+      description:
+        "Política de privacidad y protección de datos (RGPD) del portfolio de Andoni Vianez.",
+    },
+    legalCookies: {
+      title: "Política de cookies",
+      description: "Información sobre cookies, almacenamiento local y analítica del portfolio.",
+    },
   },
   en: {
     home: {
@@ -43,6 +59,18 @@ export const pageMetadata: Record<
       title: "AI Lab",
       description:
         "Technical demo and metrics for the intelligent portfolio with local AI — Master's thesis by Andoni Vianez.",
+    },
+    legalNotice: {
+      title: "Legal notice",
+      description: "Legal notice for Andoni Vianez Ulloa's professional portfolio.",
+    },
+    legalPrivacy: {
+      title: "Privacy policy",
+      description: "Privacy policy and data protection (GDPR) for Andoni Vianez's portfolio.",
+    },
+    legalCookies: {
+      title: "Cookie policy",
+      description: "Information about cookies, local storage and analytics on the portfolio.",
     },
   },
 }

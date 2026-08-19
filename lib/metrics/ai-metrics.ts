@@ -18,6 +18,8 @@ export interface AIMetric {
   topScore: number
   locale: string
   sessionId: string
+  topic?: string
+  matchedTerms?: string[]
 }
 
 export interface MetricsSummary {
@@ -28,6 +30,8 @@ export interface MetricsSummary {
   averageContextLength: number
   errorCount: number
   providerCounts: Record<string, number>
+  topicCounts: Record<string, number>
+  gapCount: number
 }
 
 export interface MetricsStore {
@@ -53,14 +57,43 @@ export function createSessionId(): string {
   return id
 }
 
+function isQuotaExceededError(error: unknown): boolean {
+  if (!(error instanceof DOMException)) return false
+  return (
+    error.name === "QuotaExceededError" ||
+    error.name === "NS_ERROR_DOM_QUOTA_REACHED" ||
+    error.code === 22
+  )
+}
+
 export class LocalStorageMetricsStore implements MetricsStore {
   private key = AI_CONFIG.metricsStorageKey
 
   add(metric: AIMetric): void {
-    const metrics = this.list()
-    metrics.unshift(metric)
-    const trimmed = metrics.slice(0, AI_CONFIG.metricsMaxEntries)
-    localStorage.setItem(this.key, JSON.stringify(trimmed))
+    if (typeof window === "undefined") return
+
+    let metrics = [metric, ...this.list()].slice(0, AI_CONFIG.metricsMaxEntries)
+
+    while (metrics.length > 0) {
+      try {
+        localStorage.setItem(this.key, JSON.stringify(metrics))
+        return
+      } catch (error) {
+        if (!isQuotaExceededError(error)) return
+
+        // Liberar espacio: recortar a la mitad; si solo queda la nueva, descartarla.
+        if (metrics.length === 1) {
+          try {
+            localStorage.removeItem(this.key)
+          } catch {
+            // Ignorar: las métricas no son críticas para el chat.
+          }
+          return
+        }
+
+        metrics = metrics.slice(0, Math.max(1, Math.floor(metrics.length / 2)))
+      }
+    }
   }
 
   list(): AIMetric[] {
@@ -84,18 +117,28 @@ export class LocalStorageMetricsStore implements MetricsStore {
         averageContextLength: 0,
         errorCount: 0,
         providerCounts: {},
+        topicCounts: {},
+        gapCount: 0,
       }
     }
 
     const providerCounts: Record<string, number> = {}
+    const topicCounts: Record<string, number> = {}
     let totalTime = 0
     let retrievalTime = 0
     let generationTime = 0
     let contextLength = 0
     let errorCount = 0
+    let gapCount = 0
 
     for (const metric of metrics) {
       providerCounts[metric.provider] = (providerCounts[metric.provider] ?? 0) + 1
+      if (metric.topic) {
+        topicCounts[metric.topic] = (topicCounts[metric.topic] ?? 0) + 1
+      }
+      if (metric.chunksRetrieved === 0 && metric.answeredWithoutLLM) {
+        gapCount += 1
+      }
       totalTime += metric.totalTime
       retrievalTime += metric.retrievalTime
       generationTime += metric.generationTime
@@ -112,6 +155,8 @@ export class LocalStorageMetricsStore implements MetricsStore {
       averageContextLength: contextLength / count,
       errorCount,
       providerCounts,
+      topicCounts,
+      gapCount,
     }
   }
 
@@ -140,6 +185,8 @@ export class LocalStorageMetricsStore implements MetricsStore {
       "chunksRetrieved",
       "topScore",
       "locale",
+      "topic",
+      "matchedTerms",
     ]
     const rows = metrics.map((m) =>
       [
@@ -157,6 +204,8 @@ export class LocalStorageMetricsStore implements MetricsStore {
         m.chunksRetrieved,
         m.topScore,
         m.locale,
+        m.topic ?? "",
+        (m.matchedTerms ?? []).join("|"),
       ].join(","),
     )
     return [headers.join(","), ...rows].join("\n")

@@ -1,20 +1,20 @@
 {
   "name": "Andoni Vianez Ulloa",
   "tagline": {
-    "es": "T-Shaped Developer",
-    "en": "T-Shaped Developer"
+    "es": "Full Stack + IA aplicada",
+    "en": "Full Stack + Applied AI"
   },
   "role": {
     "es": "Senior Full Stack Engineer",
     "en": "Senior Full Stack Engineer"
   },
   "subtitle": {
-    "es": "React Native · IA local · Arquitectura full stack",
-    "en": "React Native · Local AI · Full stack architecture"
+    "es": "React Native · RAG · Arquitecturas web con IA local",
+    "en": "React Native · RAG · Web architectures with local AI"
   },
   "bio": {
-    "es": "Ingeniero informático y desarrollador T-Shaped con más de 15 años de experiencia en aplicaciones web, móviles y embebidas. Especializado en React Native, arquitecturas full stack y sistemas con IA ejecutada localmente en el navegador. Actualmente en Orbis Tecnología Eléctrica y disponible para proyectos freelance.",
-    "en": "Computer engineer and T-Shaped developer with 15+ years building web, mobile and embedded applications. Specialized in React Native, full stack architecture and browser-local AI systems. Currently at Orbis Tecnología Eléctrica and available for freelance work."
+    "es": "Ingeniero informático con más de 15 años desarrollando productos web, móviles y embebidos para empresas de energía, salud, IoT y retail. Combino arquitectura full stack con IA aplicada: RAG, modelos locales en navegador y integración de LLMs sin depender de APIs de pago. Actualmente en Orbis Tecnología Eléctrica y disponible para proyectos freelance de desarrollo, consultoría técnica e IA aplicada.",
+    "en": "Computer engineer with 15+ years building web, mobile and embedded products for energy, healthcare, IoT and retail companies. I combine full stack architecture with applied AI: RAG, browser-local models and LLM integration without paid API dependencies. Currently at Orbis Tecnología Eléctrica and available for freelance development, technical consulting and applied AI projects."
   },
   "location": {
     "es": "Astigarraga, Gipuzkoa",
@@ -35,5 +35,27 @@
     "companies": 12,
     "technologies": 40,
     "projects": 50
+  },
+  "availability": {
+    "es": "Disponibilidad según proyecto, a valorar en el kick-off, compatible con empleo en Orbis",
+    "en": "Availability depends on the project, to be assessed at kick-off, compatible with employment at Orbis"
+  },
+  "openTo": {
+    "es": [
+      "Proyectos freelance a medida",
+      "Consultoría técnica y arquitectura",
+      "Desarrollo web y móvil (React, React Native, Next.js)",
+      "IA aplicada (RAG, asistentes, integración de LLMs)"
+    ],
+    "en": [
+      "Custom freelance projects",
+      "Technical consulting and architecture",
+      "Web and mobile development (React, React Native, Next.js)",
+      "Applied AI (RAG, assistants, LLM integration)"
+    ]
+  },
+  "workModel": {
+    "es": "Remoto preferente · Híbrido en País Vasco · Facturación como autónomo",
+    "en": "Remote preferred · Hybrid in Basque Country · Invoicing as self-employed"
   }
 }

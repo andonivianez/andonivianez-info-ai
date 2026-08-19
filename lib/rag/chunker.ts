@@ -5,6 +5,15 @@ function joinParts(parts: (string | undefined)[]): string {
   return parts.filter(Boolean).join(". ")
 }
 
+function tokenize(text: string): string[] {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .split(/\s+/)
+    .filter((t) => t.length > 1)
+}
+
 export function buildChunks(locale: Locale): Chunk[] {
   const data = getPortfolioData()
   const chunks: Chunk[] = []
@@ -43,6 +52,7 @@ export function buildChunks(locale: Locale): Chunk[] {
         localize(exp.title, locale),
         exp.company,
         localize(exp.period, locale),
+        exp.industry ? localize(exp.industry, locale) : undefined,
         localize(exp.description, locale),
         `Technologies: ${exp.technologies.join(", ")}`,
         `Achievements: ${localize(exp.achievements, locale).join(", ")}`,
@@ -51,6 +61,27 @@ export function buildChunks(locale: Locale): Chunk[] {
         exp.company.toLowerCase(),
         ...exp.technologies.map((t) => t.toLowerCase()),
         ...localize(exp.title, locale).toLowerCase().split(/\s+/),
+        ...(exp.industry ? tokenize(localize(exp.industry, locale)) : []),
+        ...(exp.scope === "freelance"
+          ? ["freelance", "autonomo", "autónomo", "independiente"]
+          : []),
+      ],
+      locale,
+    })
+
+    chunks.push({
+      id: `exp-${exp.id}-achievements`,
+      source: "experience",
+      sourceId: `${exp.id}-achievements`,
+      title: `${localize(exp.title, locale)} @ ${exp.company} — ${locale === "es" ? "Logros" : "Achievements"}`,
+      text: localize(exp.achievements, locale).join(". "),
+      keywords: [
+        exp.company.toLowerCase(),
+        "achievements",
+        "logros",
+        "impact",
+        "impacto",
+        ...localize(exp.achievements, locale).join(" ").toLowerCase().split(/\s+/),
       ],
       locale,
     })
@@ -65,6 +96,9 @@ export function buildChunks(locale: Locale): Chunk[] {
       text: joinParts([
         localize(project.name, locale),
         localize(project.description, locale),
+        project.problem ? `Problem: ${localize(project.problem, locale)}` : undefined,
+        project.solution ? `Solution: ${localize(project.solution, locale)}` : undefined,
+        project.result ? `Result: ${localize(project.result, locale)}` : undefined,
         `Technologies: ${project.technologies.join(", ")}`,
         `Highlights: ${localize(project.highlights, locale).join(", ")}`,
         project.github ? `GitHub: ${project.github}` : undefined,
@@ -213,6 +247,134 @@ export function buildChunks(locale: Locale): Chunk[] {
     keywords: ["education", "formacion", "formación", "estudios", "master", "bigia", "tfm"],
     locale,
   })
+
+  if (profile.availability) {
+    chunks.push({
+      id: "profile-availability",
+      source: "availability",
+      sourceId: "availability",
+      title: locale === "es" ? "Disponibilidad freelance" : "Freelance availability",
+      text: joinParts([
+        localize(profile.availability, locale),
+        profile.workModel ? localize(profile.workModel, locale) : undefined,
+        profile.openTo ? `Open to: ${localize(profile.openTo, locale).join(", ")}` : undefined,
+        `Contact: ${profile.email}`,
+      ]),
+      keywords: [
+        "disponible",
+        "available",
+        "freelance",
+        "contratar",
+        "hire",
+        "disponibilidad",
+        "availability",
+        "remoto",
+        "remote",
+        "tarifa",
+        "rate",
+        "presupuesto",
+        "budget",
+        "autonomo",
+        "autónomo",
+      ],
+      locale,
+    })
+  }
+
+  for (const service of data.services) {
+    chunks.push({
+      id: `service-${service.id}`,
+      source: "service",
+      sourceId: service.id,
+      title: localize(service.title, locale),
+      text: joinParts([
+        localize(service.title, locale),
+        localize(service.description, locale),
+        `Deliverables: ${localize(service.deliverables, locale).join(", ")}`,
+        `Technologies: ${service.technologies.join(", ")}`,
+        service.pricing ? localize(service.pricing, locale) : undefined,
+      ]),
+      keywords: [
+        ...tokenize(localize(service.title, locale)),
+        "service",
+        "servicio",
+        "solucion",
+        "solución",
+        "solution",
+        "freelance",
+        "consultoria",
+        "consultoría",
+        "consulting",
+        ...service.technologies.map((t) => t.toLowerCase()),
+      ],
+      locale,
+    })
+  }
+
+  for (const entry of data.faq) {
+    const source = entry.category === "boundaries" ? "boundary" : "faq"
+    chunks.push({
+      id: `${source}-${entry.id}`,
+      source,
+      sourceId: entry.id,
+      title: localize(entry.question, locale),
+      text: `${localize(entry.question, locale)} — ${localize(entry.answer, locale)}`,
+      keywords: [
+        ...tokenize(localize(entry.question, locale)),
+        entry.category,
+        source,
+        "faq",
+        "contratar",
+        "hire",
+        "tarifa",
+        "rate",
+        "presupuesto",
+        "budget",
+        "precio",
+        "price",
+        "disponible",
+        "available",
+        "contacto",
+        "contact",
+        ...(entry.category === "boundaries"
+          ? ["no", "limit", "limite", "limite", "boundary", "vue", "java", "diseno"]
+          : []),
+        ...(entry.category === "personal" ? ["personal", "hobby", "musica", "music"] : []),
+      ],
+      locale,
+    })
+  }
+
+  for (const item of data.media) {
+    chunks.push({
+      id: `media-${item.id}`,
+      source: "media",
+      sourceId: item.id,
+      title: localize(item.title, locale),
+      text: joinParts([
+        localize(item.title, locale),
+        localize(item.platform, locale),
+        item.date,
+        localize(item.summary, locale),
+        localize(item.topics, locale).join(", "),
+        item.url,
+      ]),
+      keywords: [
+        "entrevista",
+        "interview",
+        "podcast",
+        "opground",
+        "discovery",
+        "media",
+        "youtube",
+        "video",
+        ...tokenize(localize(item.title, locale)),
+        ...tokenize(localize(item.platform, locale)),
+        ...tokenize(localize(item.summary, locale)),
+      ],
+      locale,
+    })
+  }
 
   return chunks
 }

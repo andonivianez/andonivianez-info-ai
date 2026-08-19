@@ -26,6 +26,7 @@ vi.mock("@/hooks/use-ai-assistant", () => ({
     input: "",
     setInput,
     isGenerating: false,
+    followUpQuestions: [],
     ask,
     cancel: vi.fn(),
     clear,

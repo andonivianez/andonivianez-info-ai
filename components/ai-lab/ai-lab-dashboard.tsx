@@ -33,6 +33,18 @@ export function AILabDashboard() {
     [summary.providerCounts],
   )
 
+  const topicChartData = useMemo(
+    () =>
+      Object.entries(summary.topicCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8)
+        .map(([topic, count]) => ({
+          topic: topic.length > 24 ? `${topic.slice(0, 22)}…` : topic,
+          count,
+        })),
+    [summary.topicCounts],
+  )
+
   const providers: ProviderId[] = ["chrome-ai", "webllm", "fallback"]
 
   return (
@@ -109,6 +121,30 @@ export function AILabDashboard() {
             <p>
               {t("ailab.errors")}: {summary.errorCount}
             </p>
+            <p>
+              {t("ailab.gapRate")}: {summary.gapCount}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>{t("ailab.topicDistribution")}</CardTitle>
+          </CardHeader>
+          <CardContent className="h-64">
+            {topicChartData.length === 0 ? (
+              <p className="text-muted-foreground text-sm">—</p>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={topicChartData} layout="vertical">
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" allowDecimals={false} />
+                  <YAxis type="category" dataKey="topic" width={120} tick={{ fontSize: 11 }} />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#2563eb" />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
           </CardContent>
         </Card>
 

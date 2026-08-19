@@ -28,6 +28,30 @@ test("root redirects to locale", async ({ page }) => {
   await expect(page).toHaveURL(/\/(es|en)$/)
 })
 
+test("legal pages load from footer", async ({ page }) => {
+  await page.goto("/es/about")
+  await page.getByRole("link", { name: "Aviso legal" }).click()
+  await expect(page).toHaveURL(/\/es\/legal\/notice/)
+  await expect(page.getByRole("heading", { name: "Aviso legal", level: 1 })).toBeVisible()
+})
+
+test("consent notice can be dismissed", async ({ page }) => {
+  await page.goto("/es")
+  const acceptButton = page.getByRole("button", { name: /Entendido/i })
+  await expect(acceptButton).toBeVisible({ timeout: 10000 })
+  await acceptButton.click()
+  await expect(acceptButton).not.toBeVisible()
+})
+
+test("interviews section loads video facade without iframe until play", async ({ page }) => {
+  await page.goto("/es/about")
+  await expect(page.locator("#interviews")).toBeVisible()
+  await expect(page.getByRole("heading", { name: /Entrevistas y apariciones/i })).toBeVisible()
+  await expect(page.locator("#interviews iframe")).toHaveCount(0)
+  await page.locator("#interviews button").first().click()
+  await expect(page.locator("#interviews iframe")).toHaveCount(1)
+})
+
 test("assistant works in fallback mode", async ({ page }) => {
   await page.goto("/es")
   await page.waitForSelector("#assistant", { timeout: 15000 })

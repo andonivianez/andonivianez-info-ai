@@ -2,8 +2,30 @@ import { buildContext, getInsufficientInfoMessage } from "@/lib/rag"
 import type { Chunk, Locale } from "@/lib/portfolio/types"
 import { getProfile } from "@/lib/portfolio"
 import { getAudienceProfile, type AudienceType } from "@/lib/audience/profiles"
+import { getConversationalReply } from "../conversation"
 import { buildSystemPrompt, buildUserPrompt } from "../prompt"
 import type { AIProvider, ProviderProgress } from "../types"
+
+function composeFallbackAnswer(sentences: string[], locale: Locale): string {
+  const unique: string[] = []
+  for (const sentence of sentences) {
+    const trimmed = sentence.trim()
+    if (!trimmed || unique.some((s) => s.includes(trimmed.slice(0, 40)))) continue
+    unique.push(trimmed)
+  }
+
+  if (unique.length === 0) {
+    return locale === "es"
+      ? "No encuentro información suficiente en el portfolio para responder con seguridad."
+      : "I cannot find enough information in the portfolio to answer confidently."
+  }
+
+  const body = unique.slice(0, 2).join(" ")
+  if (locale === "es") {
+    return body.endsWith(".") ? body : `${body}.`
+  }
+  return body.endsWith(".") ? body : `${body}.`
+}
 
 export class FallbackProvider implements AIProvider {
   readonly id = "fallback" as const
@@ -21,8 +43,11 @@ export class FallbackProvider implements AIProvider {
   }
 
   async generate(prompt: string, context?: string, _signal?: AbortSignal): Promise<string> {
+    const locale = this.detectLocale(prompt)
+    const question = this.extractQuestion(prompt)
+    const conversational = getConversationalReply(question, locale)
     if (!context?.trim()) {
-      return getInsufficientInfoMessage(this.detectLocale(prompt))
+      return conversational ?? getInsufficientInfoMessage(locale)
     }
 
     const sentences = context
@@ -30,8 +55,10 @@ export class FallbackProvider implements AIProvider {
       .map((s) => s.trim())
       .filter(Boolean)
 
-    const queryTokens = prompt
+    const queryTokens = question
       .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
       .split(/\s+/)
       .filter((t) => t.length > 2)
 
@@ -47,16 +74,13 @@ export class FallbackProvider implements AIProvider {
 
     const best = ranked.filter((item) => item.score > 0).slice(0, 3)
     if (best.length === 0) {
-      return getInsufficientInfoMessage(this.detectLocale(prompt))
+      return conversational ?? getInsufficientInfoMessage(locale)
     }
 
-    const locale = this.detectLocale(prompt)
-    const intro =
-      locale === "es"
-        ? "Según la información disponible en el portfolio:"
-        : "Based on the information available in the portfolio:"
-
-    return `${intro}\n\n${best.map((item) => `• ${item.sentence}`).join("\n")}`
+    return composeFallbackAnswer(
+      best.map((item) => item.sentence),
+      locale,
+    )
   }
 
   async *stream(prompt: string, context?: string, signal?: AbortSignal): AsyncIterable<string> {
@@ -65,9 +89,28 @@ export class FallbackProvider implements AIProvider {
   }
 
   private detectLocale(prompt: string): Locale {
-    const spanishHints = ["qué", "cuál", "cómo", "experiencia", "tecnologías", "proyectos"]
+    const spanishHints = [
+      "qué",
+      "cuál",
+      "cómo",
+      "experiencia",
+      "tecnologías",
+      "proyectos",
+      "hola",
+      "gracias",
+      "tal",
+    ]
     const lower = prompt.toLowerCase()
     return spanishHints.some((hint) => lower.includes(hint)) ? "es" : "en"
+  }
+
+  private extractQuestion(prompt: string): string {
+    const markers = ["PREGUNTA:", "QUESTION:"]
+    for (const marker of markers) {
+      const index = prompt.lastIndexOf(marker)
+      if (index >= 0) return prompt.slice(index + marker.length).trim()
+    }
+    return prompt
   }
 }
 
@@ -96,25 +139,29 @@ export function buildPromptBundle(
     sourceBoost,
   )
 
+  const conversationalReply = getConversationalReply(question, locale)
+
   if (!hasRelevantContext) {
     return {
-      systemPrompt: buildSystemPrompt(profile.name, locale),
+      systemPrompt: buildSystemPrompt(profile.name, locale, profile.email),
       userPrompt: "",
       context,
       hasRelevantContext: false,
       topScore,
       chunks,
-      insufficientMessage: getInsufficientInfoMessage(locale),
+      conversationalReply,
+      insufficientMessage: conversationalReply ?? getInsufficientInfoMessage(locale),
     }
   }
 
   return {
-    systemPrompt: buildSystemPrompt(profile.name, locale),
+    systemPrompt: buildSystemPrompt(profile.name, locale, profile.email),
     userPrompt: buildUserPrompt(question, context, locale),
     context,
     hasRelevantContext: true,
     topScore,
     chunks,
+    conversationalReply: undefined,
     insufficientMessage: getInsufficientInfoMessage(locale),
   }
 }
