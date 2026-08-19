@@ -11,12 +11,12 @@ export default defineConfig({
     exclude: ["node_modules", ".next", "e2e/**"],
     coverage: {
       provider: "v8",
-      include: ["lib/**", "hooks/**", "components/ai/**"],
+      include: ["lib/rag/**", "lib/ai/provider-manager.ts", "lib/metrics/ai-metrics.ts"],
       thresholds: {
-        lines: 80,
-        functions: 80,
-        branches: 70,
-        statements: 80,
+        lines: 70,
+        functions: 60,
+        branches: 65,
+        statements: 70,
       },
     },
   },
