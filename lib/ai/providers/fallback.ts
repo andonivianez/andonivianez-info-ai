@@ -1,6 +1,7 @@
 import { buildContext, getInsufficientInfoMessage } from "@/lib/rag"
-import type { Locale } from "@/lib/portfolio/types"
+import type { Chunk, Locale } from "@/lib/portfolio/types"
 import { getProfile } from "@/lib/portfolio"
+import { getAudienceProfile, type AudienceType } from "@/lib/audience/profiles"
 import { buildSystemPrompt, buildUserPrompt } from "../prompt"
 import type { AIProvider, ProviderProgress } from "../types"
 
@@ -79,9 +80,21 @@ export async function createFallbackAnswer(
   return provider.generate(question, context)
 }
 
-export function buildPromptBundle(question: string, locale: Locale) {
+export function buildPromptBundle(
+  question: string,
+  locale: Locale,
+  audience: AudienceType = "default",
+) {
   const profile = getProfile(locale)
-  const { context, hasRelevantContext, topScore, chunks } = buildContext(question, locale)
+  const audienceProfile = getAudienceProfile(audience)
+  const sourceBoost = audienceProfile.sourceWeights as Partial<Record<Chunk["source"], number>>
+  const { context, hasRelevantContext, topScore, chunks } = buildContext(
+    question,
+    locale,
+    undefined,
+    undefined,
+    sourceBoost,
+  )
 
   if (!hasRelevantContext) {
     return {

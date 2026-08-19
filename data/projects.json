@@ -64,19 +64,19 @@
     "category": { "es": "Mobile / IoT", "en": "Mobile / IoT" }
   },
   {
-    "id": "orbis-embedded",
+    "id": "wattio-embedded",
     "name": {
-      "es": "Software embebido ESP32 (Orbis)",
-      "en": "ESP32 Embedded Software (Orbis)"
+      "es": "Software embebido C++/Qt (Wattiocorp)",
+      "en": "C++/Qt Embedded Software (Wattiocorp)"
     },
     "description": {
-      "es": "Desarrollo de firmware embebido en C++ para dispositivos ESP32 en el sector de tecnología eléctrica industrial.",
-      "en": "Embedded firmware development in C++ for ESP32 devices in the industrial electrical technology sector."
+      "es": "Desarrollo de firmware embebido en C++/Qt para dispositivos IoT y domótica, con integración MQTT y backend Node.js.",
+      "en": "Embedded firmware development in C++/Qt for IoT and home automation devices, with MQTT integration and Node.js backend."
     },
-    "technologies": ["C++", "ESP32", "Embedded"],
+    "technologies": ["C++", "Qt", "MQTT", "Embedded", "Node.js"],
     "highlights": {
-      "es": ["Firmware embebido", "IoT industrial", "C++"],
-      "en": ["Embedded firmware", "Industrial IoT", "C++"]
+      "es": ["Firmware embebido", "IoT y domótica", "C++/Qt"],
+      "en": ["Embedded firmware", "IoT and home automation", "C++/Qt"]
     },
     "category": { "es": "Embedded / IoT", "en": "Embedded / IoT" }
   }

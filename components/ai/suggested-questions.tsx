@@ -19,7 +19,12 @@ export function SuggestedQuestions({
   const isHero = variant === "hero"
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div
+      className={cn(
+        "flex [scrollbar-width:none] gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden",
+        isHero && "-mx-1 snap-x snap-mandatory px-1 sm:mx-0 sm:px-0",
+      )}
+    >
       {questions.map((question) => (
         <Button
           key={question}
@@ -28,7 +33,7 @@ export function SuggestedQuestions({
           size="sm"
           disabled={disabled}
           className={cn(
-            "h-auto text-left text-xs whitespace-normal",
+            "h-auto shrink-0 snap-start text-left text-xs whitespace-nowrap sm:whitespace-normal",
             isHero &&
               "border-line text-slate-muted hover:border-amber hover:text-amber bg-transparent",
           )}

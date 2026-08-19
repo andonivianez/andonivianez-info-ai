@@ -1,24 +1,35 @@
 import { test, expect } from "@playwright/test"
 
 test("home page loads with chat assistant", async ({ page }) => {
-  await page.goto("/")
+  await page.goto("/es")
   await expect(page.getByRole("heading", { name: /Andoni Vianez/i })).toBeVisible()
   await expect(page.locator("#assistant")).toBeVisible()
 })
 
 test("about page loads with experience", async ({ page }) => {
-  await page.goto("/about")
+  await page.goto("/es/about")
   await expect(page.getByRole("heading", { name: /Andoni Vianez/i, level: 1 })).toBeVisible()
   await expect(page.locator("#experience")).toBeVisible()
 })
 
+test("english about page renders in english", async ({ page }) => {
+  await page.goto("/en/about")
+  await expect(page.getByRole("heading", { name: /Professional Experience/i })).toBeVisible()
+  await expect(page.getByText(/followers/i)).toBeVisible()
+})
+
 test("ai-lab page loads", async ({ page }) => {
-  await page.goto("/ai-lab")
+  await page.goto("/es/ai-lab")
   await expect(page.getByRole("heading", { name: "AI Lab" })).toBeVisible()
 })
 
-test("assistant works in fallback mode", async ({ page }) => {
+test("root redirects to locale", async ({ page }) => {
   await page.goto("/")
+  await expect(page).toHaveURL(/\/(es|en)$/)
+})
+
+test("assistant works in fallback mode", async ({ page }) => {
+  await page.goto("/es")
   await page.waitForSelector("#assistant", { timeout: 15000 })
   const questionButton = page
     .getByRole("button", { name: /tecnolog|technolog|experienc|experience/i })

@@ -1,13 +1,20 @@
 import profileData from "@/data/profile.json"
+import type { AppLocale } from "@/lib/i18n/config"
 
-export function JsonLd() {
+interface JsonLdProps {
+  locale?: AppLocale
+}
+
+export function JsonLd({ locale = "es" }: JsonLdProps) {
   const profile = profileData
+  const role = profile.role[locale]
+  const bio = profile.bio[locale]
 
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name,
-    jobTitle: profile.role.es,
+    jobTitle: role,
     email: profile.email,
     url: "https://www.andonivianez.info",
     image: "https://www.andonivianez.info/images/andoni-profile.png",
@@ -31,9 +38,9 @@ export function JsonLd() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Andoni Vianez — Portfolio IA",
-    url: "https://www.andonivianez.info",
-    description: profile.bio.es,
+    name: locale === "es" ? "Andoni Vianez — Portfolio IA" : "Andoni Vianez — AI Portfolio",
+    url: `https://www.andonivianez.info/${locale}`,
+    description: bio,
     author: {
       "@type": "Person",
       name: profile.name,

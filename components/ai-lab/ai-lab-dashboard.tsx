@@ -62,7 +62,7 @@ export function AILabDashboard() {
             {runtime.activeProvider?.label ?? t("assistant.initializing")}
           </p>
           <p>
-            <strong>{t("ailab.processing")}:</strong> 100% local
+            <strong>{t("ailab.processing")}:</strong> {t("ailab.localOnly")}
           </p>
         </CardContent>
       </Card>
@@ -166,7 +166,7 @@ export function AILabDashboard() {
             setSummary(metricsStore.summary())
           }}
         >
-          Clear metrics
+          {t("ailab.clearMetrics")}
         </Button>
       </div>
     </div>

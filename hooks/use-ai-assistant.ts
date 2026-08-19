@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react"
 import { buildPromptBundle } from "@/lib/ai/providers/fallback"
+import type { AudienceType } from "@/lib/audience/profiles"
 import type { ProviderId } from "@/lib/ai/types"
 import { createMetric, metricsStore } from "@/lib/metrics/ai-metrics"
 import type { Locale } from "@/lib/portfolio/types"
@@ -17,7 +18,7 @@ function createMessageId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
 }
 
-export function useAIAssistant(locale: Locale) {
+export function useAIAssistant(locale: Locale, audience: AudienceType = "default") {
   const runtime = useAIRuntime()
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
@@ -50,7 +51,7 @@ export function useAIAssistant(locale: Locale) {
         }
 
         const retrievalStarted = performance.now()
-        const bundle = buildPromptBundle(question, locale)
+        const bundle = buildPromptBundle(question, locale, audience)
         retrievalTime = performance.now() - retrievalStarted
 
         if (!bundle.hasRelevantContext) {
@@ -90,14 +91,18 @@ export function useAIAssistant(locale: Locale) {
           const assistantId = createMessageId()
           setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }])
 
-          for await (const chunk of provider.stream(prompt, undefined, abortRef.current.signal)) {
+          for await (const chunk of provider.stream(
+            prompt,
+            bundle.context,
+            abortRef.current.signal,
+          )) {
             responseText += chunk
             setMessages((prev) =>
               prev.map((msg) => (msg.id === assistantId ? { ...msg, content: responseText } : msg)),
             )
           }
         } else {
-          responseText = await provider.generate(prompt, undefined, abortRef.current.signal)
+          responseText = await provider.generate(prompt, bundle.context, abortRef.current.signal)
           setMessages((prev) => [
             ...prev,
             { id: createMessageId(), role: "assistant", content: responseText },
@@ -121,7 +126,7 @@ export function useAIAssistant(locale: Locale) {
           createMetric({
             provider: (runtime.activeProviderId ?? "fallback") as ProviderId,
             questionLength: question.length,
-            contextLength: buildPromptBundle(question, locale).context.length,
+            contextLength: buildPromptBundle(question, locale, audience).context.length,
             responseLength: responseText.length,
             retrievalTime,
             generationTime,
@@ -129,8 +134,8 @@ export function useAIAssistant(locale: Locale) {
             success,
             errorType,
             answeredWithoutLLM: !runtime.activeProvider?.isGenerative,
-            chunksRetrieved: buildPromptBundle(question, locale).chunks.length,
-            topScore: buildPromptBundle(question, locale).topScore,
+            chunksRetrieved: buildPromptBundle(question, locale, audience).chunks.length,
+            topScore: buildPromptBundle(question, locale, audience).topScore,
             locale,
           }),
         )
@@ -138,7 +143,7 @@ export function useAIAssistant(locale: Locale) {
         abortRef.current = null
       }
     },
-    [isGenerating, locale, runtime],
+    [isGenerating, locale, audience, runtime],
   )
 
   const cancel = useCallback(() => {

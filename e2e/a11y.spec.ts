@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test"
 import AxeBuilder from "@axe-core/playwright"
 
 test("home page passes basic accessibility checks", async ({ page }) => {
-  await page.goto("/")
+  await page.goto("/es")
   await page.waitForSelector("#assistant")
   const results = await new AxeBuilder({ page }).disableRules(["color-contrast"]).analyze()
   expect(
@@ -11,7 +11,7 @@ test("home page passes basic accessibility checks", async ({ page }) => {
 })
 
 test("about page passes basic accessibility checks", async ({ page }) => {
-  await page.goto("/about")
+  await page.goto("/es/about")
   const results = await new AxeBuilder({ page }).disableRules(["color-contrast"]).analyze()
   expect(
     results.violations.filter((v) => v.impact === "critical" || v.impact === "serious"),
@@ -19,7 +19,7 @@ test("about page passes basic accessibility checks", async ({ page }) => {
 })
 
 test("ai-lab page passes basic accessibility checks", async ({ page }) => {
-  await page.goto("/ai-lab")
+  await page.goto("/es/ai-lab")
   const results = await new AxeBuilder({ page }).disableRules(["color-contrast"]).analyze()
   expect(
     results.violations.filter((v) => v.impact === "critical" || v.impact === "serious"),

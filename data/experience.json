@@ -6,21 +6,13 @@
     "location": { "es": "Madrid / remoto", "en": "Madrid / remote" },
     "period": { "es": "Mayo 2022 – Presente", "en": "May 2022 – Present" },
     "description": {
-      "es": "Desarrollo full stack con ReactJS, Angular y Node+Express. Apps móviles iOS/Android con React Native. Software embebido en C++ para ESP32.",
-      "en": "Full stack development with ReactJS, Angular and Node+Express. iOS/Android mobile apps with React Native. Embedded C++ software for ESP32."
+      "es": "Desarrollo full stack con ReactJS, Angular y Node+Express. Apps móviles iOS/Android con React Native.",
+      "en": "Full stack development with ReactJS, Angular and Node+Express. iOS/Android mobile apps with React Native."
     },
-    "technologies": ["React", "Angular", "Node.js", "Express", "React Native", "C++", "ESP32"],
+    "technologies": ["React", "Angular", "Node.js", "Express", "React Native"],
     "achievements": {
-      "es": [
-        "Stack web y móvil en producción",
-        "Firmware embebido ESP32",
-        "Arquitectura multiplataforma"
-      ],
-      "en": [
-        "Production web and mobile stack",
-        "ESP32 embedded firmware",
-        "Cross-platform architecture"
-      ]
+      "es": ["Stack web y móvil en producción", "Arquitectura multiplataforma"],
+      "en": ["Production web and mobile stack", "Cross-platform architecture"]
     },
     "tags": ["current"]
   },
@@ -158,13 +150,34 @@
     "location": { "es": "Donostia", "en": "San Sebastián" },
     "period": { "es": "Febrero – Mayo 2017", "en": "February – May 2017" },
     "description": {
-      "es": "Frontend/backend con AngularJS, NodeJS (pm2) e Ionic. Infraestructura Proxmox, AWS, Redis, MongoDB y MQTT. Software embebido C++/Qt.",
-      "en": "Frontend/backend with AngularJS, NodeJS (pm2) and Ionic. Proxmox, AWS, Redis, MongoDB and MQTT infrastructure. Embedded C++/Qt software."
+      "es": "Frontend/backend con AngularJS, NodeJS (pm2) e Ionic. Infraestructura Proxmox, AWS, Redis, MongoDB y MQTT. Software embebido C++/Qt para domótica e IoT.",
+      "en": "Frontend/backend with AngularJS, NodeJS (pm2) and Ionic. Proxmox, AWS, Redis, MongoDB and MQTT infrastructure. Embedded C++/Qt software for home automation and IoT."
     },
-    "technologies": ["AngularJS", "Node.js", "Ionic", "C++", "Qt", "AWS", "MongoDB", "Redis"],
+    "technologies": [
+      "AngularJS",
+      "Node.js",
+      "Ionic",
+      "C++",
+      "Qt",
+      "MQTT",
+      "AWS",
+      "MongoDB",
+      "Redis",
+      "Embedded"
+    ],
     "achievements": {
-      "es": ["IoT y mensajería MQTT", "GitLab + Git Flow", "Soporte técnico in situ"],
-      "en": ["IoT and MQTT messaging", "GitLab + Git Flow", "On-site technical support"]
+      "es": [
+        "Firmware embebido C++/Qt en producción",
+        "IoT y mensajería MQTT",
+        "GitLab + Git Flow",
+        "Soporte técnico in situ"
+      ],
+      "en": [
+        "Production C++/Qt embedded firmware",
+        "IoT and MQTT messaging",
+        "GitLab + Git Flow",
+        "On-site technical support"
+      ]
     },
     "tags": []
   },

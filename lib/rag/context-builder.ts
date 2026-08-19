@@ -1,8 +1,9 @@
 import type { Chunk, Locale } from "@/lib/portfolio/types"
+import { AI_CONFIG } from "@/lib/ai/config"
 import { retrieve } from "./retriever"
 
-export const DEFAULT_CONTEXT_BUDGET = 2000
-export const DEFAULT_MIN_SCORE = 2
+export const DEFAULT_CONTEXT_BUDGET = AI_CONFIG.contextBudget
+export const DEFAULT_MIN_SCORE = AI_CONFIG.minRetrievalScore
 
 export interface ContextBuildResult {
   context: string
@@ -14,13 +15,15 @@ export interface ContextBuildResult {
 export function buildContext(
   query: string,
   locale: Locale,
-  budget = DEFAULT_CONTEXT_BUDGET,
-  minScore = DEFAULT_MIN_SCORE,
+  budget: number = DEFAULT_CONTEXT_BUDGET,
+  minScore: number = DEFAULT_MIN_SCORE,
+  sourceBoost?: Partial<Record<Chunk["source"], number>>,
 ): ContextBuildResult {
   const { chunks, topScore, hasRelevantContext } = retrieve(query, {
     locale,
     limit: 8,
     minScore,
+    sourceBoost,
   })
 
   if (!hasRelevantContext) {

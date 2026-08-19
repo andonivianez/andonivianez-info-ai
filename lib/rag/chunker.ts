@@ -135,11 +135,84 @@ export function buildChunks(locale: Locale): Chunk[] {
         sourceId: category.id,
         title: skill.name,
         text: `${skill.name} (${category.id}): ${skill.level}% proficiency`,
-        keywords: [skill.name.toLowerCase(), category.id, "skill", "habilidad"],
+        keywords: [skill.name.toLowerCase(), category.id, "skill", "habilidad", "skills"],
         locale,
       })
     }
   }
+
+  const certifications = localize(data.certifications, locale)
+  chunks.push({
+    id: "certifications-all",
+    source: "certification",
+    sourceId: "certifications",
+    title: locale === "es" ? "Certificaciones" : "Certifications",
+    text: certifications.join(". "),
+    keywords: [
+      "certification",
+      "certificaciones",
+      "certificacion",
+      "certifications",
+      "lpi",
+      "cambridge",
+    ],
+    locale,
+  })
+
+  const softSkills = localize(data.softSkills, locale)
+  chunks.push({
+    id: "softskills-all",
+    source: "softskill",
+    sourceId: "softskills",
+    title: locale === "es" ? "Soft skills" : "Soft skills",
+    text: softSkills.join(". "),
+    keywords: [
+      "soft skills",
+      "softskills",
+      "habilidades",
+      "competencias",
+      "capabilities",
+      "capacidades",
+      "leadership",
+      "liderazgo",
+      "agile",
+    ],
+    locale,
+  })
+
+  chunks.push({
+    id: "summary-technologies",
+    source: "summary",
+    sourceId: "technologies",
+    title: locale === "es" ? "Stack tecnológico" : "Technology stack",
+    text: data.technologies.map((t) => `${t.name} (${t.category}, ${t.level}%)`).join(", "),
+    keywords: ["technologies", "tecnologias", "tecnologías", "stack", "tech"],
+    locale,
+  })
+
+  chunks.push({
+    id: "summary-projects",
+    source: "summary",
+    sourceId: "projects",
+    title: locale === "es" ? "Proyectos destacados" : "Featured projects",
+    text: data.projects
+      .map((p) => `${localize(p.name, locale)}: ${localize(p.description, locale)}`)
+      .join(". "),
+    keywords: ["projects", "proyectos", "portfolio", "highlights"],
+    locale,
+  })
+
+  chunks.push({
+    id: "summary-education",
+    source: "summary",
+    sourceId: "education",
+    title: locale === "es" ? "Formación académica" : "Academic background",
+    text: data.education
+      .map((e) => `${localize(e.degree, locale)} — ${e.institution} (${e.period})`)
+      .join(". "),
+    keywords: ["education", "formacion", "formación", "estudios", "master", "bigia", "tfm"],
+    locale,
+  })
 
   return chunks
 }
