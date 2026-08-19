@@ -15,7 +15,7 @@ test("about page loads with experience", async ({ page }) => {
 test("english about page renders in english", async ({ page }) => {
   await page.goto("/en/about")
   await expect(page.getByRole("heading", { name: /Professional Experience/i })).toBeVisible()
-  await expect(page.getByText(/followers/i)).toBeVisible()
+  await expect(page.getByText("Followers", { exact: true })).toBeVisible()
 })
 
 test("ai-lab page loads", async ({ page }) => {
