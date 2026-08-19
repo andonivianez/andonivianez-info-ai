@@ -11,4 +11,9 @@ describe("SuggestedQuestions", () => {
     await userEvent.click(screen.getByRole("button", { name: /tecnologías/i }))
     expect(onSelect).toHaveBeenCalledWith("¿Con qué tecnologías trabaja?")
   })
+
+  it("renders hero chips and respects the disabled state", () => {
+    render(<SuggestedQuestions questions={["One"]} onSelect={vi.fn()} disabled variant="hero" />)
+    expect(screen.getByRole("button", { name: "One" })).toBeDisabled()
+  })
 })
