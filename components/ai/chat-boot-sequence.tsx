@@ -54,6 +54,7 @@ export function ChatBootSequence({ onComplete }: ChatBootSequenceProps) {
 
   return (
     <div
+      role="status"
       className="border-line/60 bg-ink-muted/50 mb-4 rounded-lg border px-4 py-3 font-mono text-xs"
       aria-live="polite"
       aria-label="Boot sequence"

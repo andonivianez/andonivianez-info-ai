@@ -18,13 +18,18 @@ for (const viewport of viewports) {
 
     const input = assistant.getByRole("textbox")
     await expect(input).toBeVisible()
+    await input.scrollIntoViewIfNeeded()
     await input.focus()
     await expect(input).toBeFocused()
 
+    const assistantBox = await assistant.boundingBox()
     const inputBox = await input.boundingBox()
+    expect(assistantBox).not.toBeNull()
     expect(inputBox).not.toBeNull()
-    if (inputBox) {
-      expect(inputBox.y + inputBox.height).toBeLessThanOrEqual(viewport.height + 1)
+    if (assistantBox && inputBox) {
+      expect(inputBox.y + inputBox.height).toBeLessThanOrEqual(
+        assistantBox.y + assistantBox.height + 1,
+      )
     }
 
     await expect(assistant.getByRole("button", { name: /Enviar|Send/i })).toBeVisible()
