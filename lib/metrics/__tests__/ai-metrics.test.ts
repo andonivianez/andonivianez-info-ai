@@ -52,4 +52,39 @@ describe("ai-metrics", () => {
     }
     expect(store.list().length).toBeLessThanOrEqual(500)
   })
+
+  it("summarizes empty and mixed metrics and exports them", () => {
+    const store = new LocalStorageMetricsStore()
+    expect(store.summary().totalQueries).toBe(0)
+
+    store.add(
+      createMetric({
+        provider: "fallback",
+        questionLength: 2,
+        contextLength: 4,
+        responseLength: 6,
+        retrievalTime: 1,
+        generationTime: 2,
+        totalTime: 3,
+        success: false,
+        answeredWithoutLLM: true,
+        chunksRetrieved: 0,
+        topScore: 0,
+        locale: "en",
+      }),
+    )
+
+    const summary = store.summary()
+    expect(summary.errorCount).toBe(1)
+    expect(store.exportJson()).toContain("fallback")
+    expect(store.exportCsv()).toContain("provider")
+    store.clear()
+    expect(store.list()).toEqual([])
+  })
+
+  it("returns an empty list when stored JSON is invalid", () => {
+    localStorage.setItem("portfolio-ai-metrics", "{not-json")
+    const store = new LocalStorageMetricsStore()
+    expect(store.list()).toEqual([])
+  })
 })

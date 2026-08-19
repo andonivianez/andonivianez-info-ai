@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { retrieve } from "@/lib/rag/retriever"
+import { createRetriever, retrieve } from "@/lib/rag/retriever"
 
 describe("retriever", () => {
   it("finds React Native experience for mobile questions", () => {
@@ -23,5 +23,11 @@ describe("retriever", () => {
     const result = retrieve("¿Qué experiencia tiene con backend?", { locale: "es" })
     expect(result.hasRelevantContext).toBe(true)
     expect(result.topScore).toBeGreaterThan(2)
+  })
+
+  it("creates a retriever with default options", () => {
+    const retriever = createRetriever({ locale: "es" })
+    const result = retriever.retrieve("React Native")
+    expect(result.hasRelevantContext).toBe(true)
   })
 })
