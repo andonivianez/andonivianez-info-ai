@@ -3,8 +3,8 @@
 Duración objetivo: **6–8 minutos**.  
 Formato: **captura de pantalla obligatoria**; cámara frontal opcional.
 
-Publicar en YouTube (no listado o público) o Google Drive con enlace público.  
-Pegar la URL en [README.md](../README.md) → sección “Entrega TFM” y en [TFM.md](TFM.md) §14.
+Copia en el repo: [TFM-demo.mp4](TFM-demo.mp4)  
+URL pública: https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM-demo.mp4
 
 ---
 
@@ -135,7 +135,6 @@ Portfolio chat-first con RAG, Chrome Built-in AI, WebLLM y fallback extractivo (
 
 ## Después de publicar
 
-1. Copiar URL pública del vídeo
-2. Sustituir el `TODO` del vídeo en [README.md](../README.md) → tabla “Entrega TFM”
-3. Sustituir el `TODO` del vídeo en [docs/TFM.md](TFM.md) → sección 14
-4. Enviar el formulario de entrega del campus
+- [x] Vídeo en el repo: [TFM-demo.mp4](TFM-demo.mp4)
+- [x] Enlaces actualizados en [README.md](../README.md) y [TFM.md](TFM.md) §14
+- [ ] Enviar el formulario de entrega del campus

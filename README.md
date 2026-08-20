@@ -6,7 +6,13 @@
 
 Portfolio inteligente con **IA generativa 100% local en el navegador**, desarrollado como Trabajo de Fin de Máster (TFM).
 
-**Live:** [www.andonivianez.info](https://www.andonivianez.info)
+**Live:** [www.andonivianez.info](https://www.andonivianez.info)  
+**Vídeo TFM:** [docs/TFM-demo.mp4](docs/TFM-demo.mp4)
+
+<video src="docs/TFM-demo.mp4" controls preload="metadata" width="720">
+  Tu navegador no reproduce el vídeo. Ábrelo en
+  [docs/TFM-demo.mp4](docs/TFM-demo.mp4).
+</video>
 
 ## Qué es
 
@@ -119,6 +125,7 @@ docs/
   PRESENTACION.md # Guion de slides (TFM)
   GUION-VIDEO.md  # Guion de vídeo (TFM)
   TFM_Portfolio_IA_Local_Andoni_Vianez.pptx  # Deck de defensa
+  TFM-demo.mp4    # Vídeo de captura de pantalla (entrega)
 CHANGELOG.md      # Historial de versiones (SemVer)
 ```
 
@@ -159,17 +166,15 @@ Commits: [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, 
 
 Material exigido por el máster BigIA — [requisitos oficiales](https://campus.thebigschool.com/wp-content/uploads/2026/02/Documentacion-TFM-Fundae-1.pdf).
 
-**Estado:** el producto y el repo están listos. Solo falta el vídeo de captura y pegar su URL.
+**Estado:** material de entrega completo. Queda enviar el formulario del campus.
 
-| Entregable                     | Estado    | URL                                                                                                                                                             |
-| ------------------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Repositorio GitHub (público)   | Hecho     | https://github.com/andonivianez/andonivianez-info-ai                                                                                                            |
-| Despliegue en producción       | Hecho     | https://www.andonivianez.info                                                                                                                                   |
-| Slides                         | Hecho     | [docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) |
-| Vídeo (captura de pantalla)    | Pendiente | Grabar con [docs/GUION-VIDEO.md](docs/GUION-VIDEO.md) y pegar aquí la URL pública                                                                               |
-| Usuario / contraseña de prueba | N/A       | No aplica (sin autenticación)                                                                                                                                   |
-
-Tras publicar el vídeo: sustituir “Pendiente” por la URL en esta tabla y en [docs/TFM.md](docs/TFM.md) §14. Luego enviar el formulario del campus.
+| Entregable                     | Estado | URL                                                                                                                                                             |
+| ------------------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Repositorio GitHub (público)   | Hecho  | https://github.com/andonivianez/andonivianez-info-ai                                                                                                            |
+| Despliegue en producción       | Hecho  | https://www.andonivianez.info                                                                                                                                   |
+| Slides                         | Hecho  | [docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx](https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM_Portfolio_IA_Local_Andoni_Vianez.pptx) |
+| Vídeo (captura de pantalla)    | Hecho  | [docs/TFM-demo.mp4](https://github.com/andonivianez/andonivianez-info-ai/blob/main/docs/TFM-demo.mp4)                                                           |
+| Usuario / contraseña de prueba | N/A    | No aplica (sin autenticación)                                                                                                                                   |
 
 ## Licencia
 

@@ -17,6 +17,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/) y el v
 - Páginas legales (`/legal/*`): aviso legal, privacidad RGPD y cookies, con consentimiento de analítica
 - Entrevista Opground en About (carátula local y YouTube bajo demanda)
 - Banco de tests de coherencia del chat (unitarios y E2E)
+- Vídeo de captura TFM en [`docs/TFM-demo.mp4`](docs/TFM-demo.mp4)
 
 ### Changed
 

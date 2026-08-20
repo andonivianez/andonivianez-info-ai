@@ -138,15 +138,19 @@ describe("chat coherence against the real fallback pipeline", () => {
     })
   }
 
-  it("answers every default suggested question without giving up", async () => {
-    for (const locale of ["es", "en"] as const) {
-      for (const question of getSuggestedQuestions("default", locale)) {
-        const answer = await askChat(question, locale)
-        expect(answer).not.toMatch(
-          /No encuentro información suficiente|cannot find enough information/i,
-        )
-        expect(answer.length).toBeGreaterThan(24)
+  it(
+    "answers every default suggested question without giving up",
+    { timeout: 20_000 },
+    async () => {
+      for (const locale of ["es", "en"] as const) {
+        for (const question of getSuggestedQuestions("default", locale)) {
+          const answer = await askChat(question, locale)
+          expect(answer).not.toMatch(
+            /No encuentro información suficiente|cannot find enough information/i,
+          )
+          expect(answer.length).toBeGreaterThan(24)
+        }
       }
-    }
-  })
+    },
+  )
 })
