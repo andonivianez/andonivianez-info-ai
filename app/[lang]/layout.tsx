@@ -43,6 +43,7 @@ export default async function LangLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       className={`${GeistSans.variable} ${GeistMono.variable} ${bricolage.variable}`}
     >
       <body className="font-sans antialiased">
