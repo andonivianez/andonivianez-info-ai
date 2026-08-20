@@ -10,16 +10,16 @@ Pegar la URL en [README.md](../README.md) → sección “Entrega TFM” y en [T
 
 ## Checklist antes de grabar
 
-- [ ] Resolución **1080p** (1920×1080 o 1280×720 mínimo)
-- [ ] Sitio en producción: https://www.andonivianez.info/es (no localhost)
-- [ ] Chrome (recomendado). Si no hay Chrome AI / WebGPU, el fallback extractivo es válido y se explica
-- [ ] Cerrar pestañas con `.env`, correo, Slack o datos personales
-- [ ] **No abrir** Aviso legal ni Privacidad en cámara (constan NIF y domicilio por LSSI)
-- [ ] Si aparece el aviso de cookies, pulsar **Entendido** antes de empezar
-- [ ] Warm-up: pulsar «¿Cuál es tu experiencia principal?» y esperar la respuesta
-- [ ] Silenciar notificaciones (Slack, mail, móvil)
-- [ ] Micrófono a ~15 cm, habitación sin eco
-- [ ] Opcional: OBS / Loom / QuickTime / ShareX
+- [x] Resolución **1080p** (1920×1080 o 1280×720 mínimo)
+- [x] Sitio en producción: [https://www.andonivianez.info/es](https://www.andonivianez.info/es) (no localhost)
+- [x] Chrome (recomendado). Si no hay Chrome AI / WebGPU, el fallback extractivo es válido y se explica
+- [x] Cerrar pestañas con `.env`, correo, Slack o datos personales
+- [x] **No abrir** Aviso legal ni Privacidad en cámara (constan NIF y domicilio por LSSI)
+- [x] Si aparece el aviso de cookies, pulsar **Entendido** antes de empezar
+- [x] Warm-up: pulsar «¿Cuál es tu experiencia principal?» y esperar la respuesta
+- [x] Silenciar notificaciones (Slack, mail, móvil)
+- [x] Micrófono a ~15 cm, habitación sin eco
+- [x] Opcional: OBS / Loom / QuickTime / ShareX
 
 ---
 
