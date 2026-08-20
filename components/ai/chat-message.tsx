@@ -29,6 +29,7 @@ export function ChatMessageBubble({
         className="flex justify-end"
       >
         <div
+          data-testid="user-message"
           className={cn(
             "max-w-[88%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed",
             isHero ? "bg-amber text-ink font-medium" : "bg-blue-600 text-white",
@@ -45,6 +46,7 @@ export function ChatMessageBubble({
       initial={reduceMotion ? false : { opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
+      data-testid="assistant-message"
       className={cn(
         "border-amber/70 max-w-none border-l-2 py-1 pl-3 text-sm leading-relaxed",
         isHero ? "text-text-on-ink" : "text-foreground",

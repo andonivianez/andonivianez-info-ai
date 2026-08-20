@@ -56,4 +56,12 @@ describe("FallbackProvider", () => {
     const helper = await createFallbackAnswer("React Native", "en", "React Native apps.")
     expect(helper).toContain("React Native")
   })
+
+  it("extracts CONTEXTO from the full chat prompt when context is omitted", async () => {
+    const bundle = buildPromptBundle("¿Estás disponible para proyectos freelance?", "es")
+    const prompt = `${bundle.systemPrompt}\n\n${bundle.userPrompt}`
+    const answer = await provider.generate(prompt)
+    expect(answer).toMatch(/disponib|kick-off|freelance/i)
+    expect(answer).not.toMatch(/No encuentro/)
+  })
 })

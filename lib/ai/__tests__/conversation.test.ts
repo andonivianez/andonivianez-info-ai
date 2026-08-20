@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest"
-import { classifyConversationIntent, getConversationalReply } from "@/lib/ai/conversation"
+import {
+  classifyConversationIntent,
+  getConversationalReply,
+  isSocialConversationIntent,
+} from "@/lib/ai/conversation"
 import { buildPromptBundle } from "@/lib/ai/providers/fallback"
 
 describe("conversation intents", () => {
@@ -28,6 +32,9 @@ describe("conversation intents", () => {
   it("does not treat portfolio questions as conversation", () => {
     expect(classifyConversationIntent("¿Qué experiencia tiene con React Native?")).toBeNull()
     expect(classifyConversationIntent("quantum physics doctorate")).toBeNull()
+    expect(isSocialConversationIntent("hola")).toBe(true)
+    expect(isSocialConversationIntent("qué sabes hacer")).toBe(false)
+    expect(isSocialConversationIntent("¿Estás disponible?")).toBe(false)
   })
 
   it("returns a useful reply for greetings", () => {

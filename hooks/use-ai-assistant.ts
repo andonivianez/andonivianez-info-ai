@@ -3,6 +3,8 @@
 import { useCallback, useRef, useState } from "react"
 import { trackChatGap, trackChatQuestion } from "@/lib/analytics/events"
 import { classifyTopic } from "@/lib/analytics/topic"
+import { isWeakGeneratedAnswer } from "@/lib/ai/answer-quality"
+import { synthesizeExtractiveAnswer } from "@/lib/ai/extractive-answer"
 import { rewriteQueryWithHistory } from "@/lib/ai/follow-up"
 import { buildPromptBundle } from "@/lib/ai/providers/fallback"
 import { getFollowUpQuestions } from "@/lib/ai/suggested-followups"
@@ -103,23 +105,39 @@ export function useAIAssistant(locale: Locale, audience: AudienceType = "default
         const generationStarted = performance.now()
         const provider = runtime.activeProvider ?? (await runtime.manager.selectBestProvider())
         const prompt = `${bundle.systemPrompt}\n\n${bundle.userPrompt}`
+        const extractiveAnswer = synthesizeExtractiveAnswer(retrievalQuery, bundle.context, locale)
 
         if (provider.stream) {
           const assistantId = createMessageId()
           setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }])
 
-          for await (const chunk of provider.stream(prompt, undefined, abortRef.current.signal)) {
+          for await (const chunk of provider.stream(
+            prompt,
+            bundle.context,
+            abortRef.current.signal,
+          )) {
             responseText += chunk
             setMessages((prev) =>
               prev.map((msg) => (msg.id === assistantId ? { ...msg, content: responseText } : msg)),
             )
           }
         } else {
-          responseText = await provider.generate(prompt, undefined, abortRef.current.signal)
+          responseText = await provider.generate(prompt, bundle.context, abortRef.current.signal)
           setMessages((prev) => [
             ...prev,
             { id: createMessageId(), role: "assistant", content: responseText },
           ])
+        }
+
+        if (provider.isGenerative && isWeakGeneratedAnswer(responseText, locale, bundle.context)) {
+          responseText = extractiveAnswer
+          setMessages((prev) => {
+            const last = prev.at(-1)
+            if (!last || last.role !== "assistant") {
+              return [...prev, { id: createMessageId(), role: "assistant", content: responseText }]
+            }
+            return prev.map((msg) => (msg.id === last.id ? { ...msg, content: responseText } : msg))
+          })
         }
 
         generationTime = performance.now() - generationStarted

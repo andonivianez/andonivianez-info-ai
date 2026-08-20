@@ -149,6 +149,21 @@ function isBasqueQuery(normalized: string): boolean {
   return BASQUE_HINTS.some((hint) => normalized.includes(hint))
 }
 
+const SOCIAL_INTENTS: ConversationIntent[] = [
+  "greeting",
+  "smalltalk",
+  "thanks",
+  "help",
+  "goodbye",
+  "meta",
+  "basque",
+]
+
+export function isSocialConversationIntent(query: string): boolean {
+  const intent = classifyConversationIntent(query)
+  return intent !== null && SOCIAL_INTENTS.includes(intent)
+}
+
 export function classifyConversationIntent(query: string): ConversationIntent {
   const normalized = normalize(query)
   if (!normalized) return null

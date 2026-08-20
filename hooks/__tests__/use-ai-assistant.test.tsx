@@ -87,7 +87,23 @@ describe("useAIAssistant", () => {
     })
 
     expect(generate).toHaveBeenCalled()
+    expect(generate.mock.calls[0]?.[1]).toEqual(expect.stringContaining("["))
     expect(result.current.messages.at(-1)?.content).toBe("respuesta")
+  })
+
+  it("replaces a weak generative answer with the extractive fallback", async () => {
+    runtime.activeProvider.isGenerative = true
+    runtime.activeProvider.stream = undefined
+    generate.mockResolvedValue("ok")
+    const { result } = renderHook(() => useAIAssistant("es"))
+
+    await act(async () => {
+      await result.current.ask("¿Qué experiencia tienes con React Native?")
+    })
+
+    expect(result.current.messages.at(-1)?.content).toMatch(/React Native/i)
+    expect(result.current.messages.at(-1)?.content).not.toBe("ok")
+    runtime.activeProvider.isGenerative = false
   })
 
   it("reports generation errors in English", async () => {

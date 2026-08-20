@@ -5,6 +5,10 @@ function joinParts(parts: (string | undefined)[]): string {
   return parts.filter(Boolean).join(". ")
 }
 
+function label(locale: Locale, es: string, en: string, value: string): string {
+  return `${locale === "es" ? es : en}: ${value}`
+}
+
 function tokenize(text: string): string[] {
   return text
     .toLowerCase()
@@ -29,7 +33,9 @@ export function buildChunks(locale: Locale): Chunk[] {
       localize(profile.role, locale),
       localize(profile.subtitle, locale),
       localize(profile.bio, locale),
-      `${localize(profile.role, locale)} with ${profile.stats.yearsExperience}+ years of experience`,
+      locale === "es"
+        ? `${localize(profile.role, locale)} con más de ${profile.stats.yearsExperience} años de experiencia`
+        : `${localize(profile.role, locale)} with ${profile.stats.yearsExperience}+ years of experience`,
     ]),
     keywords: [
       profile.name.toLowerCase(),
@@ -37,6 +43,9 @@ export function buildChunks(locale: Locale): Chunk[] {
       "perfil",
       "experience",
       "experiencia",
+      "principal",
+      "main",
+      "trayectoria",
       ...localize(profile.role, locale).toLowerCase().split(/\s+/),
     ],
     locale,
@@ -54,8 +63,8 @@ export function buildChunks(locale: Locale): Chunk[] {
         localize(exp.period, locale),
         exp.industry ? localize(exp.industry, locale) : undefined,
         localize(exp.description, locale),
-        `Technologies: ${exp.technologies.join(", ")}`,
-        `Achievements: ${localize(exp.achievements, locale).join(", ")}`,
+        label(locale, "Tecnologías", "Technologies", exp.technologies.join(", ")),
+        label(locale, "Logros", "Achievements", localize(exp.achievements, locale).join(", ")),
       ]),
       keywords: [
         exp.company.toLowerCase(),
@@ -96,11 +105,17 @@ export function buildChunks(locale: Locale): Chunk[] {
       text: joinParts([
         localize(project.name, locale),
         localize(project.description, locale),
-        project.problem ? `Problem: ${localize(project.problem, locale)}` : undefined,
-        project.solution ? `Solution: ${localize(project.solution, locale)}` : undefined,
-        project.result ? `Result: ${localize(project.result, locale)}` : undefined,
-        `Technologies: ${project.technologies.join(", ")}`,
-        `Highlights: ${localize(project.highlights, locale).join(", ")}`,
+        project.problem
+          ? label(locale, "Problema", "Problem", localize(project.problem, locale))
+          : undefined,
+        project.solution
+          ? label(locale, "Solución", "Solution", localize(project.solution, locale))
+          : undefined,
+        project.result
+          ? label(locale, "Resultado", "Result", localize(project.result, locale))
+          : undefined,
+        label(locale, "Tecnologías", "Technologies", project.technologies.join(", ")),
+        label(locale, "Destacados", "Highlights", localize(project.highlights, locale).join(", ")),
         project.github ? `GitHub: ${project.github}` : undefined,
       ]),
       keywords: [
@@ -257,8 +272,10 @@ export function buildChunks(locale: Locale): Chunk[] {
       text: joinParts([
         localize(profile.availability, locale),
         profile.workModel ? localize(profile.workModel, locale) : undefined,
-        profile.openTo ? `Open to: ${localize(profile.openTo, locale).join(", ")}` : undefined,
-        `Contact: ${profile.email}`,
+        profile.openTo
+          ? label(locale, "Abierto a", "Open to", localize(profile.openTo, locale).join(", "))
+          : undefined,
+        label(locale, "Contacto", "Contact", profile.email),
       ]),
       keywords: [
         "disponible",
@@ -290,8 +307,13 @@ export function buildChunks(locale: Locale): Chunk[] {
       text: joinParts([
         localize(service.title, locale),
         localize(service.description, locale),
-        `Deliverables: ${localize(service.deliverables, locale).join(", ")}`,
-        `Technologies: ${service.technologies.join(", ")}`,
+        label(
+          locale,
+          "Entregables",
+          "Deliverables",
+          localize(service.deliverables, locale).join(", "),
+        ),
+        label(locale, "Tecnologías", "Technologies", service.technologies.join(", ")),
         service.pricing ? localize(service.pricing, locale) : undefined,
       ]),
       keywords: [
@@ -340,6 +362,11 @@ export function buildChunks(locale: Locale): Chunk[] {
           ? ["no", "limit", "limite", "limite", "boundary", "vue", "java", "diseno"]
           : []),
         ...(entry.category === "personal" ? ["personal", "hobby", "musica", "music"] : []),
+        ...(entry.id === "project-types"
+          ? ["servicios", "services", "ofreces", "offer", "stack"]
+          : []),
+        ...(entry.id === "ai-experience" ? ["ia", "ai", "rag", "llm", "bigia"] : []),
+        ...(entry.id === "react-native" ? ["rn", "mobile", "movil", "app"] : []),
       ],
       locale,
     })
