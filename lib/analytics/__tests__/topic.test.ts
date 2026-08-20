@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest"
-import { classifyTopic, extractControlledTerms, bucketLatency } from "@/lib/analytics/topic"
+import {
+  classifyTopic,
+  extractControlledTerms,
+  bucketLatency,
+  bucketLength,
+} from "@/lib/analytics/topic"
 import type { Chunk } from "@/lib/portfolio/types"
 
 describe("topic classifier", () => {
@@ -30,8 +35,19 @@ describe("topic classifier", () => {
     expect(result.topic).toBe("faq:pricing")
   })
 
-  it("buckets latency into ranges", () => {
+  it("classifies unknown when there are no chunks", () => {
+    expect(classifyTopic([], "hello").topic).toBe("unknown")
+  })
+
+  it("buckets latency and length into ranges", () => {
     expect(bucketLatency(200)).toBe("0-500ms")
+    expect(bucketLatency(800)).toBe("500ms-1s")
+    expect(bucketLatency(2000)).toBe("1s-3s")
     expect(bucketLatency(5000)).toBe("3s-10s")
+    expect(bucketLatency(12000)).toBe("10s+")
+    expect(bucketLength(10)).toBe("0-20")
+    expect(bucketLength(30)).toBe("20-50")
+    expect(bucketLength(80)).toBe("50-100")
+    expect(bucketLength(140)).toBe("100+")
   })
 })

@@ -3,6 +3,8 @@ import {
   CONSENT_STORAGE_KEY,
   getConsentState,
   hasAnalyticsConsent,
+  hasConsentChoice,
+  resetConsent,
   setConsentState,
 } from "@/lib/consent/storage"
 
@@ -25,5 +27,22 @@ describe("consent storage", () => {
   it("persists rejected analytics consent", () => {
     setConsentState("rejected")
     expect(hasAnalyticsConsent()).toBe(false)
+    expect(hasConsentChoice()).toBe(true)
+  })
+
+  it("ignores invalid or outdated stored state", () => {
+    localStorage.setItem(CONSENT_STORAGE_KEY, "{not-json")
+    expect(getConsentState().analytics).toBeNull()
+    localStorage.setItem(
+      CONSENT_STORAGE_KEY,
+      JSON.stringify({ analytics: "accepted", version: "0" }),
+    )
+    expect(hasAnalyticsConsent()).toBe(false)
+  })
+
+  it("resets stored consent", () => {
+    setConsentState("accepted")
+    resetConsent()
+    expect(hasConsentChoice()).toBe(false)
   })
 })

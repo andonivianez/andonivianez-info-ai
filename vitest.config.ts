@@ -17,6 +17,7 @@ export default defineConfig({
         "lib/ai/webllm.worker.ts",
         "lib/ai/types.ts",
         "lib/portfolio/types.ts",
+        "lib/rag/index.ts",
       ],
       thresholds: {
         lines: 90,

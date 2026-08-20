@@ -15,18 +15,28 @@ const DEFAULT_STATE: ConsentState = {
   updatedAt: 0,
 }
 
+let cachedRaw: string | null | undefined
+let cachedState: ConsentState = DEFAULT_STATE
+
+function remember(raw: string | null, state: ConsentState): ConsentState {
+  cachedRaw = raw
+  cachedState = state
+  return state
+}
+
 export function getConsentState(): ConsentState {
   if (typeof window === "undefined") return DEFAULT_STATE
 
   try {
     const raw = localStorage.getItem(CONSENT_STORAGE_KEY)
-    if (!raw) return DEFAULT_STATE
+    if (raw === cachedRaw) return cachedState
+    if (!raw) return remember(raw, DEFAULT_STATE)
 
     const parsed = JSON.parse(raw) as ConsentState
-    if (parsed.version !== CONSENT_VERSION) return DEFAULT_STATE
-    return parsed
+    if (parsed.version !== CONSENT_VERSION) return remember(raw, DEFAULT_STATE)
+    return remember(raw, parsed)
   } catch {
-    return DEFAULT_STATE
+    return remember(null, DEFAULT_STATE)
   }
 }
 
@@ -38,7 +48,9 @@ export function setConsentState(analytics: Exclude<ConsentChoice, null>): Consen
   }
 
   if (typeof window !== "undefined") {
-    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(state))
+    const raw = JSON.stringify(state)
+    localStorage.setItem(CONSENT_STORAGE_KEY, raw)
+    remember(raw, state)
     window.dispatchEvent(new CustomEvent("consent-change", { detail: state }))
   }
 
@@ -56,6 +68,7 @@ export function hasConsentChoice(): boolean {
 export function resetConsent(): void {
   if (typeof window !== "undefined") {
     localStorage.removeItem(CONSENT_STORAGE_KEY)
+    remember(null, DEFAULT_STATE)
     window.dispatchEvent(new CustomEvent("consent-change", { detail: DEFAULT_STATE }))
   }
 }

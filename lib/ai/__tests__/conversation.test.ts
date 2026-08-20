@@ -15,6 +15,16 @@ describe("conversation intents", () => {
     expect(classifyConversationIntent("what can you do")).toBe("capabilities")
   })
 
+  it("classifies thanks, help, goodbye, meta and Basque", () => {
+    expect(classifyConversationIntent("muchas gracias")).toBe("thanks")
+    expect(classifyConversationIntent("ayuda")).toBe("help")
+    expect(classifyConversationIntent("hasta luego")).toBe("goodbye")
+    expect(classifyConversationIntent("eres una ia")).toBe("meta")
+    expect(classifyConversationIntent("kaixo")).toBe("basque")
+    expect(classifyConversationIntent("hey there friend")).toBe("greeting")
+    expect(classifyConversationIntent("")).toBeNull()
+  })
+
   it("does not treat portfolio questions as conversation", () => {
     expect(classifyConversationIntent("¿Qué experiencia tiene con React Native?")).toBeNull()
     expect(classifyConversationIntent("quantum physics doctorate")).toBeNull()
@@ -26,6 +36,18 @@ describe("conversation intents", () => {
     expect(getConversationalReply("qué sabes hacer", "es")).toMatch(
       /full stack|freelance|React Native/i,
     )
+    expect(getConversationalReply("thanks", "en")).toMatch(/welcome/i)
+    expect(getConversationalReply("help", "en")).toMatch(/ask/i)
+    expect(getConversationalReply("bye", "en")).toMatch(/Goodbye/)
+    expect(getConversationalReply("are you a bot", "en")).toMatch(/local/i)
+    expect(getConversationalReply("kaixo", "en")).toMatch(/Kaixo/)
+    expect(getConversationalReply("qué tal", "es")).toMatch(/perfil/)
+    expect(getConversationalReply("gracias", "es")).toMatch(/De nada/)
+    expect(getConversationalReply("ayuda", "es")).toMatch(/preguntarme/)
+    expect(getConversationalReply("adios", "es")).toMatch(/Hasta luego/)
+    expect(getConversationalReply("eres un bot", "es")).toMatch(/local/)
+    expect(getConversationalReply("kaixo", "es")).toMatch(/Kaixo/)
+    expect(getConversationalReply("react native", "es")).toBeNull()
   })
 
   it("uses conversational replies in the prompt bundle when RAG has no context", () => {
