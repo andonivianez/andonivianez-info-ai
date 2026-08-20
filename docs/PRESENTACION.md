@@ -131,10 +131,10 @@ Usuario → AIChat → useAIAssistant → RAG (chunker + retriever)
 
 **Título:** Ingeniería, no solo demo
 
-- **138 tests unitarios** (Vitest) + **14 E2E** (Playwright)
+- **305 tests unitarios** (Vitest) + **19 E2E** (Playwright)
 - CI en GitHub Actions: lint, typecheck, coverage, build, e2e
-- Gitflow + Conventional Commits + Husky
-- Sin secretos en el repo; datos sensibles excluidos
+- Gitflow + Conventional Commits + Husky · SemVer `v0.5.0`
+- Sin secretos de API; teléfono excluido; NIF/domicilio solo en `/legal/*`
 
 > **Nota de orador (35 s):** Muestra badge CI verde. Esto demuestra madurez de TFM de ingeniería informática.
 
@@ -192,4 +192,4 @@ Usuario → AIChat → useAIAssistant → RAG (chunker + retriever)
 - [x] URL pública en README → sección “Entrega TFM”
 - [x] Enlaces clicables a web, repo, LinkedIn, GitHub y Malt
 - [ ] Pegar la URL de GitHub en el formulario de entrega del campus
-- [x] Sin datos sensibles (teléfono, DNI)
+- [x] Sin secretos de API ni teléfono; NIF/domicilio solo en páginas legales

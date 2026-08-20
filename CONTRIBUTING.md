@@ -43,11 +43,31 @@ git push -u origin HEAD
 # Tras merge, borrar la feature branch
 
 # Release
-git checkout -b release/0.3.0 develop
-# ajustar versión / docs
-# PR: release/0.3.0 → main  (+ tag v0.3.0)
+git checkout -b release/0.5.0 develop
+# 1. bump package.json (SemVer)
+# 2. añadir sección en CHANGELOG.md (Keep a Changelog)
+# 3. actualizar badge/novedades del README
+# PR: release/0.5.0 → main  (+ tag v0.5.0)
 # mergear también release → develop
 ```
+
+## Versionado
+
+Seguimos [Semantic Versioning](https://semver.org/lang/es/) y [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
+
+| Cambio                           | Versión | Ejemplo           |
+| -------------------------------- | ------- | ----------------- |
+| Feature compatible               | MINOR   | `0.4.0` → `0.5.0` |
+| Bugfix o docs sin API nueva      | PATCH   | `0.5.0` → `0.5.1` |
+| Rotura de contrato o de producto | MAJOR   | `0.5.0` → `1.0.0` |
+
+Fuente de verdad:
+
+1. `package.json` → campo `version`
+2. [CHANGELOG.md](CHANGELOG.md) → sección `[X.Y.Z] - AAAA-MM-DD`
+3. Tag Git `vX.Y.Z` en `main` (alineado con Gitflow)
+
+Los commits `feat:` alimentan **Added/Changed**; `fix:` alimenta **Fixed**. No dejes trabajo mergeado en `main` sin sección de changelog.
 
 ### Hotfix
 

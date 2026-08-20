@@ -73,7 +73,7 @@ Fragmenta el portfolio en chunks indexables a partir de:
 
 - Presupuesto de ~2000 caracteres
 - Si el score top es insuficiente, devuelve mensaje de “información insuficiente” sin llamar al modelo
-- El contexto se pasa explícitamente al proveedor fallback (bug corregido en v0.4.0)
+- El contexto se pasa explícitamente al proveedor (corregido en v0.4.0; síntesis extractiva y quality gate en v0.5.0)
 
 ## 6. Privacidad
 
@@ -110,21 +110,21 @@ Eventos agregados en Vercel Analytics (`chat_question`, `chat_gap`) si el visita
 
 | Área            | Herramienta                                                       |
 | --------------- | ----------------------------------------------------------------- |
-| Tests unitarios | Vitest (138 tests, cobertura en módulos core)                     |
-| Tests E2E       | Playwright (14 tests: portfolio, a11y, responsive)                |
+| Tests unitarios | Vitest (305 tests, cobertura en módulos core)                     |
+| Tests E2E       | Playwright (19 tests: portfolio, a11y, responsive, coherencia)    |
 | CI              | GitHub Actions (lint, typecheck, coverage, build, e2e)            |
 | Commits         | Conventional Commits + Commitlint                                 |
 | Ramas           | Gitflow (`main`, `develop`, `feature/*`, `release/*`, `hotfix/*`) |
 
 ## 10. Resultados esperados
 
-| Escenario                        | Resultado                                            |
-| -------------------------------- | ---------------------------------------------------- |
-| Cualquier navegador              | Fallback extractivo responde con chunks relevantes   |
-| Chrome + hardware compatible     | Gemini Nano genera respuestas naturales en local     |
-| Chrome/Edge + WebGPU             | WebLLM descarga modelo y genera en Web Worker        |
-| Safari / iOS sin WebGPU          | Solo fallback (limitación documentada)               |
-| Preguntas sugeridas (5 perfiles) | `hasRelevantContext === true` tras tuning RAG v0.4.0 |
+| Escenario                        | Resultado                                                                |
+| -------------------------------- | ------------------------------------------------------------------------ |
+| Cualquier navegador              | Fallback extractivo responde con chunks relevantes                       |
+| Chrome + hardware compatible     | Gemini Nano genera respuestas naturales en local                         |
+| Chrome/Edge + WebGPU             | WebLLM descarga modelo y genera en Web Worker                            |
+| Safari / iOS sin WebGPU          | Solo fallback (limitación documentada)                                   |
+| Preguntas sugeridas (5 perfiles) | `hasRelevantContext === true` tras tuning RAG v0.4.0 / coherencia v0.5.0 |
 
 ## 11. Limitaciones conocidas
 
